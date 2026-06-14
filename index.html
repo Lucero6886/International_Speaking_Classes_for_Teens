@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: Entertainment & Pop Culture</title>
+    <title>Speaking Lesson: Friendship & Free Time</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #9333EA; /* Deep Purple */
-            --primary-hover: #7E22CE;
-            --secondary: #EC4899; /* Neon Pink */
-            --secondary-hover: #DB2777;
-            --background: #FDF4FF; /* Very soft pink/purple tint */
+            --primary: #6366F1; /* Indigo */
+            --primary-hover: #4F46E5;
+            --secondary: #F43F5E; /* Coral/Pink */
+            --secondary-hover: #E11D48;
+            --accent: #10B981; /* Emerald/Mint */
+            --background: #EEF2FF; /* Very light indigo background */
             --card-bg: #FFFFFF;
             --text-main: #1E293B; /* Slate 800 */
             --text-light: #475569; /* Slate 600 */
-            --accent: #14B8A6; /* Teal */
-            --radius: 20px;
-            --font-headings: 'Rubik', sans-serif;
-            --font-main: 'Quicksand', sans-serif;
             --brand-gold: #F59E0B;
+            --radius: 20px;
+            --font-headings: 'Poppins', sans-serif;
+            --font-main: 'Quicksand', sans-serif;
         }
 
         * {
@@ -36,9 +36,11 @@
             background-color: var(--background);
             color: var(--text-main);
             line-height: 1.6;
-            font-size: 19px; /* Optimized for Zoom sharing */
+            font-size: 19px; /* Optimized for readability on Zoom */
             padding-bottom: 80px;
             font-weight: 500;
+            overflow-x: hidden;
+            word-wrap: break-word;
         }
 
         .container {
@@ -50,14 +52,14 @@
         header {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(135deg, #0F172A, #3B0764, #831843);
+            background: linear-gradient(135deg, #312E81, #6366F1, #F43F5E);
             color: white;
             border-radius: 0 0 var(--radius) var(--radius);
-            box-shadow: 0 15px 35px rgba(147, 51, 234, 0.2);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25);
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
-            border-bottom: 5px solid var(--secondary);
+            border-bottom: 5px solid var(--brand-gold);
         }
 
         .brand-badge {
@@ -77,8 +79,8 @@
         }
 
         h1, h2, h3 { font-family: var(--font-headings); }
-        h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; text-shadow: 0 4px 8px rgba(0,0,0,0.4); line-height: 1.2;}
-        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; border-bottom: 3px dashed #E9D5FF; padding-bottom: 12px; font-weight: 800;}
+        h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; text-shadow: 0 4px 8px rgba(0,0,0,0.3); line-height: 1.2;}
+        h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; border-bottom: 3px dashed #C7D2FE; padding-bottom: 12px; font-weight: 800;}
         h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;}
         
         .section-block {
@@ -86,9 +88,8 @@
             border-radius: var(--radius);
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-            border: 2px solid #F3E8FF;
-            position: relative;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border: 2px solid #E0E7FF;
         }
 
         button {
@@ -105,7 +106,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 10px rgba(147, 51, 234, 0.3);
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
             white-space: normal;
             text-align: left;
         }
@@ -113,18 +114,13 @@
         button:hover { 
             background-color: var(--primary-hover); 
             transform: translateY(-3px); 
-            box-shadow: 0 6px 15px rgba(147, 51, 234, 0.4);
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
         }
         
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            box-shadow: none;
-        }
+        .btn-outline { background-color: transparent; color: var(--primary); border: 2px solid var(--primary); box-shadow: none; }
         .btn-outline:hover { background-color: var(--primary); color: white; }
-        .btn-pink { background-color: var(--secondary); box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3); }
-        .btn-pink:hover { background-color: var(--secondary-hover); box-shadow: 0 6px 15px rgba(236, 72, 153, 0.4); }
+        .btn-coral { background-color: var(--secondary); box-shadow: 0 4px 10px rgba(244, 63, 94, 0.3); }
+        .btn-coral:hover { background-color: var(--secondary-hover); box-shadow: 0 6px 15px rgba(244, 63, 94, 0.4); }
 
         .hidden-content {
             display: none;
@@ -151,66 +147,24 @@
         }
         .warmup-card:hover { border-color: var(--primary); transform: translateX(5px); }
 
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .vocab-card {
-            background: #fff;
-            border: 2px solid #E2E8F0;
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: #fff; border: 2px solid #E2E8F0; border-radius: 20px; padding: 25px; text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;
         }
-        .vocab-card:hover { 
-            border-color: var(--secondary);
-            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.15); 
-            transform: translateY(-5px);
-        }
-        .vocab-word { font-size: 1.6rem; font-family: var(--font-headings); font-weight: 800; color: var(--primary); margin-bottom: 10px; word-break: break-word;}
+        .vocab-card:hover { border-color: var(--secondary); box-shadow: 0 10px 20px rgba(244, 63, 94, 0.15); transform: translateY(-5px); }
+        .vocab-word { font-size: 1.6rem; font-family: var(--font-headings); font-weight: 800; color: var(--primary); margin-bottom: 10px;}
         .vocab-def { font-size: 1.1rem; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; font-weight: 600;}
 
-        .question-block {
-            border: 2px solid #E2E8F0;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            background: #fff;
-            transition: border-color 0.3s;
-        }
+        .question-block { border: 2px solid #E2E8F0; border-radius: 16px; margin-bottom: 20px; overflow: hidden; background: #fff; transition: border-color 0.3s; }
         .question-block:hover { border-color: #CBD5E1; }
         .question-header {
-            background: #F8FAFC;
-            padding: 20px 25px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-headings);
-            font-weight: 700;
-            font-size: 1.25rem;
-            transition: background 0.3s;
-            gap: 15px;
-            flex-wrap: wrap; 
+            background: #F8FAFC; padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-headings); font-weight: 700; font-size: 1.25rem; transition: background 0.3s; gap: 15px; flex-wrap: wrap; 
         }
-        .question-header:hover { background: #F1F5F9; }
-        .question-body {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
-            background: white;
-        }
+        .question-header:hover { background: #EEF2FF; }
+        .question-body { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; background: white; }
         .question-body.active { padding: 25px; max-height: 2000px; }
         
-        .tag {
-            font-size: 0.9rem; padding: 6px 14px; border-radius: 20px; color: white; white-space: nowrap; font-family: var(--font-headings); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
-        }
+        .tag { font-size: 0.9rem; padding: 6px 14px; border-radius: 20px; color: white; white-space: nowrap; font-family: var(--font-headings); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
         .tag.easy { background: var(--accent); }
         .tag.medium { background: var(--primary); }
         .tag.opinion { background: var(--secondary); }
@@ -218,23 +172,22 @@
         .idea-bank { background: #FFFBEB; padding: 25px; border-radius: 16px; margin-bottom: 20px; border-left: 5px solid var(--brand-gold);}
         .sample-answers { display: grid; gap: 15px; }
 
-        .roleplay-card { background: #FDF4FF; padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 2px solid #FBCFE8; }
+        .roleplay-card { background: #FDF2F8; padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 2px solid #FBCFE8; }
         .role-badge { display: inline-block; background: var(--text-main); color: white; padding: 8px 18px; border-radius: 20px; font-family: var(--font-headings); font-size: 1rem; font-weight: 700; margin-right: 10px; margin-bottom: 10px;}
+
+        .chat-container {
+            display: flex; flex-direction: column; gap: 15px; margin-top: 20px; padding: 25px; background: #F8FAFC; border-radius: 20px; border: 3px dashed #E2E8F0; animation: fadeIn 0.4s ease forwards; display: none; /* Hidden initially */
+        }
+        .chat-bubble { padding: 15px 22px; border-radius: 20px; max-width: 85%; font-size: 1.15rem; line-height: 1.5; position: relative; font-family: var(--font-main); font-weight: 600; }
+        .chat-bubble.left { background: white; color: var(--text-main); border: 2px solid #E2E8F0; align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .chat-bubble.right { background: var(--primary); color: white; border: 2px solid var(--primary-hover); align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2); }
 
         .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
         .flashcard { perspective: 1000px; height: 160px; cursor: pointer; }
-        .flashcard-inner {
-            position: relative; width: 100%; height: 100%; text-align: center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d;
-        }
+        .flashcard-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; }
         .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
-        .flashcard-front, .flashcard-back {
-            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 20px; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-            font-size: 1.2rem; line-height: 1.5;
-        }
-        .flashcard-front { background: linear-gradient(135deg, var(--primary), #D946EF); color: white; font-family: var(--font-headings); font-weight: 800; font-size: 1.4rem; }
+        .flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; border-radius: 20px; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.08); font-size: 1.2rem; line-height: 1.5; }
+        .flashcard-front { background: linear-gradient(135deg, var(--primary), #818CF8); color: white; font-family: var(--font-headings); font-weight: 800; font-size: 1.4rem; }
         .flashcard-back { background-color: white; color: var(--text-main); transform: rotateY(180deg); border: 3px solid var(--primary); font-weight: 700;}
 
         .quiz-question { margin-bottom: 20px; display: none; }
@@ -249,9 +202,7 @@
         .emoji-rating span { font-size: 2.4rem; cursor: pointer; opacity: 0.4; transition: opacity 0.2s, transform 0.2s; margin-left: 10px;}
         .emoji-rating span:hover, .emoji-rating span.selected { opacity: 1; transform: scale(1.3); }
 
-        .progress-bar-container {
-            position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 20px; border-bottom: 1px solid #E2E8F0;
-        }
+        .progress-bar-container { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 20px; border-bottom: 1px solid #E2E8F0; }
         .progress-bar { flex-grow: 1; height: 16px; background: #E2E8F0; border-radius: 8px; overflow: hidden; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--secondary), var(--primary)); width: 0%; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         
@@ -259,54 +210,15 @@
         .checklist-item:hover { background: #F1F5F9; border-color: #E2E8F0;}
         .checklist-item input { transform: scale(1.6); cursor: pointer; accent-color: var(--primary);}
 
-        .brand-footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #0F172A;
-            color: #94A3B8;
-            margin-top: 50px;
-            font-size: 1.1rem;
-            border-top: 5px solid var(--secondary);
-        }
+        .brand-footer { text-align: center; padding: 40px 20px; background-color: #1E293B; color: #94A3B8; margin-top: 50px; font-size: 1.1rem; border-top: 5px solid var(--secondary); }
         .brand-footer strong { color: white; }
 
-        #toast {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: #1E293B;
-            color: #fff;
-            text-align: center;
-            border-radius: 16px;
-            padding: 16px 24px;
-            position: fixed;
-            z-index: 1000;
-            left: 50%;
-            bottom: 30px;
-            transform: translateX(-50%) translateY(20px);
-            font-size: 1.15rem;
-            font-family: var(--font-headings);
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        #toast.show {
-            visibility: visible;
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+        #toast { visibility: hidden; min-width: 250px; background-color: #1E293B; color: #fff; text-align: center; border-radius: 16px; padding: 16px 24px; position: fixed; z-index: 1000; left: 50%; bottom: 30px; transform: translateX(-50%) translateY(20px); font-size: 1.15rem; font-family: var(--font-headings); font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.3s, transform 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        #toast.show { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-content {
-            background: white; padding: 40px; border-radius: 24px; max-width: 550px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2); transform: translateY(20px); transition: all 0.3s;
-        }
+        .modal-content { background: white; padding: 40px; border-radius: 24px; max-width: 550px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2); transform: translateY(20px); transition: all 0.3s; }
         .modal-overlay.active .modal-content { transform: translateY(0); }
         .modal-content h2 { color: var(--primary); font-family: var(--font-headings); font-size: 2.5rem; margin-bottom: 15px; border: none; padding: 0;}
 
@@ -330,15 +242,15 @@
 
     <header>
         <div class="brand-badge">Lucero English System</div>
-        <h1>🎬 Pop Culture & Entertainment</h1>
+        <h1>🍕 Friendship & Free Time</h1>
         <p style="font-size: 1.35rem; font-weight: 600; opacity: 0.95; font-family: var(--font-headings);">An A2/B1 Interactive English Speaking Lesson for Teens</p>
         
         <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 30px; border-radius: 20px; margin-top: 35px; text-align: left; max-width: 750px; margin-left: auto; margin-right: auto; backdrop-filter: blur(10px);">
             <strong style="font-size: 1.4rem; font-family: var(--font-headings); display: block; margin-bottom: 15px;">🎯 Learning Objectives:</strong>
             <ul style="margin-left: 25px; line-height: 1.8; font-weight: 600; font-size: 1.15rem;">
-                <li>Use vocabulary to discuss movies, music, and video games.</li>
-                <li>Express strong opinions about favorite celebrities and entertainment.</li>
-                <li>Role-play making plans to hang out with friends.</li>
+                <li>Use vocabulary related to hobbies and personality traits.</li>
+                <li>Describe your best friend and talk about shared activities.</li>
+                <li>Express opinions on what makes a good friendship.</li>
             </ul>
         </div>
     </header>
@@ -346,159 +258,158 @@
     <div class="container">
 
         <div class="section-block" id="sec1">
-            <h2>1. Warm-up 🎤</h2>
+            <h2>1. Warm-up 🎈</h2>
             <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Let's get talking! Read the questions and click to see an example answer.</p>
             
             <div class="warmup-card">
-                <h3>🍿 1. What is your all-time favorite movie?</h3>
-                <button class="btn-pink" onclick="toggleContent('wu1')">Show Example Answer</button>
+                <h3>🎮 1. What do you like to do on the weekend?</h3>
+                <button class="btn-coral" onclick="toggleContent('wu1')">Show Example Answer</button>
                 <div id="wu1" class="hidden-content">
-                    "My all-time favorite movie is Spider-Man: No Way Home because the action scenes are amazing and it's very funny."
+                    "On the weekend, I love sleeping in late and playing video games with my friends online."
                 </div>
             </div>
             <div class="warmup-card">
-                <h3>🎧 2. Who is your favorite singer or band right now?</h3>
-                <button class="btn-pink" onclick="toggleContent('wu2')">Show Example Answer</button>
+                <h3>🤝 2. Who is your best friend?</h3>
+                <button class="btn-coral" onclick="toggleContent('wu2')">Show Example Answer</button>
                 <div id="wu2" class="hidden-content">
-                    "Right now, I am really obsessed with Taylor Swift. I listen to her songs every day on my way to school."
+                    "My best friend is Nam. We have known each other since primary school."
                 </div>
             </div>
             <div class="warmup-card">
-                <h3>🎮 3. Do you prefer playing video games or watching TV?</h3>
-                <button class="btn-pink" onclick="toggleContent('wu3')">Show Example Answer</button>
+                <h3>⚽ 3. Do you prefer playing sports or playing video games?</h3>
+                <button class="btn-coral" onclick="toggleContent('wu3')">Show Example Answer</button>
                 <div id="wu3" class="hidden-content">
-                    "I definitely prefer playing video games because it's interactive, and I can play online with my best friends."
+                    "I prefer playing sports. I play basketball every Tuesday evening because it keeps me active."
                 </div>
             </div>
             <div class="warmup-card">
-                <h3>📖 4. Have you ever read a book that was turned into a movie?</h3>
-                <button class="btn-pink" onclick="toggleContent('wu4')">Show Example Answer</button>
+                <h3>😂 4. What makes you laugh the most?</h3>
+                <button class="btn-coral" onclick="toggleContent('wu4')">Show Example Answer</button>
                 <div id="wu4" class="hidden-content">
-                    "Yes, I read Harry Potter first and then watched the movies. I think the books are always much better!"
+                    "Watching funny animal videos on TikTok always makes me laugh a lot!"
                 </div>
             </div>
             <div class="warmup-card">
-                <h3>🤩 5. If you could meet any famous celebrity, who would it be?</h3>
-                <button class="btn-pink" onclick="toggleContent('wu5')">Show Example Answer</button>
+                <h3>🛍️ 5. Where is your favorite place to hang out?</h3>
+                <button class="btn-coral" onclick="toggleContent('wu5')">Show Example Answer</button>
                 <div id="wu5" class="hidden-content">
-                    "If I could meet anyone, it would be Cristiano Ronaldo. I would ask him to teach me some football tricks."
+                    "My favorite place to hang out is the shopping mall because we can eat fast food and look at clothes."
                 </div>
             </div>
         </div>
 
         <div class="section-block" id="sec2">
-            <h2>2. Key Vocabulary 🎬</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Review these entertainment words. Click "See Example" and the Speaker icon 🔊 to practice pronunciation!</p>
+            <h2>2. Key Vocabulary 🗣️</h2>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Review these words about friendship and hobbies. Click "See Example" and the Speaker icon 🔊 to practice!</p>
             
             <div class="vocab-grid">
                 <div class="vocab-card">
-                    <div class="vocab-word">Blockbuster (n.)</div>
-                    <div class="vocab-def">A very popular and successful movie that makes a lot of money.</div>
+                    <div class="vocab-word">Hang out (v.)</div>
+                    <div class="vocab-def">To spend time relaxing with friends.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc1')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Blockbuster')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Hang out')">🔊</button>
                     </div>
-                    <div id="voc1" class="hidden-content">"The new Marvel movie is a huge <strong>blockbuster</strong> around the world."</div>
+                    <div id="voc1" class="hidden-content">"After school, I usually <strong>hang out</strong> with my friends at the park."</div>
                 </div>
                 
                 <div class="vocab-card">
-                    <div class="vocab-word">Soundtrack (n.)</div>
-                    <div class="vocab-def">All the music and songs played during a movie or video game.</div>
+                    <div class="vocab-word">Trustworthy (adj.)</div>
+                    <div class="vocab-def">Someone you can believe and rely on completely.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc2')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Soundtrack')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Trustworthy')">🔊</button>
                     </div>
-                    <div id="voc2" class="hidden-content">"I listen to the Stranger Things <strong>soundtrack</strong> while I study."</div>
+                    <div id="voc2" class="hidden-content">"My best friend is very <strong>trustworthy</strong>; she never tells my secrets."</div>
                 </div>
                 
                 <div class="vocab-card">
-                    <div class="vocab-word">Binge-watch (v.)</div>
-                    <div class="vocab-def">To watch many episodes of a TV show continuously.</div>
+                    <div class="vocab-word">Hobby (n.)</div>
+                    <div class="vocab-def">An activity you do for fun in your free time.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc3')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Binge-watch')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Hobby')">🔊</button>
                     </div>
-                    <div id="voc3" class="hidden-content">"Last weekend, I stayed home to <strong>binge-watch</strong> the entire new season on Netflix."</div>
+                    <div id="voc3" class="hidden-content">"Drawing comic book characters is my favorite <strong>hobby</strong>."</div>
                 </div>
                 
                 <div class="vocab-card">
-                    <div class="vocab-word">Plot twist (n.)</div>
-                    <div class="vocab-def">A completely unexpected change in the story of a movie or book.</div>
+                    <div class="vocab-word">Support (v.)</div>
+                    <div class="vocab-def">To help someone when they are having a hard time.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc4')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Plot twist')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Support')">🔊</button>
                     </div>
-                    <div id="voc4" class="hidden-content">"I didn't expect that crazy <strong>plot twist</strong> at the end of the movie!"</div>
+                    <div id="voc4" class="hidden-content">"Good friends will always <strong>support</strong> you when you feel sad."</div>
                 </div>
                 
                 <div class="vocab-card">
-                    <div class="vocab-word">Concert (n.)</div>
-                    <div class="vocab-def">A live music performance by a singer or a band.</div>
+                    <div class="vocab-word">Shared interests (n.)</div>
+                    <div class="vocab-def">Things that two or more people both like to do.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc5')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Concert')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Shared interests')">🔊</button>
                     </div>
-                    <div id="voc5" class="hidden-content">"My parents bought me tickets to a K-pop <strong>concert</strong> for my birthday."</div>
+                    <div id="voc5" class="hidden-content">"We became friends because we have <strong>shared interests</strong> in music and gaming."</div>
                 </div>
                 
                 <div class="vocab-card">
-                    <div class="vocab-word">Multiplayer (adj.)</div>
-                    <div class="vocab-def">A video game designed for several people to play together.</div>
+                    <div class="vocab-word">Argument (n.)</div>
+                    <div class="vocab-def">An angry disagreement between people.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc6')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Multiplayer')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Argument')">🔊</button>
                     </div>
-                    <div id="voc6" class="hidden-content">"Minecraft and Roblox are my favorite online <strong>multiplayer</strong> games."</div>
+                    <div id="voc6" class="hidden-content">"We had a big <strong>argument</strong> yesterday, but we apologized today."</div>
                 </div>
                 
                 <div class="vocab-card">
-                    <div class="vocab-word">Character (n.)</div>
-                    <div class="vocab-def">A person, animal, or alien in a story, movie, or game.</div>
+                    <div class="vocab-word">Keep a secret (v.)</div>
+                    <div class="vocab-def">To not tell anyone something that is private.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc7')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Character')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Keep a secret')">🔊</button>
                     </div>
-                    <div id="voc7" class="hidden-content">"Batman is a very famous comic book <strong>character</strong>."</div>
+                    <div id="voc7" class="hidden-content">"I told her who I liked because I know she can <strong>keep a secret</strong>."</div>
                 </div>
                 
                 <div class="vocab-card">
-                    <div class="vocab-word">Recommend (v.)</div>
-                    <div class="vocab-def">To tell someone that a movie or song is good and they should try it.</div>
+                    <div class="vocab-word">Hilarious (adj.)</div>
+                    <div class="vocab-def">Very, very funny.</div>
                     <div style="display: flex; gap: 10px; justify-content: center; margin-top: auto;">
                         <button class="btn-outline" onclick="toggleContent('voc8')">See Example 👀</button>
-                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Recommend')">🔊</button>
+                        <button style="padding: 10px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; font-size: 1.2rem;" onclick="playAudioToast('Hilarious')">🔊</button>
                     </div>
-                    <div id="voc8" class="hidden-content">"I highly <strong>recommend</strong> watching this anime; the animation is beautiful."</div>
+                    <div id="voc8" class="hidden-content">"My best friend always tells <strong>hilarious</strong> jokes during lunchtime."</div>
                 </div>
             </div>
         </div>
 
         <div class="section-block" id="sec3">
-            <h2>3. Speaking Practice 🗣️</h2>
+            <h2>3. Speaking Practice 💬</h2>
             <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Practice answering these questions out loud. If you get stuck, open the <strong>Idea Bank</strong> and <strong>Sample Answers</strong>.</p>
 
             <div id="speaking-accordion">
                 <!-- Q1 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>1. What genre of movies do you like the most?</span>
+                        <span>1. Describe your best friend. What do they look like?</span>
                         <span class="tag easy">Easy</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Action/Superhero:</strong> Marvel, DC, fast cars, big explosions.</li>
-                                <li><strong>Comedy:</strong> Makes me laugh, good to watch with family.</li>
-                                <li><strong>Horror/Thriller:</strong> Scary, exciting, ghosts, zombies.</li>
+                                <li><strong>Appearance:</strong> Tall, short, curly hair, wears glasses, always wears sneakers.</li>
+                                <li><strong>Personality:</strong> Funny, quiet, smart, very energetic.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans1-short')">Show Short Answer</button>
-                            <div id="ans1-short" class="hidden-content">"I really like action movies because they are very exciting to watch."</div>
+                            <div id="ans1-short" class="hidden-content">"My best friend is tall, has short curly hair, and wears cool glasses."</div>
                             
                             <button class="btn-outline" onclick="toggleContent('ans1-ext')">Show Extended Answer</button>
-                            <div id="ans1-ext" class="hidden-content">"My favorite movie genre is definitely Superhero and Action. I love the special effects and the epic fight scenes. I always go to the cinema with my friends when a new Marvel movie comes out."</div>
+                            <div id="ans1-ext" class="hidden-content">"My best friend's name is Sarah. She is quite tall and has long straight hair. She usually wears jeans and sneakers. She is a very energetic person and is always smiling."</div>
                         </div>
                     </div>
                 </div>
@@ -506,22 +417,21 @@
                 <!-- Q2 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>2. Do you listen to music while you study or do homework?</span>
+                        <span>2. What do you and your friends usually do after school?</span>
                         <span class="tag easy">Easy</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Yes:</strong> Helps me focus, classical music, lo-fi beats, blocks out noise.</li>
-                                <li><strong>No:</strong> Too distracting, I start singing the lyrics, I need complete silence.</li>
+                                <li><strong>Activities:</strong> Go to a cafe, play sports, do homework together, play mobile games.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans2-short')">Show Short Answer</button>
-                            <div id="ans2-short" class="hidden-content">"Yes, I always listen to relaxing Lo-Fi music while I do my math homework."</div>
+                            <div id="ans2-short" class="hidden-content">"After school, we usually go to a bubble tea shop and talk."</div>
                             <button class="btn-outline" onclick="toggleContent('ans2-ext')">Show Extended Answer</button>
-                            <div id="ans2-ext" class="hidden-content">"Actually, no. If I listen to pop songs with lyrics while I study, I get very distracted and start singing along. I need a completely quiet room so I can focus on reading and writing."</div>
+                            <div id="ans2-ext" class="hidden-content">"Usually, right after school finishes, my friends and I walk to the bubble tea shop near the gate. We hang out there for an hour, drink tea, and complain about our homework before we go home."</div>
                         </div>
                     </div>
                 </div>
@@ -529,22 +439,22 @@
                 <!-- Q3 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>3. How often do you go to the cinema?</span>
+                        <span>3. How many close friends do you have?</span>
                         <span class="tag easy">Easy</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Often:</strong> Once a month, love the big screen, eating sweet popcorn.</li>
-                                <li><strong>Rarely:</strong> Tickets are expensive, prefer watching Netflix at home on my bed.</li>
+                                <li><strong>Numbers:</strong> Just one best friend, a small group of three, a big squad.</li>
+                                <li><strong>Why:</strong> I prefer quality over quantity, I like knowing lots of people.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans3-short')">Show Short Answer</button>
-                            <div id="ans3-short" class="hidden-content">"I usually go to the cinema about once a month with my best friends."</div>
+                            <div id="ans3-short" class="hidden-content">"I have a small group of three very close friends from my class."</div>
                             <button class="btn-outline" onclick="toggleContent('ans3-ext')">Show Extended Answer</button>
-                            <div id="ans3-ext" class="hidden-content">"I don't go very often because cinema tickets are quite expensive. I usually just wait for the movies to come out on streaming apps like Netflix or Disney+. I only go to the cinema for huge blockbuster movies with lots of special effects."</div>
+                            <div id="ans3-ext" class="hidden-content">"I know a lot of people at school, but I only have two really close friends. We tell each other everything. I prefer having a few true friends instead of many fake friends."</div>
                         </div>
                     </div>
                 </div>
@@ -552,23 +462,22 @@
                 <!-- Q4 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>4. Why are video games so popular among teenagers?</span>
+                        <span>4. Why is it important to have friends?</span>
                         <span class="tag medium">Medium</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Social:</strong> You can talk to friends on Discord, work as a team.</li>
-                                <li><strong>Escape:</strong> Forget about school stress, explore fantasy worlds.</li>
-                                <li><strong>Challenge:</strong> Feeling proud when you beat a difficult level or win a match.</li>
+                                <li><strong>Emotions:</strong> To not feel lonely, to have someone to share secrets with.</li>
+                                <li><strong>Support:</strong> They help you with problems, they cheer you up.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans4-short')">Show Short Answer</button>
-                            <div id="ans4-short" class="hidden-content">"I think they are popular because they are a fun way to hang out with friends online."</div>
+                            <div id="ans4-short" class="hidden-content">"It's important because friends support you when you have a problem."</div>
                             <button class="btn-outline" onclick="toggleContent('ans4-ext')">Show Extended Answer</button>
-                            <div id="ans4-ext" class="hidden-content">"In my opinion, video games are popular because they offer an escape from normal life and school stress. In a game, you can be a hero, drive fast cars, or build cities. Also, multiplayer games are basically a social network where teens can chat and laugh together every evening."</div>
+                            <div id="ans4-ext" class="hidden-content">"In my opinion, having friends is super important because life would be very boring and lonely without them. Good friends support you when you are sad, and they make happy moments even more fun. You need someone you can trust."</div>
                         </div>
                     </div>
                 </div>
@@ -576,22 +485,21 @@
                 <!-- Q5 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>5. Tell me about a movie or show you watched recently. What was it about?</span>
+                        <span>5. What do you usually talk about with your friends?</span>
                         <span class="tag medium">Medium</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Describe:</strong> Name the show, genre, main character, basic plot.</li>
-                                <li><strong>Opinion:</strong> Did you like it? Was the ending good? Would you recommend it?</li>
+                                <li><strong>Topics:</strong> School gossip, favorite video games, famous singers, clothes.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans5-short')">Show Short Answer</button>
-                            <div id="ans5-short" class="hidden-content">"Recently, I watched an anime called Demon Slayer. It's about a boy fighting monsters to save his sister."</div>
+                            <div id="ans5-short" class="hidden-content">"We usually talk about our favorite video games and funny things at school."</div>
                             <button class="btn-outline" onclick="toggleContent('ans5-ext')">Show Extended Answer</button>
-                            <div id="ans5-ext" class="hidden-content">"Last week I binge-watched a series called Wednesday on Netflix. It's a mystery show about a teenager with dark powers who goes to a magical school. She has to solve a monster mystery. The characters were really weird but funny, and I highly recommend it!"</div>
+                            <div id="ans5-ext" class="hidden-content">"My friends and I talk about almost everything! We usually discuss what happened in class or complain about our teachers. But mostly, we talk about our shared interests, like the new Marvel movies or our favorite video games."</div>
                         </div>
                     </div>
                 </div>
@@ -599,22 +507,22 @@
                 <!-- Q6 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>6. Do you prefer watching a movie at home or at the cinema? Why?</span>
+                        <span>6. How do you meet new friends?</span>
                         <span class="tag medium">Medium</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Home:</strong> Free, can pause it to get snacks, comfortable clothes, on my bed.</li>
-                                <li><strong>Cinema:</strong> Huge screen, loud surround sound, exciting atmosphere, fresh popcorn.</li>
+                                <li><strong>Places:</strong> At school clubs, on sports teams, online in games.</li>
+                                <li><strong>Actions:</strong> Saying hello first, offering to share a snack, working on a group project.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans6-short')">Show Short Answer</button>
-                            <div id="ans6-short" class="hidden-content">"I prefer watching movies at home because I can wear my pajamas and pause the movie to get food."</div>
+                            <div id="ans6-short" class="hidden-content">"I usually meet new friends when we are put in the same group project at school."</div>
                             <button class="btn-outline" onclick="toggleContent('ans6-ext')">Show Extended Answer</button>
-                            <div id="ans6-ext" class="hidden-content">"It depends on the movie. For a loud action movie, the cinema is much better because of the huge screen and the amazing surround sound. But for a slow drama or a comedy, I definitely prefer watching at home where it's cozy, free, and I don't have to deal with noisy strangers."</div>
+                            <div id="ans6-ext" class="hidden-content">"I am a bit shy, so I usually meet new friends through my school clubs or sports teams. For example, joining the basketball team helped me meet people from different classes. Sometimes I also make friends online while playing multiplayer games."</div>
                         </div>
                     </div>
                 </div>
@@ -622,22 +530,22 @@
                 <!-- Q7 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>7. If you had to be trapped inside a video game or TV show, which one would you choose?</span>
+                        <span>7. What is a fun memory you have with your best friend?</span>
                         <span class="tag medium">Medium</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Peaceful:</strong> Animal Crossing, Stardew Valley (relaxing, farming, cute animals).</li>
-                                <li><strong>Exciting:</strong> Harry Potter (magic), Pokémon (catching pets), Minecraft (building anything).</li>
+                                <li><strong>Events:</strong> A sleepover party, a school trip, getting lost in the mall.</li>
+                                <li><strong>Details:</strong> We laughed so hard, we stayed up until 3 AM, we ate too much pizza.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans7-short')">Show Short Answer</button>
-                            <div id="ans7-short" class="hidden-content">"I would choose to live in the Pokémon world because I want to catch a Pikachu and go on an adventure."</div>
+                            <div id="ans7-short" class="hidden-content">"A fun memory is when we had a sleepover and stayed up until 2 AM watching scary movies."</div>
                             <button class="btn-outline" onclick="toggleContent('ans7-ext')">Show Extended Answer</button>
-                            <div id="ans7-ext" class="hidden-content">"That's a fun question! I would definitely choose to be trapped inside the game Minecraft, but in 'Creative Mode'. That way, there are no zombies to hurt me, and I could use my imagination to fly around and build massive castles and rollercoasters all day long."</div>
+                            <div id="ans7-ext" class="hidden-content">"My favorite memory with my best friend was our school trip to the beach last year. We sat together on the bus, sang songs very loudly, and shared our snacks. Later, we built a huge sandcastle. It was a hilarious and perfect day."</div>
                         </div>
                     </div>
                 </div>
@@ -645,22 +553,22 @@
                 <!-- Q8 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>8. Do you think violent video games make teenagers aggressive in real life?</span>
+                        <span>8. Do you think it is better to have one best friend or many normal friends?</span>
                         <span class="tag opinion">Opinion</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>No:</strong> We know the difference between games and reality, it's just pixels, it helps release stress.</li>
-                                <li><strong>Yes:</strong> It might make some kids angry, they might copy bad words or actions.</li>
+                                <li><strong>One best friend:</strong> Deeper connection, absolute trust, they know everything about you.</li>
+                                <li><strong>Many friends:</strong> More fun, never bored, always someone to play different games with.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans8-short')">Show Short Answer</button>
-                            <div id="ans8-short" class="hidden-content">"No, I don't think so. We are smart enough to know that a game is not real life."</div>
+                            <div id="ans8-short" class="hidden-content">"I think it's better to have one best friend because you can trust them with your secrets."</div>
                             <button class="btn-outline" onclick="toggleContent('ans8-ext')">Show Extended Answer</button>
-                            <div id="ans8-ext" class="hidden-content">"I strongly believe that violent video games do not cause real-life aggression. Most teenagers know the clear difference between a screen and reality. In fact, many people play action games to relax and release their stress after a hard day at school. It's just a form of entertainment, like action movies."</div>
+                            <div id="ans8-ext" class="hidden-content">"I strongly believe it is better to have one true best friend. If you have many normal friends, you might have fun, but you can't tell them your deepest secrets. One best friend is totally trustworthy and will always support you when things are difficult."</div>
                         </div>
                     </div>
                 </div>
@@ -668,22 +576,22 @@
                 <!-- Q9 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>9. Is it fair that famous actors and singers make millions of dollars?</span>
+                        <span>9. Should friends always agree with each other?</span>
                         <span class="tag opinion">Opinion</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Fair:</strong> They work very hard, entertain millions of people, have no privacy, deal with crazy fans.</li>
-                                <li><strong>Unfair:</strong> Doctors, teachers, and firefighters save lives but earn very little money.</li>
+                                <li><strong>No:</strong> It's boring if everyone is the same, arguments help you understand each other, you should be honest.</li>
+                                <li><strong>Yes:</strong> Disagreeing causes fights, it's easier when you like the same things.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans9-short')">Show Short Answer</button>
-                            <div id="ans9-short" class="hidden-content">"I think it's unfair because doctors save lives but actors get paid much more."</div>
+                            <div id="ans9-short" class="hidden-content">"No, I don't think so. Honest friends should tell you when you are wrong."</div>
                             <button class="btn-outline" onclick="toggleContent('ans9-ext')">Show Extended Answer</button>
-                            <div id="ans9-ext" class="hidden-content">"From my point of view, it is quite unfair. Of course, actors and singers work hard and entertain us, but they get paid millions of dollars just to sing or pretend on camera. Meanwhile, people who do really important jobs, like nurses, teachers, and firefighters, earn very little. Society's priorities are a bit mixed up."</div>
+                            <div id="ans9-ext" class="hidden-content">"From my point of view, friends shouldn't always agree. If you always agree, the friendship is a bit fake and boring. A real friend will tell you the truth, even if it causes a small argument. Learning to respect different opinions is part of a healthy friendship."</div>
                         </div>
                     </div>
                 </div>
@@ -691,22 +599,22 @@
                 <!-- Q10 -->
                 <div class="question-block">
                     <div class="question-header" onclick="toggleAccordion(this)">
-                        <span>10. Do you think streaming apps (Netflix/Spotify) are destroying traditional cinemas and CDs?</span>
+                        <span>10. Can boys and girls be best friends without falling in love?</span>
                         <span class="tag opinion">Opinion</span>
                     </div>
                     <div class="question-body">
                         <div class="idea-bank">
                             <strong>💡 Idea Bank:</strong>
                             <ul style="margin-left: 25px; margin-top: 10px; line-height: 1.8;">
-                                <li><strong>Yes:</strong> Nobody buys physical CDs anymore, cinemas are empty because streaming is cheaper and easier.</li>
-                                <li><strong>No:</strong> People still love the cinema experience, vinyl records and CDs are becoming cool again for collectors.</li>
+                                <li><strong>Yes:</strong> They can just have shared hobbies like gaming or sports, they see each other like brother/sister.</li>
+                                <li><strong>No:</strong> People say it always gets complicated eventually.</li>
                             </ul>
                         </div>
                         <div class="sample-answers">
                             <button class="btn-outline" onclick="toggleContent('ans10-short')">Show Short Answer</button>
-                            <div id="ans10-short" class="hidden-content">"Yes, because streaming apps are cheaper and more convenient than going to the cinema."</div>
+                            <div id="ans10-short" class="hidden-content">"Yes, absolutely. They can just share the same hobbies and act like brother and sister."</div>
                             <button class="btn-outline" onclick="toggleContent('ans10-ext')">Show Extended Answer</button>
-                            <div id="ans10-ext" class="hidden-content">"Yes, I guess that streaming apps have completely changed the industry. Nobody in my generation buys physical CDs because Spotify has millions of songs for free. Cinemas are also struggling because why pay $15 for one ticket when you can pay $10 a month for unlimited movies on Netflix? It's just too convenient."</div>
+                            <div id="ans10-ext" class="hidden-content">"Yes, I guess that boys and girls can definitely be best friends! If they have shared interests, like a love for comic books or playing football, they can just hang out for fun. They can easily see each other as a brother or a sister without any romantic feelings."</div>
                         </div>
                     </div>
                 </div>
@@ -715,37 +623,43 @@
 
         <div class="section-block" id="sec4">
             <h2>4. Real-life Role-play 🎭</h2>
-            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Grab a partner (or your teacher) and practice these real-life conversational situations.</p>
+            <p style="margin-bottom: 25px; color: var(--text-light); font-weight: 600;">Grab a partner (or your teacher) and practice these conversational scenarios using the chat interface.</p>
 
             <div class="roleplay-card">
-                <h3>🎟️ Scenario A: Making Weekend Plans</h3>
-                <p style="margin-bottom: 15px;"><strong>Situation:</strong> A new blockbuster superhero movie just came out. Call your friend, convince them to go with you, and decide on a time to meet.</p>
+                <h3>🛍️ Scenario A: Making Plans</h3>
+                <p style="margin-bottom: 15px;"><strong>Situation:</strong> You want to invite your friend to hang out at the mall this weekend. Send them a message, but they might be busy!</p>
                 <div style="margin-bottom: 15px;">
-                    <span class="role-badge">Student A: Excited Fan</span>
-                    <span class="role-badge">Student B: Busy Friend</span>
+                    <span class="role-badge" style="background: var(--primary); box-shadow: 0 3px 0px var(--primary-hover);">Student A: Bored Friend</span>
+                    <span class="role-badge" style="background: var(--secondary); box-shadow: 0 3px 0px var(--secondary-hover);">Student B: Busy Friend</span>
                 </div>
-                <button class="btn-outline" onclick="toggleContent('rp1-hints')">Show Dialogue Hints 💬</button>
-                <div id="rp1-hints" class="hidden-content">
-                    <ul style="margin-left: 25px; line-height: 1.8;">
-                        <li style="margin-bottom: 10px;"><strong>Fan:</strong> "Hey! The new Marvel movie is out this Friday. We HAVE to go!" / "Come on, take a break from studying." / "I'll pay for the popcorn if you come!" / "How about the 7 PM show?"</li>
-                        <li><strong>Friend:</strong> "Oh, I don't know, I have a lot of math homework..." / "Is that the movie with the crazy plot twist?" / "Okay fine, you convinced me. But I can't meet until 6:30."</li>
-                    </ul>
+                <button class="btn-outline" onclick="toggleChat('rp1-chat')">Show Conversation 👀</button>
+                
+                <div id="rp1-chat" class="chat-container">
+                    <div class="chat-bubble right"><strong>Bored Friend:</strong> Hey! Are you free this Saturday? Let's hang out at the mall!</div>
+                    <div class="chat-bubble left"><strong>Busy Friend:</strong> Oh man, I would love to, but I have to visit my grandparents on Saturday.</div>
+                    <div class="chat-bubble right"><strong>Bored Friend:</strong> Ah, that's too bad. What about Sunday afternoon?</div>
+                    <div class="chat-bubble left"><strong>Busy Friend:</strong> Sunday afternoon works! We can get bubble tea and check out the new sneaker store.</div>
+                    <div class="chat-bubble right"><strong>Bored Friend:</strong> Perfect! Let's meet at the main gate at 2 PM.</div>
+                    <div class="chat-bubble left"><strong>Busy Friend:</strong> See you then! I'm so excited.</div>
                 </div>
             </div>
 
             <div class="roleplay-card">
-                <h3>😡 Scenario B: The Spoilers!</h3>
-                <p style="margin-bottom: 15px;"><strong>Situation:</strong> You are talking to a classmate. They accidentally tell you the ending (a spoiler) of a TV show you are currently watching. You are very annoyed.</p>
+                <h3>😔 Scenario B: Saying Sorry</h3>
+                <p style="margin-bottom: 15px;"><strong>Situation:</strong> You completely forgot your best friend's birthday yesterday. You need to apologize to them immediately.</p>
                 <div style="margin-bottom: 15px;">
-                    <span class="role-badge">Student A: Annoyed Teen</span>
-                    <span class="role-badge">Student B: Guilty Classmate</span>
+                    <span class="role-badge" style="background: var(--primary); box-shadow: 0 3px 0px var(--primary-hover);">Student A: Guilty Friend</span>
+                    <span class="role-badge" style="background: var(--secondary); box-shadow: 0 3px 0px var(--secondary-hover);">Student B: Sad Friend</span>
                 </div>
-                <button class="btn-outline" onclick="toggleContent('rp2-hints')">Show Dialogue Hints 💬</button>
-                <div id="rp2-hints" class="hidden-content">
-                    <ul style="margin-left: 25px; line-height: 1.8;">
-                        <li style="margin-bottom: 10px;"><strong>Annoyed:</strong> "Wait, don't tell me what happens! I haven't finished it!" / "Are you serious?! Why did you tell me who dies?" / "You just ruined the whole show for me!"</li>
-                        <li><strong>Guilty:</strong> "Oh my gosh, I am so sorry! I thought you watched it already!" / "It was an accident, I swear." / "Don't be mad, there are still other good plot twists, I promise."</li>
-                    </ul>
+                <button class="btn-outline" onclick="toggleChat('rp2-chat')">Show Conversation 👀</button>
+                
+                <div id="rp2-chat" class="chat-container">
+                    <div class="chat-bubble right"><strong>Guilty Friend:</strong> Hey... I am so, so sorry. I completely forgot it was your birthday yesterday.</div>
+                    <div class="chat-bubble left"><strong>Sad Friend:</strong> Yeah, I noticed. I was waiting for you to call me all day.</div>
+                    <div class="chat-bubble right"><strong>Guilty Friend:</strong> I feel terrible. I had a huge math test and my mind was blank. Please forgive me!</div>
+                    <div class="chat-bubble left"><strong>Sad Friend:</strong> I was really sad, but I know you've been stressed about school. It's okay.</div>
+                    <div class="chat-bubble right"><strong>Guilty Friend:</strong> Thank you! Let me buy you lunch tomorrow to celebrate. My treat!</div>
+                    <div class="chat-bubble left"><strong>Sad Friend:</strong> Haha, okay deal. I want a large pizza!</div>
                 </div>
             </div>
         </div>
@@ -758,61 +672,61 @@
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">To be honest...</div>
-                        <div class="flashcard-back">"To be honest, I think the books are better than the movies."</div>
+                        <div class="flashcard-back">"To be honest, I am not very good at making new friends."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">From my point of view...</div>
-                        <div class="flashcard-back">"From my point of view, actors are paid way too much money."</div>
+                        <div class="flashcard-front">In my opinion...</div>
+                        <div class="flashcard-back">"In my opinion, trust is the most important thing."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
                         <div class="flashcard-front">For example...</div>
-                        <div class="flashcard-back">"I love horror games; for example, Resident Evil."</div>
+                        <div class="flashcard-back">"We like the same games; for example, we both love Roblox."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">I guess that...</div>
-                        <div class="flashcard-back">"I guess that streaming apps are the future of music."</div>
+                        <div class="flashcard-front">One reason is that...</div>
+                        <div class="flashcard-back">"One reason is that big groups can have too much drama."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">On the other hand...</div>
-                        <div class="flashcard-back">"Cinemas are loud. On the other hand, the screen is huge."</div>
+                        <div class="flashcard-front">I really think that...</div>
+                        <div class="flashcard-back">"I really think that friends should support each other."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">The best thing about it is...</div>
-                        <div class="flashcard-back">"The best thing about gaming is hanging out with friends."</div>
+                        <div class="flashcard-front">On the weekend, I usually...</div>
+                        <div class="flashcard-back">"On the weekend, I usually hang out at the park."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">It depends on...</div>
-                        <div class="flashcard-back">"It depends on my mood. Sometimes I prefer comedies."</div>
+                        <div class="flashcard-front">The best thing about...</div>
+                        <div class="flashcard-back">"The best thing about him is that he is hilarious."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">Basically...</div>
-                        <div class="flashcard-back">"Basically, if there's no action in a movie, I get bored."</div>
+                        <div class="flashcard-front">I prefer...</div>
+                        <div class="flashcard-back">"I prefer talking face-to-face instead of texting."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">I strongly believe...</div>
-                        <div class="flashcard-back">"I strongly believe video games do not make kids violent."</div>
+                        <div class="flashcard-front">If you ask me...</div>
+                        <div class="flashcard-back">"If you ask me, boys and girls can definitely be friends."</div>
                     </div>
                 </div>
                 <div class="flashcard" onclick="this.classList.toggle('flipped')">
                     <div class="flashcard-inner">
-                        <div class="flashcard-front">That's a fun question...</div>
-                        <div class="flashcard-back">"That's a fun question. Let me think about it for a second."</div>
+                        <div class="flashcard-front">That's a good point, but...</div>
+                        <div class="flashcard-back">"That's a good point, but sometimes arguments are needed."</div>
                     </div>
                 </div>
             </div>
@@ -825,35 +739,35 @@
             <div id="quiz-container" style="background: #FAFAF9; padding: 30px; border-radius: 20px; border: 2px solid #E2E8F0;">
                 
                 <div id="q1" class="quiz-question active">
-                    <h3 style="color: var(--primary);">1. What do we call a completely unexpected change in the story?</h3>
+                    <h3 style="color: var(--primary);">1. Which word means "very, very funny"?</h3>
                     <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">A. A Soundtrack</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q1')">B. A Plot Twist</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">C. A Character</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">A. Trustworthy</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q1')">B. Hilarious</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q1')">C. Support</button>
                     </div>
                 </div>
 
                 <div id="q2" class="quiz-question">
-                    <h3 style="color: var(--primary);">2. If you "binge-watch" a TV show on Netflix, you...</h3>
+                    <h3 style="color: var(--primary);">2. If you "hang out" with someone, you...</h3>
                     <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q2')">A. Watch many episodes continuously without stopping.</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">B. Watch one episode a week.</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">C. Skip to the end of the show.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q2')">A. Spend time relaxing and having fun with them.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">B. Have a big argument with them.</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q2')">C. Tell them a secret.</button>
                     </div>
                 </div>
 
                 <div id="q3" class="quiz-question">
-                    <h3 style="color: var(--primary);">3. A very successful movie that makes millions of dollars is a...</h3>
+                    <h3 style="color: var(--primary);">3. An angry disagreement between friends is called...</h3>
                     <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q3')">A. Blockbuster</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">B. Multiplayer</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">C. Concert</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'q3')">A. An Argument</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">B. A Hobby</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'q3')">C. Shared interests</button>
                     </div>
                 </div>
 
                 <div id="quiz-end" class="quiz-question" style="text-align: center; padding: 20px;">
                     <h3 style="font-size: 2.2rem; color: var(--accent); margin-bottom: 20px;">🎉 Awesome job! You beat the quiz.</h3>
-                    <button class="btn-pink" onclick="resetQuiz()">Play Again 🔄</button>
+                    <button class="btn-coral" onclick="resetQuiz()">Play Again 🔄</button>
                 </div>
 
             </div>
@@ -873,7 +787,7 @@
                 </div>
             </div>
             <div class="reflection-q">
-                <span style="font-weight: 700; font-size: 1.15rem; color: var(--primary);">Did I try to use the new pop-culture vocabulary?</span>
+                <span style="font-weight: 700; font-size: 1.15rem; color: var(--primary);">Did I try to use the new vocabulary?</span>
                 <div class="emoji-rating">
                     <span onclick="selectEmoji(this)" title="Not really">🙁</span>
                     <span onclick="selectEmoji(this)" title="It was okay">😐</span>
@@ -891,7 +805,7 @@
                 </div>
             </div>
             <div class="reflection-q">
-                <span style="font-weight: 700; font-size: 1.15rem; color: var(--primary);">Did I have fun doing the role-play with my partner?</span>
+                <span style="font-weight: 700; font-size: 1.15rem; color: var(--primary);">Did I have fun doing the chat role-play?</span>
                 <div class="emoji-rating">
                     <span onclick="selectEmoji(this)" title="Not really">🙁</span>
                     <span onclick="selectEmoji(this)" title="It was okay">😐</span>
@@ -901,7 +815,7 @@
             </div>
         </div>
 
-        <div class="section-block" id="sec8" style="background: linear-gradient(135deg, #FAF5FF, #F3E8FF); border: 2px dashed var(--primary);">
+        <div class="section-block" id="sec8" style="background: linear-gradient(135deg, #EEF2FF, #E0E7FF); border: 2px dashed var(--primary);">
             <h2>8. Lesson Completion Checklist ✅</h2>
             <p style="margin-bottom: 25px; color: var(--text-main); font-weight: 600;">Tick the boxes to fill up your progress bar!</p>
             
@@ -919,7 +833,7 @@
             </div>
             <div class="checklist-item">
                 <input type="checkbox" id="chk4" onchange="updateProgress()">
-                <label for="chk4">Acted out the Role-play Scenarios</label>
+                <label for="chk4">Acted out the Chat Role-plays</label>
             </div>
             <div class="checklist-item">
                 <input type="checkbox" id="chk5" onchange="updateProgress()">
@@ -939,15 +853,13 @@
         <p style="font-size: 0.95rem; margin-top: 15px; opacity: 0.6;">© 2026 All Rights Reserved.</p>
     </footer>
 
-    <!-- Custom Audio/Notification Toast -->
     <div id="toast">Notification text</div>
 
-    <!-- Celebration Modal -->
     <div class="modal-overlay" id="completion-modal">
         <div class="modal-content">
             <h2 style="font-size: 3rem; margin-bottom: 20px;">🏆 You Did It!</h2>
             <p style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 30px; font-weight: 600;">You have successfully completed 100% of today's speaking lesson. You are a superstar! ⭐</p>
-            <button class="btn-pink" onclick="closeModal()" style="font-size: 1.2rem; padding: 15px 35px;">Awesome!</button>
+            <button class="btn-coral" onclick="closeModal()" style="font-size: 1.2rem; padding: 15px 35px;">Awesome!</button>
         </div>
     </div>
 
@@ -962,15 +874,15 @@
             }, 3000);
         }
 
-        // Web Speech API for TTS Audio (Fully functional)
+        // Web Speech API for TTS Audio
         function playAudioToast(word) {
             showToast(`🔊 <strong>Pronouncing:</strong> ${word}`);
             
             if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel(); // Stop current speech
+                window.speechSynthesis.cancel(); 
                 const utterance = new SpeechSynthesisUtterance(word);
                 utterance.lang = 'en-US'; 
-                utterance.rate = 0.85; // slightly slower for ESL
+                utterance.rate = 0.85; 
                 utterance.pitch = 1.0; 
                 window.speechSynthesis.speak(utterance);
             } else {
@@ -994,6 +906,16 @@
                 el.style.display = "none";
             } else {
                 el.style.display = "block";
+            }
+        }
+
+        // Toggle Chat Container (Flexbox)
+        function toggleChat(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === "flex") {
+                el.style.display = "none";
+            } else {
+                el.style.display = "flex";
             }
         }
 
