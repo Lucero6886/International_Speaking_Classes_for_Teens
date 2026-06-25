@@ -3,940 +3,1172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: My Phone and My Favourite Apps</title>
+    <title>ESL Lesson: Using AI for Schoolwork</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap');
+
         :root {
-            --bg-color: #f3f4f6; /* Soft cool gray/blue background */
-            --text-main: #1f2937;
-            --text-light: #4b5563;
-            --primary: #8b5cf6; /* Vibrant violet - teen friendly */
-            --primary-hover: #7c3aed;
-            --secondary: #ec4899; /* Pink */
-            --secondary-hover: #db2777;
-            --accent: #14b8a6; /* Teal */
-            --card-bg: #ffffff;
-            --border-radius: 24px; /* Softer, rounder corners */
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #4F46E5; /* Tech Indigo */
+            --primary-dark: #3730A3;
+            --secondary: #06B6D4; /* Cyan */
+            --secondary-dark: #0891B2;
+            --accent: #F59E0B; /* Amber */
+            --bg-light: #F8FAFC;
+            --bg-pattern: #EEF2F6;
+            --text-dark: #1E293B;
+            --text-light: #475569;
+            --white: #FFFFFF;
+            --success: #10B981;
+            --error: #EF4444;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --border-thickness: 2px;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Nunito', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            font-size: 1.2rem; /* Large base font for screen sharing */
-            padding-bottom: 60px;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            background-image: linear-gradient(var(--bg-pattern) 1px, transparent 1px), linear-gradient(90deg, var(--bg-pattern) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-size: 18px;
             overflow-x: hidden;
-            word-wrap: break-word;
         }
 
-        /* Top Progress Bar */
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background-color: #e5e7eb;
-            z-index: 1000;
-        }
-
-        #progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transition: width 0.6s ease-out;
-            border-radius: 0 6px 6px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Layout */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
         }
 
         header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 50px 20px 70px;
             text-align: center;
-            margin-bottom: 3rem;
-            padding-top: 2rem;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+            position: relative;
+            margin-bottom: 50px;
         }
 
-        h1 {
-            font-size: 3.2rem;
-            color: var(--primary-hover);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            font-weight: 800;
+        h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px;}
+        h2 { font-size: 2rem; color: var(--primary); margin-bottom: 25px; text-align: center; font-weight: 700;}
+        h3 { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 15px; font-weight: 600;}
+
+        .brand-badge {
+            margin-top: 20px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-dark);
+            background: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
         }
 
-        .objectives-card {
-            background-color: #f5f3ff;
-            border-left: 6px solid var(--primary);
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: left;
-            margin: 0 auto 2rem auto;
-            max-width: 750px;
-            font-size: 1.25rem;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.1);
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
         }
 
-        section {
-            margin-bottom: 4rem;
+        .progress-tracker {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: -60px;
+            box-shadow: var(--card-shadow);
+            border: var(--border-thickness) solid #E2E8F0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            z-index: 10;
+            position: relative;
         }
-
-        h2 {
-            font-size: 2.4rem;
-            margin-bottom: 2rem;
+        .progress-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            color: var(--text-main);
-            border-bottom: 3px solid #d1d5db;
-            padding-bottom: 10px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        @media(min-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr 1fr; }
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-            transition: var(--transition);
-            border: 2px solid #f3f4f6;
-        }
-        .card:hover {
-            box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.15);
-            transform: translateY(-5px);
-            border-color: #ede9fe;
-        }
-
-        /* Buttons */
-        button {
-            border: none;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-light);
+            background: var(--bg-light);
+            padding: 10px 18px;
+            border-radius: 12px;
             cursor: pointer;
-            font-size: 1.15rem;
-            font-weight: 700;
-            border-radius: 9999px;
-            padding: 0.7rem 1.8rem;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            border: 1px solid #CBD5E1;
+        }
+        .progress-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .progress-item.completed {
+            background: #D1FAE5;
+            color: #065F46;
+            border-color: var(--success);
+        }
+
+        .objectives {
+            background: #EEF2FF;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .objectives ul { list-style: none; padding-left: 10px; }
+        .objectives li { margin-bottom: 12px; font-weight: 500; font-size: 1.1rem; display: flex; align-items: flex-start; gap: 10px;}
+        .objectives li::before { content: '🎯'; font-size: 1.2rem;}
+
+        section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #E2E8F0;
+            position: relative;
+        }
+
+        .section-desc {
+            margin-bottom: 30px; text-align: center; color: var(--text-light); font-weight: 400; font-size: 1.1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .tag-easy { background: #D1FAE5; color: #065F46; }
+        .tag-medium { background: #FEF3C7; color: #92400E; }
+        .tag-opinion { background: #EDE9FE; color: #5B21B6; }
+
+        button {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            text-align: center;
+            outline: none;
         }
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 6px rgba(139, 92, 246, 0.25);
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
         }
-        .btn-primary:hover { background-color: var(--primary-hover); transform: scale(1.05); }
-        
-        .btn-outline {
-            background-color: #f8fafc;
-            border: 2px solid var(--primary);
-            color: var(--primary-hover);
+        button:active {
+            transform: translateY(1px);
         }
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
+        button.btn-secondary { background: var(--secondary); color: white; }
+        button.btn-secondary:hover { box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3); }
+        button.btn-accent { background: var(--accent); color: white; }
+        button.btn-outline { background: transparent; border: 2px solid #CBD5E1; color: var(--text-dark); }
+        button.btn-outline:hover { border-color: var(--primary); color: var(--primary); box-shadow: none;}
 
-        .btn-small {
-            padding: 0.5rem 1.2rem;
-            font-size: 1.05rem;
-        }
-
-        .section-complete-btn {
-            display: block;
-            margin: 3rem auto 0 auto;
-            background-color: #d1d5db;
-            color: white;
-            padding: 15px 35px;
-            font-size: 1.3rem;
-            box-shadow: none;
-        }
-        .section-complete-btn.completed {
-            background-color: var(--secondary);
-            box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
-            animation: popIn 0.4s ease-out;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.9); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        /* Interactive Elements */
-        .hidden-content {
+        .expandable-content {
             display: none;
-            margin-top: 1.5rem;
-            padding: 1.2rem;
-            background-color: #f8fafc;
+            margin-top: 20px;
+            padding: 25px;
             border-radius: 12px;
-            animation: slideDown 0.3s ease-out;
-            font-size: 1.2rem;
-            border-left: 5px solid var(--accent);
+            background: #F8FAFC;
+            animation: slideDown 0.3s ease-out forwards;
+            border: 1px solid #E2E8F0;
         }
+        .expandable-content.active { display: block; }
+        
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .show { display: block; }
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .vocab-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: left;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .vocab-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            border-color: var(--secondary);
+        }
+        .vocab-card .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        .vocab-card button { font-size: 0.9rem; padding: 8px 16px; flex: 1;}
+        .vocab-card .btn-icon { flex: 0 0 auto; padding: 8px 12px; }
+        .vocab-word { font-size: 1.5rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; font-family: 'Poppins', sans-serif;}
+        .vocab-def { font-size: 1rem; color: var(--text-light); margin-bottom: 10px; font-weight: 400;}
 
-        /* Vocab Cards */
-        .vocab-word {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-hover);
-            margin-bottom: 0.8rem;
+        .question-block {
+            border-bottom: 1px solid #E2E8F0;
+            padding: 30px 0;
+        }
+        .question-block:last-child { border-bottom: none; }
+        .question-text { font-size: 1.25rem; font-weight: 600; margin-bottom: 20px; color: var(--text-dark);}
+        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .idea-list { list-style-type: none; padding-left: 0; margin-bottom: 10px; font-weight: 400;}
+        .idea-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; background: white; padding: 10px 15px; border-radius: 8px; border: 1px solid #E2E8F0;}
+        .idea-list li::before { content: '💡'; }
+        
+        .answer-box { 
+            background: #F0FDF4; 
+            padding: 20px; 
+            border-radius: 12px; 
+            border-left: 4px solid var(--success); 
+            font-size: 1.1rem; 
+            color: #166534; 
+            font-weight: 400;
+            line-height: 1.6;
         }
         
-        /* Speaking Section */
-        .question-card {
-            margin-bottom: 2rem;
-        }
-        .question-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #111827;
-        }
-        .badge {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            font-size: 1rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .badge.easy { background-color: #dcfce7; color: #166534; }
-        .badge.medium { background-color: #fef08a; color: #854d0e; }
-        .badge.opinion { background-color: #fee2e2; color: #991b1b; }
+        .roleplay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .roleplay-card { background: #FAFAF9; padding: 30px; border-radius: 16px; border: 1px solid #D6D3D1; box-shadow: 0 4px 6px rgba(0,0,0,0.02);}
 
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 1.5rem;
-        }
-
-        /* Fluency Flashcards */
-        .flashcard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
+        .flashcard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .flashcard {
-            background: linear-gradient(135deg, var(--primary), #a78bfa);
-            color: white;
-            height: 130px;
+            perspective: 1000px;
+            height: 150px;
+            cursor: pointer;
+        }
+        .flashcard-inner {
+            position: relative;
+            width: 100%; height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%; height: 100%;
+            backface-visibility: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 1.3rem;
-            font-weight: 800;
-            transition: transform 0.3s, background 0.3s;
-            padding: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .flashcard:hover { transform: translateY(-5px) scale(1.02); }
-
-        /* Review Game */
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        @media(min-width: 768px) {
-            .game-container { flex-direction: row; }
-        }
-        .game-col { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
-        .game-btn {
-            background-color: white;
-            border: 3px solid #e5e7eb;
-            color: var(--text-main);
-            padding: 1.2rem;
             border-radius: 16px;
-            text-align: left;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.2s;
+            padding: 20px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-family: 'Poppins', sans-serif;
         }
-        .game-btn:hover { border-color: var(--primary); transform: translateX(5px); }
-        .game-btn.selected { border-color: var(--primary); background-color: #f5f3ff; transform: scale(1.02); }
-        .game-btn.matched { border-color: var(--accent); background-color: #f0fdfa; color: #0f766e; pointer-events: none; opacity: 0.9; }
-        .game-btn.wrong { border-color: #ef4444; background-color: #fee2e2; animation: shake 0.5s; }
+        .flashcard-front { background: var(--white); color: var(--primary-dark); border: 2px solid var(--primary); }
+        .flashcard-back { background: var(--primary); color: var(--white); transform: rotateY(180deg); }
+
+        .game-container { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; }
+        .game-col { display: flex; flex-direction: column; gap: 12px; flex: 1; min-width: 250px; }
+        .game-btn {
+            background: var(--white); border: 2px solid #E2E8F0; color: var(--text-dark);
+            width: 100%; text-align: left; justify-content: flex-start; font-weight: 400; padding: 12px 20px;
+            border-radius: 10px;
+        }
+        .game-btn:hover { background: #F8FAFC; border-color: #CBD5E1; transform: translateY(-1px);}
+        .game-btn.selected { border-color: var(--primary); background: #EEF2FF; color: var(--primary-dark); font-weight: 600;}
+        .game-btn.matched { background: #D1FAE5; border-color: var(--success); color: #065F46; pointer-events: none; opacity: 0.7; }
+        .game-btn.wrong { background: #FEE2E2; border-color: var(--error); color: #991B1B; animation: shake 0.4s; }
 
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
         }
 
-        /* Checkboxes for Reflection */
-        .checklist-item {
+        .reflection-item {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--white); padding: 20px 25px; border-radius: 12px; margin-bottom: 15px;
+            border: 1px solid #E2E8F0;
+        }
+        .emoji-rating span { font-size: 2rem; cursor: pointer; transition: all 0.2s; margin-left: 15px; filter: grayscale(100%); opacity: 0.5;}
+        .emoji-rating span:hover { transform: scale(1.2); opacity: 0.8;}
+        .emoji-rating span.selected { filter: grayscale(0%); transform: scale(1.3); opacity: 1;}
+
+        #toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+        .toast {
+            background: #1E293B;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: slideUpFade 0.4s ease-out forwards;
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-            padding: 12px;
-            border-radius: 12px;
-            transition: background-color 0.2s;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
         }
-        .checklist-item:hover { background-color: #f3f4f6; }
-        input[type="checkbox"] {
-            width: 30px;
-            height: 30px;
-            accent-color: var(--secondary);
-            cursor: pointer;
+        .toast.fade-out {
+            animation: fadeOutDown 0.4s ease-in forwards;
         }
 
-        /* Custom Modal (Replaces alert) */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(4px);
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translate(-50%, 20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
         }
-        .modal-content {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 24px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            animation: modalIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        @keyframes fadeOutDown {
+            from { opacity: 1; transform: translate(-50%, 0); }
+            to { opacity: 0; transform: translate(-50%, 20px); }
         }
-        @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.8) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .modal-title { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); font-weight: 800; }
-        .modal-text { font-size: 1.3rem; margin-bottom: 2rem; color: var(--text-light); }
 
-        /* Copyright Footer */
-        footer {
+        .footer {
             text-align: center;
-            padding: 2.5rem;
-            margin-top: 5rem;
-            border-top: 3px solid #e5e7eb;
+            padding: 30px 20px;
+            margin-top: 40px;
             color: var(--text-light);
-            font-size: 1.1rem;
-            font-weight: 600;
-            background-color: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.02);
+            font-size: 0.95rem;
+            border-top: 1px solid #E2E8F0;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
         }
-        .copyright-highlight { color: var(--primary-hover); font-size: 1.2rem; font-weight: 800; }
+        .footer p { margin-bottom: 5px; }
+        .footer span.brand { color: var(--primary-dark); font-weight: 600; font-family: 'Poppins', sans-serif;}
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            section { padding: 25px 20px; }
+            .action-buttons { flex-direction: column; }
+            button { width: 100%; justify-content: center; }
+            .reflection-item { flex-direction: column; text-align: center; gap: 15px; }
+            .vocab-grid { grid-template-columns: 1fr; }
+            .emoji-rating span { font-size: 1.8rem; margin-left: 8px;}
+        }
     </style>
 </head>
 <body>
-
-    <!-- Progress Tracker -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
+    <header>
+        <div class="brand-badge">ELS - English Lucero System</div>
+        <h1 style="margin-top: 20px;">🤖 Using AI for Schoolwork</h1>
+        <p style="font-size: 1.2rem; font-weight: 400; opacity: 0.9;">An Interactive Speaking Lesson for Teens</p>
+    </header>
 
     <div class="container">
-        <!-- Header & Objectives -->
-        <header>
-            <h1>📱 My Phone & My Apps</h1>
-            <p style="font-size: 1.5rem; color: var(--text-light); font-weight: 600;">A speaking lesson for Teens (A2 - B1)</p>
-            
-            <div class="objectives-card" style="margin-top: 2rem;">
-                <h3 style="margin-bottom: 1rem; color: var(--primary-hover); font-size: 1.6rem; font-weight: 800;">🎯 Lesson Goals:</h3>
-                <ul style="margin-left: 2rem; list-style-type: disc;">
-                    <li style="margin-bottom: 10px;">Talk about your daily phone habits and favourite apps.</li>
-                    <li style="margin-bottom: 10px;">Learn vocabulary related to smartphones and the internet.</li>
-                    <li>Express opinions on screen time and social media.</li>
-                </ul>
-            </div>
-        </header>
+        <!-- Progress Tracker -->
+        <div class="progress-tracker" id="tracker">
+            <div class="progress-item" onclick="toggleProgress(this)">1. Warm-up</div>
+            <div class="progress-item" onclick="toggleProgress(this)">2. Vocabulary</div>
+            <div class="progress-item" onclick="toggleProgress(this)">3. Speaking</div>
+            <div class="progress-item" onclick="toggleProgress(this)">4. Roleplay</div>
+            <div class="progress-item" onclick="toggleProgress(this)">5. Fluency</div>
+            <div class="progress-item" onclick="toggleProgress(this)">6. Review</div>
+        </div>
 
-        <!-- SECTION 1: Warm Up -->
+        <!-- Learning Objectives -->
+        <div class="objectives">
+            <h3>Today's Lesson Objectives:</h3>
+            <ul>
+                <li>Discuss the benefits and challenges of using AI for studying.</li>
+                <li>Use technology-related vocabulary to express ideas clearly.</li>
+                <li>Share personal opinions on academic honesty and AI tools.</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 1: WARM-UP -->
         <section id="section-1">
-            <h2>🔥 1. Warm-Up</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.3rem;">Let's get talking! Answer these quick questions. Click the button to see an example.</p>
+            <h2>1. Warm-Up Discussion 💬</h2>
+            <p class="section-desc">Let's get started! Read the questions and share your thoughts.</p>
             
-            <div class="grid-2">
-                <!-- Q1 -->
-                <div class="card">
-                    <p class="question-text">📱 What kind of phone do you have?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu1')">Show Example</button>
-                    <div id="wu1" class="hidden-content">
-                        <em>"I have an iPhone 11. It's black and I have a cool sticker on the case."</em>
-                    </div>
-                </div>
-                <!-- Q2 -->
-                <div class="card">
-                    <p class="question-text">🎮 What is your favorite game to play on your phone?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu2')">Show Example</button>
-                    <div id="wu2" class="hidden-content">
-                        <em>"My favorite game right now is Roblox. I like playing it with my friends."</em>
-                    </div>
-                </div>
-                <!-- Q3 -->
-                <div class="card">
-                    <p class="question-text">🤳 Do you prefer taking photos or making videos?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu3')">Show Example</button>
-                    <div id="wu3" class="hidden-content">
-                        <em>"I prefer making short videos for TikTok!"</em>
-                    </div>
-                </div>
-                <!-- Q4 -->
-                <div class="card">
-                    <p class="question-text">💬 Who do you text the most every day?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu4')">Show Example</button>
-                    <div id="wu4" class="hidden-content">
-                        <em>"I text my best friend the most. We talk about school and funny memes."</em>
-                    </div>
-                </div>
-                <!-- Q5 -->
-                <div class="card">
-                    <p class="question-text">🎧 Do you listen to music on your phone? What app do you use?</p>
-                    <button class="btn-outline btn-small" onclick="toggle('wu5')">Show Example</button>
-                    <div id="wu5" class="hidden-content">
-                        <em>"Yes, I always listen to music on my way to school. I use Spotify."</em>
-                    </div>
+            <div class="question-block">
+                <div class="question-text">1. Have you ever used an AI tool like ChatGPT? What did you use it for? 📱</div>
+                <button class="btn-outline" onclick="toggleBox(this, 's1-q1')">Show Example Answer 👀</button>
+                <div class="expandable-content" id="s1-q1">
+                    <div class="answer-box"><em>"Yes, I used it once to help me find information about space for a science presentation."</em></div>
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(1, this)">Mark Section Complete ✓</button>
+            
+            <div class="question-block">
+                <div class="question-text">2. What do you think is the best way to use the internet for homework? 🌐</div>
+                <button class="btn-outline" onclick="toggleBox(this, 's1-q2')">Show Example Answer 👀</button>
+                <div class="expandable-content" id="s1-q2">
+                    <div class="answer-box"><em>"I think the best way is to search for explanations when you don't understand a topic, rather than just looking for the final answer."</em></div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">3. Do your teachers allow you to use AI for school projects? 👨‍🏫</div>
+                <button class="btn-outline" onclick="toggleBox(this, 's1-q3')">Show Example Answer 👀</button>
+                <div class="expandable-content" id="s1-q3">
+                    <div class="answer-box"><em>"Some teachers let us use it to get ideas, but we are not allowed to copy and paste the text into our essays."</em></div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">4. What is one school subject where a computer could really help you? 💻</div>
+                <button class="btn-outline" onclick="toggleBox(this, 's1-q4')">Show Example Answer 👀</button>
+                <div class="expandable-content" id="s1-q4">
+                    <div class="answer-box"><em>"I think it would really help in history, to quickly summarize long events and dates for me to study."</em></div>
+                </div>
+            </div>
+
+            <div class="question-block">
+                <div class="question-text">5. Do you think robots or AI will ever completely replace human teachers? 🤖</div>
+                <button class="btn-outline" onclick="toggleBox(this, 's1-q5')">Show Example Answer 👀</button>
+                <div class="expandable-content" id="s1-q5">
+                    <div class="answer-box"><em>"No, I don't think so. AI is smart, but human teachers understand our emotions and can motivate us better."</em></div>
+                </div>
+            </div>
         </section>
 
-        <!-- SECTION 2: Vocabulary -->
+        <!-- SECTION 2: VOCABULARY -->
         <section id="section-2">
-            <h2>📚 2. Vocabulary</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.3rem;">Learn these words about phones and apps. Click to see an example sentence.</p>
-
-            <div class="grid-2">
-                <div class="card">
-                    <div class="vocab-word">1. To download (v)</div>
-                    <p>To copy a file, app, or picture from the internet to your phone.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v1')">Example</button>
-                    <div id="v1" class="hidden-content"><em>"I need to <strong>download</strong> a new app for my math homework."</em></div>
+            <h2>2. Essential Vocabulary 📖</h2>
+            <p class="section-desc">Learn these tech-related words to elevate your speaking skills today.</p>
+            
+            <div class="vocab-grid">
+                <!-- Word 1 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Generate</div>
+                    <div class="vocab-def">To create or produce something automatically.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-1')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Generate')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-1"><div class="answer-box"><em>"You can ask the AI to <strong>generate</strong> a list of ideas for your art project."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">2. Notification (n)</div>
-                    <p>A message that pops up on your screen to tell you something new.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v2')">Example</button>
-                    <div id="v2" class="hidden-content"><em>"My phone buzzed because I got a <strong>notification</strong> from Instagram."</em></div>
+                <!-- Word 2 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Plagiarism</div>
+                    <div class="vocab-def">Copying someone else's work (or AI's work) and calling it your own.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-2')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Plagiarism')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-2"><div class="answer-box"><em>"Copying an entire essay from the internet is considered <strong>plagiarism</strong>."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">3. To post (v)</div>
-                    <p>To put a picture, video, or text on the internet for others to see.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v3')">Example</button>
-                    <div id="v3" class="hidden-content"><em>"I'm going to <strong>post</strong> this picture of my dog on my story."</em></div>
+                <!-- Word 3 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Brainstorm</div>
+                    <div class="vocab-def">To think of many different ideas quickly before starting a project.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-3')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Brainstorm')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-3"><div class="answer-box"><em>"We need to <strong>brainstorm</strong> topics for our science fair presentation."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">4. Password (n)</div>
-                    <p>A secret word or numbers you use to lock your phone or account.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v4')">Example</button>
-                    <div id="v4" class="hidden-content"><em>"You should never tell anyone your Facebook <strong>password</strong>."</em></div>
+                <!-- Word 4 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Accurate</div>
+                    <div class="vocab-def">Correct, exact, and without any mistakes.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-4')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Accurate')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-4"><div class="answer-box"><em>"You must check if the information provided by the AI is actually <strong>accurate</strong>."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">5. Screen time (n)</div>
-                    <p>The total amount of time you spend looking at your phone or computer.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v5')">Example</button>
-                    <div id="v5" class="hidden-content"><em>"My mom says my <strong>screen time</strong> is too high, so I have to read a book."</em></div>
+                <!-- Word 5 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Rely on</div>
+                    <div class="vocab-def">To depend on or trust something/someone for help.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-5')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Rely on')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-5"><div class="answer-box"><em>"Students shouldn't <strong>rely on</strong> calculators for simple math problems."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">6. Useful (adj)</div>
-                    <p>Helpful for doing a task; good for a purpose.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v6')">Example</button>
-                    <div id="v6" class="hidden-content"><em>"Google Translate is very <strong>useful</strong> when I study English."</em></div>
+                <!-- Word 6 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Summarize</div>
+                    <div class="vocab-def">To make a long text shorter by giving only the main points.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-6')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Summarize')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-6"><div class="answer-box"><em>"I asked the software to <strong>summarize</strong> the long historical article for me."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">7. Follower (n)</div>
-                    <p>A person who subscribes to your social media to see your posts.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v7')">Example</button>
-                    <div id="v7" class="hidden-content"><em>"He makes really funny videos and has over a thousand <strong>followers</strong>."</em></div>
+                <!-- Word 7 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Evaluate</div>
+                    <div class="vocab-def">To judge how good, useful, or true something is.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-7')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Evaluate')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-7"><div class="answer-box"><em>"Teachers will <strong>evaluate</strong> your project based on creativity and effort."</em></div></div>
                 </div>
-                <div class="card">
-                    <div class="vocab-word">8. Distracted (adj)</div>
-                    <p>Not paying attention to what you should be doing.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 15px;" onclick="toggle('v8')">Example</button>
-                    <div id="v8" class="hidden-content"><em>"I couldn't finish my homework because I was <strong>distracted</strong> by my phone."</em></div>
+                <!-- Word 8 -->
+                <div class="vocab-card">
+                    <div class="vocab-word">Prompt</div>
+                    <div class="vocab-def">An instruction or question you type into an AI system.</div>
+                    <div class="btn-group">
+                        <button class="btn-secondary" onclick="toggleBox(this, 'v-8')">Example</button>
+                        <button class="btn-outline btn-icon" onclick="playAudio('Prompt')" title="Listen">🔊</button>
+                    </div>
+                    <div class="expandable-content" id="v-8"><div class="answer-box"><em>"If you write a clear <strong>prompt</strong>, the AI will give you a much better answer."</em></div></div>
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(2, this)">Mark Section Complete ✓</button>
         </section>
 
-        <!-- SECTIONS 3, 4, 5: Speaking, Ideas, Answers -->
+        <!-- SECTIONS 3, 4, 5: MAIN SPEAKING, IDEAS, ANSWERS -->
         <section id="section-3">
-            <h2>🗣️ 3. Let's Talk!</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.3rem;">Take turns answering these questions. Use the buttons to get ideas or see sample answers if you get stuck!</p>
+            <h2>3. Speaking Practice 🎙️</h2>
+            <p class="section-desc">Choose your difficulty! Use the Idea Bank if you need inspiration.</p>
 
-            <!-- Easy -->
-            <div class="card question-card">
-                <span class="badge easy">Easy</span>
-                <p class="question-text">1. What is the very first app you open when you wake up?</p>
+            <!-- Q1 (Easy) -->
+            <div class="question-block">
+                <span class="tag tag-easy">Easy</span>
+                <div class="question-text">1. How often do you use technology or the internet for your schoolwork?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq1-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq1-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq1-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q1-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q1-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q1-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq1-idea" class="hidden-content"><strong>Ideas:</strong> Messages, Instagram, TikTok, an alarm app, a weather app.</div>
-                <div id="sq1-short" class="hidden-content"><strong>Short:</strong> "The first app I open is my messages."</div>
-                <div id="sq1-long" class="hidden-content"><strong>Long:</strong> "The first app I open is WhatsApp. I like to check if my friends sent me any messages while I was sleeping, and I check our class group chat for any news."</div>
+                <div class="expandable-content" id="q1-ideas">
+                    <ul class="idea-list">
+                        <li>Every day for research and typing essays.</li>
+                        <li>Only on weekends when I have big projects.</li>
+                        <li>Rarely, I prefer using physical textbooks.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q1-ans-short">
+                    <div class="answer-box">"I use the internet almost every day to help me with my homework."</div>
+                </div>
+                <div class="expandable-content" id="q1-ans-long">
+                    <div class="answer-box">"I use technology daily for my schoolwork. Usually, I use my laptop to research topics for history or science. I also type all my essays on it because it's much faster than writing by hand."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge easy">Easy</span>
-                <p class="question-text">2. Do you use your phone to help with your school homework? How?</p>
+            <!-- Q2 (Easy) -->
+            <div class="question-block">
+                <span class="tag tag-easy">Easy</span>
+                <div class="question-text">2. What kind of homework is the hardest for you to do alone?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq2-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq2-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq2-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q2-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q2-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q2-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq2-idea" class="hidden-content"><strong>Ideas:</strong> Calculator, dictionary, taking photos of the whiteboard, searching Google.</div>
-                <div id="sq2-short" class="hidden-content"><strong>Short:</strong> "Yes, I use it to search for information on Google."</div>
-                <div id="sq2-long" class="hidden-content"><strong>Long:</strong> "Yes, my phone is very useful for homework. I use the calculator app for math, and I use an English dictionary app when I don't know a word. I also text my classmates if I need help."</div>
+                <div class="expandable-content" id="q2-ideas">
+                    <ul class="idea-list">
+                        <li>Math problems because the formulas are confusing.</li>
+                        <li>Writing essays because it is hard to brainstorm ideas.</li>
+                        <li>Learning a new language because of the grammar.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q2-ans-short">
+                    <div class="answer-box">"Math homework is usually the hardest for me to do by myself."</div>
+                </div>
+                <div class="expandable-content" id="q2-ans-long">
+                    <div class="answer-box">"For me, writing long essays is the hardest task to do alone. I often struggle to brainstorm good ideas or organize my paragraphs. That's when I usually ask my parents or look online for inspiration."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge easy">Easy</span>
-                <p class="question-text">3. What is your favourite emoji to use and why?</p>
+            <!-- Q3 (Easy) -->
+            <div class="question-block">
+                <span class="tag tag-easy">Easy</span>
+                <div class="question-text">3. If an AI could do one homework task for you, what would you choose?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq3-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq3-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq3-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q3-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q3-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q3-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq3-idea" class="hidden-content"><strong>Ideas:</strong> 😂 (laughing), 💀 (skull/funny), ❤️ (heart), 😭 (crying/dramatic).</div>
-                <div id="sq3-short" class="hidden-content"><strong>Short:</strong> "My favourite emoji is the laughing face 😂."</div>
-                <div id="sq3-long" class="hidden-content"><strong>Long:</strong> "My favourite emoji is the skull emoji 💀. My friends and I use it all the time when something is really funny or embarrassing. It's better than saying 'haha'."</div>
+                <div class="expandable-content" id="q3-ideas">
+                    <ul class="idea-list">
+                        <li>Create a study schedule for my exams.</li>
+                        <li>Summarize long reading chapters.</li>
+                        <li>Check my spelling and grammar.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q3-ans-short">
+                    <div class="answer-box">"I would ask AI to summarize my history reading chapters."</div>
+                </div>
+                <div class="expandable-content" id="q3-ans-long">
+                    <div class="answer-box">"If I could choose, I would use AI to check my grammar and spelling. I always make small mistakes when I write fast, so having a tool to fix those errors would save me a lot of time."</div>
+                </div>
             </div>
 
-            <!-- Medium -->
-            <div class="card question-card">
-                <span class="badge medium">Medium</span>
-                <p class="question-text">4. Do you prefer texting or sending voice notes? Why?</p>
+            <!-- Q4 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">4. How can AI help you brainstorm ideas for a creative writing assignment?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq4-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq4-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq4-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q4-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q4-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q4-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq4-idea" class="hidden-content"><strong>Ideas:</strong> Texting is quieter, voice notes are faster, voice shows emotion, texting is easier to read.</div>
-                <div id="sq4-short" class="hidden-content"><strong>Short:</strong> "I prefer texting because it is quiet."</div>
-                <div id="sq4-long" class="hidden-content"><strong>Long:</strong> "It depends! If I am in public or at school, I prefer texting because it is quiet. But if I have a long story to tell my friend, I send a voice note because typing takes too much time."</div>
+                <div class="expandable-content" id="q4-ideas">
+                    <ul class="idea-list">
+                        <li>It can generate different character names and personalities.</li>
+                        <li>It can give you 5 different plot ideas to choose from.</li>
+                        <li>It helps overcome "writer's block" by giving you a starting sentence.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q4-ans-short">
+                    <div class="answer-box">"AI can generate unique character ideas and plot twists for my story."</div>
+                </div>
+                <div class="expandable-content" id="q4-ans-long">
+                    <div class="answer-box">"When I have writer's block, AI is great for brainstorming. I can type a simple prompt, and it will generate several different story plots. I don't copy the stories, but reading them gives me the inspiration to write my own."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge medium">Medium</span>
-                <p class="question-text">5. Have you ever dropped your phone and broken the screen? What happened?</p>
+            <!-- Q5 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">5. Why is it very important to check the facts an AI gives you?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq5-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq5-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq5-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q5-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q5-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q5-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq5-idea" class="hidden-content"><strong>Ideas:</strong> Dropped it on the street, it fell out of my pocket, parents were angry, had to pay to fix it.</div>
-                <div id="sq5-short" class="hidden-content"><strong>Short:</strong> "Yes, I dropped it when I was running to the bus."</div>
-                <div id="sq5-long" class="hidden-content"><strong>Long:</strong> "Yes, unfortunately! Last year, it fell out of my jacket pocket while I was riding my bike. The screen cracked completely. My parents were annoyed, and I had to use my pocket money to fix it."</div>
+                <div class="expandable-content" id="q5-ideas">
+                    <ul class="idea-list">
+                        <li>AI sometimes makes up information that sounds real.</li>
+                        <li>The information might be outdated or old.</li>
+                        <li>You need accurate facts to get a good grade on your test.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q5-ans-short">
+                    <div class="answer-box">"It's important because AI can sometimes provide inaccurate or fake information."</div>
+                </div>
+                <div class="expandable-content" id="q5-ans-long">
+                    <div class="answer-box">"You must always evaluate the facts from an AI. Sometimes, these programs generate answers that look very confident but are actually completely wrong. If you include false information in your schoolwork, your teacher will lower your grade."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge medium">Medium</span>
-                <p class="question-text">6. How many photos do you have on your phone? What do you usually take photos of?</p>
+            <!-- Q6 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">6. What is the difference between using AI for help and committing plagiarism?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq6-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq6-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq6-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q6-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q6-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q6-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq6-idea" class="hidden-content"><strong>Ideas:</strong> Selfies with friends, pets, food, screenshots of homework, memes.</div>
-                <div id="sq6-short" class="hidden-content"><strong>Short:</strong> "I have about 2,000 photos, mostly of my cat and my friends."</div>
-                <div id="sq6-long" class="hidden-content"><strong>Long:</strong> "I probably have around 3,000 photos. A lot of them are just screenshots of funny memes or notes from the whiteboard at school. But I also take a lot of selfies with my friends when we go out."</div>
+                <div class="expandable-content" id="q6-ideas">
+                    <ul class="idea-list">
+                        <li>Help: Asking AI to explain a hard concept so you can write it yourself.</li>
+                        <li>Plagiarism: Copying the AI's exact paragraph and putting your name on it.</li>
+                        <li>Help: Using it to organize your notes into an outline.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q6-ans-short">
+                    <div class="answer-box">"Help is getting ideas, while plagiarism is copying the text exactly as your own."</div>
+                </div>
+                <div class="expandable-content" id="q6-ans-long">
+                    <div class="answer-box">"Using AI for help means you ask it to explain a math formula or summarize a text to understand it better. Plagiarism happens when you tell the AI to 'write my essay', and then you hand in that exact text. One helps you learn, the other is cheating."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge medium">Medium</span>
-                <p class="question-text">7. What do you do if your phone battery dies when you are out?</p>
+            <!-- Q7 (Medium) -->
+            <div class="question-block">
+                <span class="tag tag-medium">Medium</span>
+                <div class="question-text">7. How do you feel when you know a classmate uses AI to do all their work?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq7-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq7-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq7-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q7-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q7-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q7-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq7-idea" class="hidden-content"><strong>Ideas:</strong> Panic, borrow a friend's phone, carry a power bank, enjoy not looking at a screen.</div>
-                <div id="sq7-short" class="hidden-content"><strong>Short:</strong> "I always carry a portable charger, so it's not a problem."</div>
-                <div id="sq7-long" class="hidden-content"><strong>Long:</strong> "I used to panic because I couldn't call my mom to pick me up. Now, I always carry a power bank in my backpack. If I forget it, I just have to borrow a friend's phone."</div>
+                <div class="expandable-content" id="q7-ideas">
+                    <ul class="idea-list">
+                        <li>It feels unfair because I spend hours studying and they don't.</li>
+                        <li>I don't mind, it's their choice and they won't learn anything.</li>
+                        <li>I feel worried for them when we have a real exam without computers.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q7-ans-short">
+                    <div class="answer-box">"I feel it's a bit unfair because I work hard, but they are not really learning."</div>
+                </div>
+                <div class="expandable-content" id="q7-ans-long">
+                    <div class="answer-box">"Honestly, it feels a little unfair if they get a good grade without trying. However, I know they aren't actually learning the material. When it comes time for a final exam in the classroom, they won't be able to rely on technology."</div>
+                </div>
             </div>
 
-            <!-- Opinion -->
-            <div class="card question-card">
-                <span class="badge opinion">Opinion</span>
-                <p class="question-text">8. Do you think teenagers spend too much time on their phones?</p>
+            <!-- Q8 (Opinion) -->
+            <div class="question-block">
+                <span class="tag tag-opinion">Opinion</span>
+                <div class="question-text">8. In your opinion, should schools ban AI completely or teach students how to use it safely?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq8-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq8-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq8-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q8-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q8-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q8-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq8-idea" class="hidden-content"><strong>Ideas:</strong> Yes, it makes them lazy / No, it's how we socialize now / We get distracted from school.</div>
-                <div id="sq8-short" class="hidden-content"><strong>Short:</strong> "Yes, I think we spend too much time looking at screens."</div>
-                <div id="sq8-long" class="hidden-content"><strong>Long:</strong> "Yes, honestly I think we do. A lot of teenagers stay up late scrolling on TikTok, and then they are tired at school. We get easily distracted. But at the same time, it is the main way we talk to our friends, so it is hard to stop."</div>
+                <div class="expandable-content" id="q8-ideas">
+                    <ul class="idea-list">
+                        <li>Teach it: AI is the future, so we need to know how to use it for jobs.</li>
+                        <li>Teach it: If they ban it, students will just use it secretly anyway.</li>
+                        <li>Ban it: It stops students from thinking critically.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q8-ans-short">
+                    <div class="answer-box">"In my opinion, schools should teach us how to use it because it is part of our future."</div>
+                </div>
+                <div class="expandable-content" id="q8-ans-long">
+                    <div class="answer-box">"I strongly believe schools should teach students how to use AI properly instead of banning it. AI is a powerful tool that will be used in future jobs. If teachers show us how to use it for brainstorming and research without plagiarizing, it will be very beneficial."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge opinion">Opinion</span>
-                <p class="question-text">9. Should students be allowed to use their phones in the classroom?</p>
+            <!-- Q9 (Opinion) -->
+            <div class="question-block">
+                <span class="tag tag-opinion">Opinion</span>
+                <div class="question-text">9. Do you think relying on AI makes students lazier or more creative? Why?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq9-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq9-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq9-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q9-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q9-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q9-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq9-idea" class="hidden-content"><strong>Ideas:</strong> No, they play games / Yes, for educational apps like Kahoot / Only for emergencies.</div>
-                <div id="sq9-short" class="hidden-content"><strong>Short:</strong> "No, because students will just play games instead of listening."</div>
-                <div id="sq9-long" class="hidden-content"><strong>Long:</strong> "I think they should only be allowed if the teacher asks us to use them. For example, if we are playing a learning game like Quizlet. If we can use them all the time, everyone will just chat or play games and no one will study."</div>
+                <div class="expandable-content" id="q9-ideas">
+                    <ul class="idea-list">
+                        <li>Lazier: People stop trying to solve hard problems themselves.</li>
+                        <li>More creative: It gives you amazing starting ideas so you can build bigger projects.</li>
+                        <li>Both: It depends on the student's attitude.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q9-ans-short">
+                    <div class="answer-box">"I think it depends. It makes lazy students lazier, but it can help creative students get better ideas."</div>
+                </div>
+                <div class="expandable-content" id="q9-ans-long">
+                    <div class="answer-box">"From my perspective, it can do both. If a student relies on it to do all their work, they become lazy and lose their skills. But, if a student uses it to generate baseline ideas and then adds their own unique thoughts, it actually boosts their creativity."</div>
+                </div>
             </div>
 
-            <div class="card question-card">
-                <span class="badge opinion">Opinion</span>
-                <p class="question-text">10. Is it a good idea for families to have "no phone" rules during dinner?</p>
+            <!-- Q10 (Opinion) -->
+            <div class="question-block">
+                <span class="tag tag-opinion">Opinion</span>
+                <div class="question-text">10. How do you think AI will change schools and classrooms in the next 10 years?</div>
                 <div class="action-buttons">
-                    <button class="btn-outline btn-small" onclick="toggle('sq10-idea')">💡 Ideas</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq10-short')">📝 Short Answer</button>
-                    <button class="btn-outline btn-small" onclick="toggle('sq10-long')">🗣️ Long Answer</button>
+                    <button class="btn-accent" onclick="toggleBox(this, 'q10-ideas')">Idea Bank 💡</button>
+                    <button class="btn-outline" onclick="toggleBox(this, 'q10-ans-short')">Short Answer</button>
+                    <button class="btn-primary" onclick="toggleBox(this, 'q10-ans-long')">Extended Answer</button>
                 </div>
-                <div id="sq10-idea" class="hidden-content"><strong>Ideas:</strong> Good for family bonding, prevents ignoring each other, parents use phones too!</div>
-                <div id="sq10-short" class="hidden-content"><strong>Short:</strong> "Yes, because dinner is a time to talk with your family."</div>
-                <div id="sq10-long" class="hidden-content"><strong>Long:</strong> "I think it is a great idea. If everyone is looking at their screen, no one talks about their day. Dinner is the perfect time for family bonding. But I think parents need to follow the rule too, not just the kids!"</div>
+                <div class="expandable-content" id="q10-ideas">
+                    <ul class="idea-list">
+                        <li>Every student will have a personalized AI tutor.</li>
+                        <li>There will be fewer written essays and more speaking exams.</li>
+                        <li>Teachers will focus more on project-based learning.</li>
+                    </ul>
+                </div>
+                <div class="expandable-content" id="q10-ans-short">
+                    <div class="answer-box">"I think in 10 years, every student will have their own AI tutor to help them study."</div>
+                </div>
+                <div class="expandable-content" id="q10-ans-long">
+                    <div class="answer-box">"In the future, I think AI will completely change homework. Because AI can write essays perfectly, teachers might stop giving written homework. Instead, classrooms will focus on speaking, presentations, and hands-on projects where we have to prove what we know in person."</div>
+                </div>
             </div>
-
-            <button class="btn-primary section-complete-btn" onclick="markComplete(3, this)">Mark Section Complete ✓</button>
         </section>
 
-        <!-- SECTION 6: Role-play -->
-        <section id="section-4">
-            <h2>🎭 4. Role-Play Scenarios</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.3rem;">Choose a partner and act out these real-life situations!</p>
+        <!-- SECTION 6: ROLE-PLAY -->
+        <section id="section-6">
+            <h2>4. Real-Life Roleplay 🎭</h2>
+            <p class="section-desc">Act out these situations with a partner. Use the vocabulary you learned!</p>
 
-            <div class="grid-2">
-                <div class="card">
-                    <h3 style="color: var(--primary-hover); margin-bottom: 15px; font-size: 1.6rem;">Scenario A: The New App</h3>
-                    <p><strong>Student A (Teen):</strong> You want to download a new social media app that all your friends have. You need to ask your parent for permission.</p>
-                    <p style="margin-top: 15px;"><strong>Student B (Parent):</strong> You are worried about the app. You think it's a waste of time and dangerous.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 20px;" onclick="toggle('rp1')">Show Dialogue Hints</button>
-                    <div id="rp1" class="hidden-content">
-                        <ul style="list-style-type: circle; margin-left: 20px;">
-                            <li><em>"Mom/Dad, can I please download this app? Everyone has it!"</em></li>
-                            <li><em>"I don't know, you already spend too much screen time."</em></li>
-                            <li><em>"I promise I will only use it for 30 minutes a day."</em></li>
-                            <li><em>"Is your account going to be private?"</em></li>
-                        </ul>
+            <div class="roleplay-grid">
+                <!-- Scenario 1 -->
+                <div class="roleplay-card">
+                    <h3 style="color: var(--primary);">Scenario 1: The Confused Friend</h3>
+                    <p style="margin-bottom: 15px;"><strong>Situation:</strong> Your friend is very stressed about a history essay due tomorrow. They want to use an AI to write the whole paper and hand it in. Explain why this is a bad idea and suggest a better way.</p>
+                    <p style="margin-bottom: 15px;"><strong>Roles:</strong> You & Your Stressed Friend.</p>
+                    <button class="btn-outline" onclick="toggleBox(this, 'rp-1-hints')">Show Dialogue Hints 💬</button>
+                    <div class="expandable-content" id="rp-1-hints">
+                        <p><em>Friend:</em> "I have no time! I'm just going to let AI write my essay."</p>
+                        <p><em>You:</em> "I don't think you should do that. That is <strong>plagiarism</strong> and you could fail."</p>
+                        <p><em>Friend:</em> "But what else can I do? I have no ideas."</p>
+                        <p><em>You:</em> "Let's use a <strong>prompt</strong> to <strong>brainstorm</strong> ideas instead, and then you can write it in your own words."</p>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3 style="color: var(--primary-hover); margin-bottom: 15px; font-size: 1.6rem;">Scenario B: Tech Support</h3>
-                    <p><strong>Student A (Grandparent):</strong> You just got your first smartphone. You want to learn how to send a photo in a message, but you are very confused.</p>
-                    <p style="margin-top: 15px;"><strong>Student B (Teen):</strong> You are trying to patiently teach your grandparent how to use the phone.</p>
-                    <button class="btn-outline btn-small" style="margin-top: 20px;" onclick="toggle('rp2')">Show Dialogue Hints</button>
-                    <div id="rp2" class="hidden-content">
-                        <ul style="list-style-type: circle; margin-left: 20px;">
-                            <li><em>"Where did the picture go? I touched the screen and it vanished!"</em></li>
-                            <li><em>"Don't worry Grandma, just press this little plus button here."</em></li>
-                            <li><em>"What is an app? Is that the blue square?"</em></li>
-                            <li><em>"Yes! Now tap the photo you want to send."</em></li>
-                        </ul>
+                <!-- Scenario 2 -->
+                <div class="roleplay-card">
+                    <h3 style="color: var(--secondary-dark);">Scenario 2: The Teacher Interview</h3>
+                    <p style="margin-bottom: 15px;"><strong>Situation:</strong> You handed in an excellent science project. Your teacher is asking you how you completed it so fast. Explain how you used AI properly to organize your notes without cheating.</p>
+                    <p style="margin-bottom: 15px;"><strong>Roles:</strong> You (Student) & The Teacher.</p>
+                    <button class="btn-outline" onclick="toggleBox(this, 'rp-2-hints')">Show Dialogue Hints 💬</button>
+                    <div class="expandable-content" id="rp-2-hints">
+                        <p><em>Teacher:</em> "This project is fantastic. How did you research this so quickly?"</p>
+                        <p><em>You:</em> "Thank you! I used an AI tool to help me <strong>summarize</strong> long articles."</p>
+                        <p><em>Teacher:</em> "Did the AI write the text for you?"</p>
+                        <p><em>You:</em> "No, I didn't <strong>rely on</strong> it for writing. I evaluated the facts it gave me and wrote my own conclusions."</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(4, this)">Mark Section Complete ✓</button>
         </section>
 
-        <!-- SECTION 7: Fluency Builder -->
-        <section id="section-5">
-            <h2>🚀 5. Fluency Builder</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.3rem;">Use these sentence starters to sound more natural when you speak. Click a card to flip it!</p>
+        <!-- SECTION 7: FLUENCY BUILDER -->
+        <section id="section-7">
+            <h2>5. Fluency Builder ⚡</h2>
+            <p class="section-desc">Click the flashcards to flip them. Use these linking phrases to sound more natural!</p>
 
             <div class="flashcard-grid">
-                <div class="flashcard" onclick="flipCard(this, 'My favourite app is...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'I usually use my phone to...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'In my opinion,...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'To be honest,...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'For example,...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'I think it is bad because...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'It is really useful for...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'On the other hand,...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'I strongly believe that...')">Click to reveal</div>
-                <div class="flashcard" onclick="flipCard(this, 'If you ask me,...')">Click to reveal</div>
+                <!-- Cards -->
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">I strongly believe that...</div>
+                        <div class="flashcard-back">...AI is a useful tool.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">On the other hand...</div>
+                        <div class="flashcard-back">...it can make people lazy.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">For instance...</div>
+                        <div class="flashcard-back">...you can use it for math.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">One major advantage is...</div>
+                        <div class="flashcard-back">...that it saves a lot of time.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">The problem with this is...</div>
+                        <div class="flashcard-back">...the facts might be wrong.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">In my experience...</div>
+                        <div class="flashcard-back">...teachers prefer original work.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">I tend to agree because...</div>
+                        <div class="flashcard-back">...technology is our future.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">From my perspective...</div>
+                        <div class="flashcard-back">...we need to learn how to adapt.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">A good example of this is...</div>
+                        <div class="flashcard-back">...using AI to check grammar.</div>
+                    </div>
+                </div>
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">To sum up...</div>
+                        <div class="flashcard-back">...AI is helpful but risky.</div>
+                    </div>
+                </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(5, this)">Mark Section Complete ✓</button>
         </section>
 
-        <!-- SECTION 8: Review Game -->
-        <section id="section-6">
-            <h2>🎮 6. Review Game: Match the Words</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.3rem;">Click a word on the left, then click its correct meaning on the right to test your memory.</p>
+        <!-- SECTION 8: REVIEW GAME -->
+        <section id="section-8">
+            <h2>6. Vocabulary Match 🎮</h2>
+            <p class="section-desc">Test your memory! Match the vocabulary word to its correct definition.</p>
             
-            <div class="game-container" id="game-board">
-                <div class="game-col" id="words-col">
-                    <!-- Words injected by JS -->
+            <div class="game-container">
+                <div class="game-col" id="game-words">
+                    <!-- Words generated by JS -->
                 </div>
-                <div class="game-col" id="defs-col">
-                    <!-- Definitions injected by JS -->
+                <div class="game-col" id="game-defs">
+                    <!-- Defs generated by JS -->
                 </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(6, this)">Mark Section Complete ✓</button>
+            <div id="game-message" style="text-align: center; margin-top: 25px; font-weight: 700; font-size: 1.4rem; color: var(--primary);"></div>
         </section>
 
-        <!-- SECTION 9: Self Reflection -->
-        <section id="section-7">
-            <h2>🧠 7. Self-Reflection</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.3rem;">You are almost done! Check the boxes below if you feel you did a good job today.</p>
-
-            <div class="card">
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I learned new words about phones and apps.</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I used the new vocabulary in my sentences.</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I spoke loudly and clearly during the role-play.</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I gave a long answer for at least one opinion question.</span>
-                </label>
-                <label class="checklist-item">
-                    <input type="checkbox" onchange="updateProgress()">
-                    <span>I feel more confident talking in English!</span>
-                </label>
+        <!-- SECTION 9: SELF-REFLECTION -->
+        <section id="section-9">
+            <h2>My Reflection 🪞</h2>
+            <p class="section-desc">Take a moment to reflect on your speaking performance today.</p>
+            
+            <div class="reflection-item">
+                <div style="font-weight: 500;">1. Was I confident when speaking about technology?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">😕</span>
+                    <span onclick="selectEmoji(this)">😐</span>
+                    <span onclick="selectEmoji(this)">😎</span>
+                </div>
             </div>
-            <button class="btn-primary section-complete-btn" onclick="markComplete(7, this)">Mark Section Complete ✓</button>
+            <div class="reflection-item">
+                <div style="font-weight: 500;">2. Did I use the new AI vocabulary correctly?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">❌</span>
+                    <span onclick="selectEmoji(this)">🤔</span>
+                    <span onclick="selectEmoji(this)">✅</span>
+                </div>
+            </div>
+            <div class="reflection-item">
+                <div style="font-weight: 500;">3. Did I express my personal opinions clearly?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">👎</span>
+                    <span onclick="selectEmoji(this)">👌</span>
+                    <span onclick="selectEmoji(this)">👍</span>
+                </div>
+            </div>
+            <div class="reflection-item">
+                <div style="font-weight: 500;">4. Did I expand my answers with details and examples?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">📉</span>
+                    <span onclick="selectEmoji(this)">📊</span>
+                    <span onclick="selectEmoji(this)">📈</span>
+                </div>
+            </div>
+            <div class="reflection-item">
+                <div style="font-weight: 500;">5. Did I find this lesson topic interesting?</div>
+                <div class="emoji-rating">
+                    <span onclick="selectEmoji(this)">😴</span>
+                    <span onclick="selectEmoji(this)">🙂</span>
+                    <span onclick="selectEmoji(this)">🔥</span>
+                </div>
+            </div>
         </section>
 
-        <!-- Copyright Footer -->
-        <footer>
-            <p>© 2026 Bản quyền thuộc về <span class="copyright-highlight">Hệ thống Anh Ngữ Lucero (Lucero English System)</span></p>
-            <p style="margin-top: 8px;">Tác giả biên soạn: <span class="copyright-highlight">Mr. Lucero</span></p>
-        </footer>
-
-    </div>
-
-    <!-- Custom Modal for Notifications (Replaces alert) -->
-    <div id="custom-modal" class="modal-overlay">
-        <div class="modal-content">
-            <h3 id="modal-title" class="modal-title">Success!</h3>
-            <p id="modal-text" class="modal-text">You did a great job.</p>
-            <button class="btn-primary" onclick="closeModal()">Awesome!</button>
+        <!-- FOOTER / COPYRIGHT -->
+        <div class="footer">
+            <p>© Copyright by <span class="brand">ELS - English Lucero System</span></p>
+            <p>Author: <span class="brand">Mr. Lucero</span></p>
         </div>
+
     </div>
 
-    <!-- JavaScript for Interactivity -->
+    <!-- Container for custom toast notifications -->
+    <div id="toast-container"></div>
+
     <script>
-        // --- Modal Logic (Replaces window.alert) ---
-        function showModal(title, text) {
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-text').innerText = text;
-            document.getElementById('custom-modal').style.display = 'flex';
+        
+        // --- Custom Toast Notification System ---
+        function showToast(message, emoji = '✨') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `<span>${emoji}</span> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('fade-out');
+                toast.addEventListener('animationend', () => {
+                    toast.remove();
+                });
+            }, 3000);
         }
 
-        function closeModal() {
-            document.getElementById('custom-modal').style.display = 'none';
+        // --- Web Speech API (Text-to-Speech) for US English ---
+        let voicesLoaded = false;
+        
+        function initVoices() {
+            window.speechSynthesis.getVoices();
+            voicesLoaded = true;
         }
 
-        // --- Accordion / Reveal logic ---
-        function toggle(id) {
-            const el = document.getElementById(id);
-            if (el.classList.contains('show')) {
-                el.classList.remove('show');
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = initVoices;
+            initVoices();
+        }
+
+        function playAudio(word) {
+            if (!('speechSynthesis' in window)) {
+                showToast("Browser doesn't support audio.", "🔇");
+                return;
+            }
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'en-US'; 
+            utterance.rate = 0.9;    
+            
+            const voices = window.speechSynthesis.getVoices();
+            const preferredVoice = voices.find(voice => voice.lang === 'en-US' && voice.name.includes('Google'));
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
             } else {
-                el.classList.add('show');
+                const anyUsVoice = voices.find(voice => voice.lang === 'en-US');
+                if (anyUsVoice) utterance.voice = anyUsVoice;
             }
+
+            window.speechSynthesis.speak(utterance);
+            showToast("Pronouncing: " + word, "🔊");
         }
 
-        // --- Flashcard Flip Logic ---
-        function flipCard(element, text) {
-            if (element.innerText === 'Click to reveal') {
-                element.innerText = text;
-                element.style.background = 'linear-gradient(135deg, var(--secondary), #f472b6)'; // Change to pink gradient
-                element.style.color = '#fff';
+        // --- General Interactivity ---
+        function toggleBox(btn, boxId) {
+            const content = document.getElementById(boxId);
+            const isActive = content.classList.contains('active');
+            
+            if (isActive) {
+                content.classList.remove('active');
             } else {
-                element.innerText = 'Click to reveal';
-                element.style.background = 'linear-gradient(135deg, var(--primary), #a78bfa)'; // Revert to purple
+                content.classList.add('active');
             }
         }
 
-        // --- Progress Tracker Logic ---
-        let totalSectionsCompleted = 0;
-        const totalSections = 7;
-
-        function markComplete(sectionNum, btnEl) {
-            if (!btnEl.classList.contains('completed')) {
-                btnEl.classList.add('completed');
-                btnEl.innerText = "Section Completed ✅";
-                totalSectionsCompleted++;
-                
-                // Update Progress Bar
-                const percentage = (totalSectionsCompleted / totalSections) * 100;
-                document.getElementById('progress-bar').style.width = percentage + '%';
-
-                if(percentage === 100) {
-                    setTimeout(() => {
-                        showModal("🎉 Congratulations!", "You have completed the entire speaking lesson! Great job today.");
-                    }, 600);
-                }
+        // --- Progress Tracker ---
+        function toggleProgress(el) {
+            el.classList.toggle('completed');
+            if(el.classList.contains('completed')){
+                el.innerHTML = el.innerHTML + ' ✓';
+                showToast("Section completed!", "🌟");
+            } else {
+                el.innerHTML = el.innerHTML.replace(' ✓', '');
             }
+        }
+
+        // --- Flashcards ---
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // --- Reflection Emojis ---
+        function selectEmoji(emojiEl) {
+            const siblings = emojiEl.parentElement.children;
+            for(let i=0; i<siblings.length; i++){
+                siblings[i].classList.remove('selected');
+            }
+            emojiEl.classList.add('selected');
+            showToast("Feedback saved!", "📝");
         }
 
         // --- Review Game Logic ---
         const vocabData = [
-            { id: 1, word: "Download", def: "To copy a file/app from the internet." },
-            { id: 2, word: "Notification", def: "A pop-up message on your screen." },
-            { id: 3, word: "Post", def: "To put a picture or text on the internet." },
-            { id: 4, word: "Password", def: "A secret word to lock your account." },
-            { id: 5, word: "Screen time", def: "Time spent looking at your phone." },
-            { id: 6, word: "Useful", def: "Helpful for doing a task." },
-            { id: 7, word: "Follower", def: "A person who subscribes to see your posts." },
-            { id: 8, word: "Distracted", def: "Not paying attention to what you should be doing." }
+            { id: 1, word: "Generate", def: "To create or produce something automatically." },
+            { id: 2, word: "Plagiarism", def: "Copying someone else's work and calling it your own." },
+            { id: 3, word: "Brainstorm", def: "To think of many different ideas quickly." },
+            { id: 4, word: "Accurate", def: "Correct, exact, and without any mistakes." },
+            { id: 5, word: "Rely on", def: "To depend on or trust something/someone for help." },
+            { id: 6, word: "Summarize", def: "To make a long text shorter." }
         ];
 
         let selectedWordBtn = null;
         let selectedDefBtn = null;
         let matchesFound = 0;
 
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
         function initGame() {
-            const wordsCol = document.getElementById('words-col');
-            const defsCol = document.getElementById('defs-col');
+            const wordContainer = document.getElementById('game-words');
+            const defContainer = document.getElementById('game-defs');
             
-            let words = [...vocabData];
-            let defs = [...vocabData];
-            
-            shuffleArray(words);
-            shuffleArray(defs);
+            // Clear containers
+            wordContainer.innerHTML = '';
+            defContainer.innerHTML = '';
+
+            // Shuffle arrays
+            const words = [...vocabData].sort(() => Math.random() - 0.5);
+            const defs = [...vocabData].sort(() => Math.random() - 0.5);
 
             words.forEach(item => {
                 let btn = document.createElement('button');
-                btn.className = 'game-btn word-btn';
+                btn.className = 'game-btn';
                 btn.innerText = item.word;
                 btn.dataset.id = item.id;
                 btn.onclick = () => handleWordClick(btn);
-                wordsCol.appendChild(btn);
+                wordContainer.appendChild(btn);
             });
 
             defs.forEach(item => {
                 let btn = document.createElement('button');
-                btn.className = 'game-btn def-btn';
+                btn.className = 'game-btn';
                 btn.innerText = item.def;
                 btn.dataset.id = item.id;
                 btn.onclick = () => handleDefClick(btn);
-                defsCol.appendChild(btn);
+                defContainer.appendChild(btn);
             });
         }
 
         function handleWordClick(btn) {
-            if(btn.classList.contains('matched')) return;
-            
-            // Deselect previous
-            document.querySelectorAll('.word-btn').forEach(b => b.classList.remove('selected'));
-            
-            btn.classList.add('selected');
+            if (btn.classList.contains('matched')) return;
+            if (selectedWordBtn) selectedWordBtn.classList.remove('selected');
             selectedWordBtn = btn;
-            
+            selectedWordBtn.classList.add('selected');
             checkMatch();
         }
 
         function handleDefClick(btn) {
-            if(btn.classList.contains('matched')) return;
-            
-            // Deselect previous
-            document.querySelectorAll('.def-btn').forEach(b => b.classList.remove('selected'));
-            
-            btn.classList.add('selected');
+            if (btn.classList.contains('matched')) return;
+            if (selectedDefBtn) selectedDefBtn.classList.remove('selected');
             selectedDefBtn = btn;
-            
+            selectedDefBtn.classList.add('selected');
             checkMatch();
         }
 
         function checkMatch() {
             if (selectedWordBtn && selectedDefBtn) {
-                const wordId = selectedWordBtn.dataset.id;
-                const defId = selectedDefBtn.dataset.id;
-
-                if (wordId === defId) {
+                if (selectedWordBtn.dataset.id === selectedDefBtn.dataset.id) {
                     // Match!
                     selectedWordBtn.classList.remove('selected');
                     selectedDefBtn.classList.remove('selected');
                     selectedWordBtn.classList.add('matched');
                     selectedDefBtn.classList.add('matched');
                     
-                    selectedWordBtn = null;
-                    selectedDefBtn = null;
                     matchesFound++;
-
-                    if (matchesFound === vocabData.length) {
-                        setTimeout(() => {
-                            showModal("🎮 Game Over!", "Excellent! You matched all the vocabulary words correctly!");
-                        }, 400);
+                    document.getElementById('game-message').innerText = "Correct! Great job! 🎉";
+                    showToast("Perfect Match!", "🎯");
+                    
+                    if(matchesFound === vocabData.length) {
+                        document.getElementById('game-message').innerText = "Mission Accomplished! 🏆";
+                        showToast("YOU WON!", "🏆");
                     }
+                    
+                    resetSelection();
                 } else {
-                    // Wrong!
+                    // No match
                     selectedWordBtn.classList.add('wrong');
                     selectedDefBtn.classList.add('wrong');
-                    
-                    let tempW = selectedWordBtn;
-                    let tempD = selectedDefBtn;
+                    document.getElementById('game-message').innerText = "Not quite. Try again! 🤔";
                     
                     setTimeout(() => {
-                        tempW.classList.remove('wrong', 'selected');
-                        tempD.classList.remove('wrong', 'selected');
-                    }, 500);
-
-                    selectedWordBtn = null;
-                    selectedDefBtn = null;
+                        selectedWordBtn.classList.remove('wrong', 'selected');
+                        selectedDefBtn.classList.remove('wrong', 'selected');
+                        resetSelection();
+                        if (matchesFound !== vocabData.length) {
+                            document.getElementById('game-message').innerText = "";
+                        }
+                    }, 800);
                 }
             }
         }
 
-        // Initialize Game on load
-        window.onload = initGame;
-
-        // Reflection Checkbox trigger
-        function updateProgress() {
-            // Optional: Can add additional micro-interactions here.
+        function resetSelection() {
+            selectedWordBtn = null;
+            selectedDefBtn = null;
         }
+
+        window.onload = initGame;
 
     </script>
 </body>
