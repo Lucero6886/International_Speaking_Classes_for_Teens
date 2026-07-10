@@ -3,936 +3,1068 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: Traffic Problems Near My School</title>
+    <title>Speaking Lesson: My Personal Style</title>
     <style>
         :root {
-            --bg-color: #f4f9f9;
-            --text-main: #2c3e50;
-            --text-light: #546e7a;
-            --primary: #3498db;
-            --primary-hover: #2980b9;
-            --secondary: #f39c12;
-            --secondary-hover: #d68910;
-            --success: #2ecc71;
-            --card-bg: #ffffff;
-            --border-radius: 18px;
-            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
-            --shadow-md: 0 8px 15px rgba(0,0,0,0.08);
+            /* Stylish pastel aesthetic for teens */
+            --primary: #8B5CF6; /* Violet */
+            --primary-hover: #7C3AED;
+            --secondary: #EC4899; /* Pink */
+            --success: #14B8A6; /* Teal */
+            --warning: #F59E0B; /* Amber */
+            --bg: #F5F3FF; /* Soft violet background */
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --radius: 20px;
+            --shadow: 0 10px 25px rgba(139, 92, 246, 0.08);
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Nunito', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
+            font-family: var(--font);
+            background-color: var(--bg);
             color: var(--text-main);
-            /* Increased font size for better presentation visibility */
-            font-size: 17px; 
-            line-height: 1.65;
-            padding: 20px;
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: #E5E7EB;
+            z-index: 1000;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 4px 4px 0;
         }
 
         .container {
-            max-width: 950px; /* Slightly wider for presentation */
+            max-width: 900px;
             margin: 0 auto;
+            padding: 50px 20px;
         }
 
-        /* --- Header & Progress Bar --- */
-        header {
+        .hero {
             text-align: center;
             margin-bottom: 40px;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+            background: linear-gradient(135deg, var(--primary), #A78BFA);
             color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
+            padding: 50px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
-        h1 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 800; text-shadow: 1px 2px 4px rgba(0,0,0,0.2); }
-        h2 { font-size: 1.8rem; margin: 35px 0 20px 0; color: #2c3e50; border-bottom: 3px solid var(--primary); padding-bottom: 8px; display: inline-block;}
-        h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;}
-        
-        .lesson-info {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            font-weight: 600;
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .objectives-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 16px;
+            margin-top: 25px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .objectives-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .objectives-card li {
+            margin-bottom: 10px;
             font-size: 1.1rem;
-            margin-top: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .lesson-info span {
-            background: rgba(255,255,255,0.25);
-            padding: 8px 16px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-            white-space: nowrap; /* Prevents wrapping mid-text */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 60px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #E5E7EB;
         }
 
-        .progress-container {
-            position: sticky;
-            top: 0;
-            background: rgba(244, 249, 249, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 15px 0;
-            z-index: 100;
-            border-bottom: 1px solid #e1e8ed;
-            margin-bottom: 20px;
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
         }
 
-        .progress-bar-bg {
-            background: #dfe6e9;
-            height: 14px;
-            border-radius: 7px;
-            overflow: hidden;
-            width: 100%;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        .mark-complete {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card-bg);
+            padding: 10px 16px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            border: 1px solid #E5E7EB;
         }
 
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #2ecc71, #27ae60);
-            width: 0%;
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        .mark-complete:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
 
-        /* --- Global Card Style --- */
+        .mark-complete input {
+            transform: scale(1.3);
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
         .card {
             background: var(--card-bg);
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             padding: 30px;
             margin-bottom: 25px;
-            box-shadow: var(--shadow-sm);
-            border-left: 6px solid var(--primary);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .card:hover {
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* --- Buttons --- */
-        .btn {
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.12);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        button {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 10px 22px;
-            border-radius: 25px;
-            font-size: 1.05rem;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 12px;
-            margin-right: 10px;
-            white-space: nowrap; /* Crucial: Prevents text/emoji from breaking into two lines */
-            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+            font-family: inherit;
         }
 
-        .btn:hover {
+        button:hover {
             background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+            transform: scale(1.02);
         }
 
-        .btn-audio {
-            background-color: #f1f2f6;
-            color: #2c3e50;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            padding: 0;
-            justify-content: center;
-            box-shadow: none;
+        button.outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
-        .btn-audio:hover { background-color: #dfe4ea; transform: scale(1.05); }
-
-        .btn-secondary { 
-            background-color: var(--secondary); 
-            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.3);
-        }
-        .btn-secondary:hover { 
-            background-color: var(--secondary-hover); 
-            box-shadow: 0 4px 8px rgba(243, 156, 18, 0.4);
+        button.outline:hover {
+            background-color: var(--primary);
+            color: white;
         }
 
-        /* --- Interactive Reveal Sections --- */
-        .reveal-content {
+        details {
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 14px;
+            margin-top: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            padding: 18px 20px;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            color: var(--primary);
+            transition: background 0.2s;
+        }
+
+        summary::-webkit-details-marker {
             display: none;
-            background: #f8fcfd;
+        }
+
+        summary:hover {
+            background: #F3F4F6;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: normal;
+            transition: transform 0.3s;
+            color: var(--secondary);
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .details-content {
+            padding: 20px;
+            border-top: 1px solid #E5E7EB;
+            background: #F9FAFB;
+        }
+
+        .details-content ul {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .details-content li {
+            margin-bottom: 8px;
+        }
+
+        .answer-box {
+            background: var(--card-bg);
             border-left: 4px solid var(--secondary);
             padding: 18px;
-            margin-top: 15px;
-            border-radius: 0 12px 12px 0;
-            animation: fadeIn 0.4s ease;
-            font-size: 1.1rem;
-            color: #34495e;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- Vocabulary Grid --- */
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Prevent squeezing */
-            gap: 25px;
-        }
-
-        .vocab-card {
-            background: var(--card-bg);
-            border: 1px solid #e1e8ed;
-            border-radius: var(--border-radius);
-            padding: 25px;
-            position: relative;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .vocab-word { font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
-        .vocab-def { font-style: italic; color: var(--text-light); margin-bottom: 18px; font-size: 1.05rem;}
-
-        /* --- Difficulty Labels --- */
-        .badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: white;
             margin-bottom: 15px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .answer-box span.badge {
+            display: inline-block;
+            background: #FCE7F3; /* Light pink */
+            color: var(--secondary);
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            white-space: nowrap; /* Prevents wrapping */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .badge-easy { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-        .badge-medium { background: linear-gradient(135deg, #f39c12, #d35400); }
-        .badge-opinion { background: linear-gradient(135deg, #e74c3c, #c0392b); }
 
-        /* --- Flashcards (Fluency Builder) --- */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .vocab-item {
+            text-align: center;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .vocab-word {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .vocab-def {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .example-sentence {
+            margin-top: 20px;
+            padding: 15px;
+            background: #F5F3FF;
+            border-radius: 12px;
+            color: var(--primary-hover);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .hidden { display: none; }
+
         .flashcard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
+
         .flashcard {
-            background-color: transparent;
-            height: 140px;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-        .flashcard-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        .flashcard.flipped .flashcard-inner {
-            transform: rotateY(180deg);
-        }
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background: var(--card-bg);
+            border: 2px dashed #D1D5DB;
             border-radius: 16px;
-            box-shadow: var(--shadow-sm);
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
-        .flashcard-front {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
+
+        .flashcard:hover {
+            border-color: var(--primary);
+            background: #F5F3FF;
+            transform: scale(1.03);
+        }
+
+        .flashcard .front {
             font-size: 1.25rem;
             font-weight: 700;
-        }
-        .flashcard-back {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-            transform: rotateY(180deg);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* --- Matching Game --- */
-        .game-container {
-            display: flex;
-            gap: 25px;
-            justify-content: space-between;
-        }
-        @media (max-width: 768px) {
-            .game-container { flex-direction: column; }
-        }
-        .game-col { flex: 1; display: flex; flex-direction: column; gap: 12px; }
-        .game-btn {
-            background: white;
-            border: 2px solid var(--primary);
-            padding: 18px;
-            border-radius: 12px;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s;
-            font-size: 1.1rem;
-            font-weight: 600;
             color: var(--primary);
-        }
-        .game-btn:hover { background: #ebf5fb; transform: translateY(-2px); }
-        .game-btn.selected { background: var(--primary); color: white; box-shadow: var(--shadow-sm); }
-        .game-btn.matched { background: var(--success); border-color: var(--success); color: white; cursor: default; }
-        .game-btn.wrong { animation: shake 0.4s; background: #e74c3c; color: white; border-color: #e74c3c; }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-8px); }
-            50% { transform: translateX(8px); }
-            75% { transform: translateX(-8px); }
+            transition: opacity 0.3s;
         }
 
-        /* --- Checkboxes --- */
-        .check-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 18px;
-            font-size: 1.15rem;
-            cursor: pointer;
-            font-weight: 600;
-            background: #f1f2f6;
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: background 0.2s;
+        .flashcard .back {
+            display: none;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            width: 100%;
         }
-        .check-item:hover { background: #eccc68; color: #2f3542; }
+
+        .flashcard.flipped {
+            background: var(--primary);
+            border-style: solid;
+        }
+
+        .flashcard.flipped .front { display: none; }
+        .flashcard.flipped .back { display: block; color: white; }
         
-        input[type="checkbox"] {
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
-            accent-color: var(--success);
-        }
+        .flashcard.flipped strong { color: #FCD34D; }
 
-        /* --- Helpers --- */
-        .emoji { font-size: 1.5rem; vertical-align: middle; }
-        .mb-2 { margin-bottom: 25px; }
-        .q-text { font-size: 1.25rem; color: #2c3e50; margin-bottom: 10px;}
-
-        /* --- Copyright Footer --- */
-        .lucero-footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px dashed #cbd5e1;
-            text-align: center;
-            color: #64748b;
-            font-size: 1.05rem;
-            padding-bottom: 30px;
-        }
-        .lucero-footer .brand {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: #0f172a;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
+        .quiz-option {
             display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 12px;
+            background: #F9FAFB;
+            color: var(--text-main);
+            border: 2px solid #E5E7EB;
+            padding: 15px 20px;
         }
-        .lucero-footer .author {
-            color: var(--primary);
+        .quiz-option:hover:not(:disabled) {
+            background: #F3F4F6;
+            border-color: #D1D5DB;
+        }
+        .quiz-option:disabled {
+            cursor: not-allowed;
+            opacity: 0.9;
+        }
+        .feedback {
+            margin-top: 15px;
             font-weight: 700;
+            font-size: 1.1rem;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .mark-complete { align-self: stretch; justify-content: center; }
+            .container { padding: 30px 15px; }
         }
     </style>
 </head>
 <body>
 
-<div class="progress-container">
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-            <span style="font-size: 1rem; color: var(--text-main); font-weight: 800;">🚀 Lesson Progress</span>
-            <span id="progress-text" style="font-size: 0.9rem; font-weight: bold; color: var(--success);">0%</span>
-        </div>
-        <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="main-progress"></div>
-        </div>
-    </div>
-</div>
+        <header class="hero">
+            <h1>✨ My Personal Style</h1>
+            <p>A speaking lesson about fashion, clothes, and identity. (Ages 13-16 | Level A2-B1)</p>
+            
+            <div class="objectives-card">
+                <h3 style="margin-bottom: 10px;">🎯 Today's Learning Objectives:</h3>
+                <ul>
+                    <li>👗 Describe clothing items, accessories, and fashion preferences.</li>
+                    <li>🗣️ Express opinions on fashion trends and personal style.</li>
+                    <li>💬 Give polite compliments and advice on outfits.</li>
+                </ul>
+            </div>
+        </header>
 
-<div class="container">
-    <header>
-        <h1>🚦 Traffic Problems Near My School</h1>
-        <div class="lesson-info">
-            <span>👤 Target: Teens (13-16)</span>
-            <span>📊 Level: A2-B2</span>
-            <span>⏱️ Time: 60 mins</span>
-        </div>
-    </header>
-
-    <div class="card" style="background: linear-gradient(to right, #f0fdf4, #ffffff); border-left-color: var(--success);">
-        <h3>🎯 Learning Objectives</h3>
-        <ul style="list-style-type: none; padding-left: 10px; font-size: 1.15rem; line-height: 1.8;">
-            <li>✅ <strong>Use</strong> vocabulary related to traffic and daily commutes.</li>
-            <li>✅ <strong>Answer</strong> personal questions about getting to school fluently.</li>
-            <li>✅ <strong>Express</strong> simple opinions and propose solutions to city problems.</li>
-        </ul>
-    </div>
-
-    <!-- SECTION 1: WARM-UP -->
-    <h2>1. Warm-Up 🏃‍♂️</h2>
-    <div class="card section-tracker">
-        <label class="check-item"><input type="checkbox" class="section-check"> Mark as Completed</label>
-        <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-light);"><em>Answer these questions to get started. Click the button if you need ideas!</em></p>
-        
-        <div class="mb-2">
-            <p class="q-text"><strong>1. How do you usually get to school?</strong> <span class="emoji">🚶‍♂️🚲🚗🚌</span></p>
-            <button class="btn" onclick="toggle('w1')">💡 Example Answer</button>
-            <div id="w1" class="reveal-content">"I usually take the school bus, but sometimes my parents drive me."</div>
-        </div>
-
-        <div class="mb-2">
-            <p class="q-text"><strong>2. How long does your journey take?</strong> <span class="emoji">⏱️</span></p>
-            <button class="btn" onclick="toggle('w2')">💡 Example Answer</button>
-            <div id="w2" class="reveal-content">"It usually takes about 20 minutes, but it can take 40 minutes if there is bad traffic."</div>
-        </div>
-
-        <div class="mb-2">
-            <p class="q-text"><strong>3. Do you like your commute to school? Why/why not?</strong> <span class="emoji">👍👎</span></p>
-            <button class="btn" onclick="toggle('w3')">💡 Example Answer</button>
-            <div id="w3" class="reveal-content">"I don't really like it. The bus is always crowded and it's quite boring."</div>
-        </div>
-
-        <div class="mb-2">
-            <p class="q-text"><strong>4. Are you ever late for school because of traffic?</strong> <span class="emoji">⏰</span></p>
-            <button class="btn" onclick="toggle('w4')">💡 Example Answer</button>
-            <div id="w4" class="reveal-content">"Yes, at least once a month! Especially when it rains, the roads get completely blocked."</div>
-        </div>
-
-        <div class="mb-2">
-            <p class="q-text"><strong>5. What is the most annoying thing on the road?</strong> <span class="emoji">😠</span></p>
-            <button class="btn" onclick="toggle('w5')">💡 Example Answer</button>
-            <div id="w5" class="reveal-content">"The most annoying thing is when drivers honk their horns constantly for no reason."</div>
-        </div>
-    </div>
-
-    <!-- SECTION 2: VOCABULARY -->
-    <h2>2. Vocabulary 📚</h2>
-    <div style="margin-bottom: 15px;">
-        <label class="check-item"><input type="checkbox" class="section-check"> Mark as Completed</label>
-    </div>
-    
-    <div class="vocab-grid mb-2">
-        <!-- Vocab Items -->
-        <div class="vocab-card">
-            <div class="vocab-word">Traffic jam</div>
-            <div class="vocab-def">A long line of vehicles that cannot move forward.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Traffic jam')">🔊</button>
-            <button class="btn" onclick="toggle('v1')">📖 View Sentence</button>
-            <div id="v1" class="reveal-content">We were stuck in a <strong>traffic jam</strong> for an hour this morning.</div>
+        <div class="section-header">
+            <h2>1. Warm-Up 🧊</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
+            </label>
         </div>
         
-        <div class="vocab-card">
-            <div class="vocab-word">Rush hour</div>
-            <div class="vocab-def">The busy part of the day when roads are crowded.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Rush hour')">🔊</button>
-            <button class="btn" onclick="toggle('v2')">📖 View Sentence</button>
-            <div id="v2" class="reveal-content">Try to avoid driving near the school during <strong>rush hour</strong>.</div>
-        </div>
-
-        <div class="vocab-card">
-            <div class="vocab-word">Pedestrian</div>
-            <div class="vocab-def">A person walking in a city or along a road.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Pedestrian')">🔊</button>
-            <button class="btn" onclick="toggle('v3')">📖 View Sentence</button>
-            <div id="v3" class="reveal-content">Drivers must stop for <strong>pedestrians</strong> at the crosswalk.</div>
-        </div>
-
-        <div class="vocab-card">
-            <div class="vocab-word">Commute</div>
-            <div class="vocab-def">To travel regularly between school/work and home.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Commute')">🔊</button>
-            <button class="btn" onclick="toggle('v4')">📖 View Sentence</button>
-            <div id="v4" class="reveal-content">My daily <strong>commute</strong> to school is very stressful.</div>
-        </div>
-
-        <div class="vocab-card">
-            <div class="vocab-word">Exhaust fumes</div>
-            <div class="vocab-def">Harmful gases produced by vehicle engines.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Exhaust fumes')">🔊</button>
-            <button class="btn" onclick="toggle('v5')">📖 View Sentence</button>
-            <div id="v5" class="reveal-content">Walking to school is unpleasant because of the <strong>exhaust fumes</strong>.</div>
-        </div>
-
-        <div class="vocab-card">
-            <div class="vocab-word">Public transport</div>
-            <div class="vocab-def">Buses, trains, and subways that anyone can use.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Public transport')">🔊</button>
-            <button class="btn" onclick="toggle('v6')">📖 View Sentence</button>
-            <div id="v6" class="reveal-content">Taking <strong>public transport</strong> is better for the environment than driving.</div>
-        </div>
-
-        <div class="vocab-card">
-            <div class="vocab-word">Congestion</div>
-            <div class="vocab-def">The state of being too crowded with traffic.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Congestion')">🔊</button>
-            <button class="btn" onclick="toggle('v7')">📖 View Sentence</button>
-            <div id="v7" class="reveal-content">The city is building wider roads to reduce <strong>congestion</strong>.</div>
-        </div>
-
-        <div class="vocab-card">
-            <div class="vocab-word">Carpool</div>
-            <div class="vocab-def">Sharing a car journey with other people.</div>
-            <button class="btn btn-audio" onclick="playAudioPlaceholder('Carpool')">🔊</button>
-            <button class="btn" onclick="toggle('v8')">📖 View Sentence</button>
-            <div id="v8" class="reveal-content">My neighbors and I <strong>carpool</strong> to school to save time and gas.</div>
-        </div>
-    </div>
-
-    <!-- SECTIONS 3: SPEAKING PRACTICE -->
-    <h2>3. Main Speaking Practice 🎙️</h2>
-    <p style="margin-bottom: 15px; font-size: 1.1rem;"><em>Click on the buttons to reveal ideas and sample answers to help you speak!</em></p>
-    <div style="margin-bottom: 20px;">
-        <label class="check-item"><input type="checkbox" class="section-check"> Mark as Completed</label>
-    </div>
-
-    <!-- Easy Questions -->
-    <div class="card">
-        <span class="badge badge-easy">Level: Easy</span>
-        <p class="q-text"><strong>Q1: Is the traffic heavy near your school in the morning?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea1')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans1_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans1_ext')">💬 Extended Answer</button>
-        
-        <div id="idea1" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Yes, very heavy / Lots of parents driving.</li>
-                <li>No, it's a quiet street / Most students walk.</li>
-            </ul>
-        </div>
-        <div id="ans1_short" class="reveal-content"><strong>Short:</strong> Yes, it is very heavy because many parents drop their kids off at the same time.</div>
-        <div id="ans1_ext" class="reveal-content"><strong>Extended:</strong> Yes, it gets really heavy between 7:30 and 8:00 AM. So many parents drive their kids to school, which creates a huge bottleneck right in front of the main gates.</div>
-    </div>
-
-    <div class="card">
-        <span class="badge badge-easy">Level: Easy</span>
-        <p class="q-text"><strong>Q2: What kinds of vehicles do you see the most?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea2')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans2_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans2_ext')">💬 Extended Answer</button>
-        
-        <div id="idea2" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Cars / SUVs (parents dropping kids off).</li>
-                <li>Motorbikes / Scooters.</li>
-                <li>School buses / City buses.</li>
-            </ul>
-        </div>
-        <div id="ans2_short" class="reveal-content"><strong>Short:</strong> I mostly see private cars and motorbikes on my way to school.</div>
-        <div id="ans2_ext" class="reveal-content"><strong>Extended:</strong> I see a lot of motorbikes weaving through the traffic. There are also many large cars and SUVs. Sometimes there are a few yellow school buses, but it's mostly personal vehicles.</div>
-    </div>
-
-    <div class="card">
-        <span class="badge badge-easy">Level: Easy</span>
-        <p class="q-text"><strong>Q3: Is it safe to cross the street near your school?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea3')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans3_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans3_ext')">💬 Extended Answer</button>
-        
-        <div id="idea3" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Yes, we have a crossing guard.</li>
-                <li>No, cars drive too fast.</li>
-                <li>Sometimes, you have to look carefully.</li>
-            </ul>
-        </div>
-        <div id="ans3_short" class="reveal-content"><strong>Short:</strong> Not really, you have to be very careful because cars don't always stop.</div>
-        <div id="ans3_ext" class="reveal-content"><strong>Extended:</strong> It can be quite dangerous. Even though we have a zebra crossing, drivers are always in a rush in the morning and sometimes ignore the pedestrians waiting to cross.</div>
-    </div>
-
-    <!-- Medium Questions -->
-    <div class="card">
-        <span class="badge badge-medium">Level: Medium</span>
-        <p class="q-text"><strong>Q4: What causes the most traffic congestion near your school?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea4')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans4_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans4_ext')">💬 Extended Answer</button>
-        
-        <div id="idea4" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Parents parking badly / double-parking.</li>
-                <li>Narrow streets.</li>
-                <li>Roadworks or construction nearby.</li>
-            </ul>
-        </div>
-        <div id="ans4_short" class="reveal-content"><strong>Short:</strong> I think the main cause is parents stopping right in front of the school gates.</div>
-        <div id="ans4_ext" class="reveal-content"><strong>Extended:</strong> The main cause is definitely parents double-parking to drop off their kids. It blocks a whole lane of traffic and forces everyone else to squeeze past, which slows everything down.</div>
-    </div>
-
-    <div class="card">
-        <span class="badge badge-medium">Level: Medium</span>
-        <p class="q-text"><strong>Q5: How does bad traffic affect the students?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea5')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans5_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans5_ext')">💬 Extended Answer</button>
-        
-        <div id="idea5" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Makes them late for class.</li>
-                <li>Causes stress and anxiety in the morning.</li>
-                <li>Breathing in dirty air (pollution).</li>
-            </ul>
-        </div>
-        <div id="ans5_short" class="reveal-content"><strong>Short:</strong> It makes students late and stressed before the school day even begins.</div>
-        <div id="ans5_ext" class="reveal-content"><strong>Extended:</strong> Bad traffic makes a lot of students late for their first class. This starts the day off with stress. Also, walking through heavy traffic means breathing in unhealthy exhaust fumes.</div>
-    </div>
-
-    <div class="card">
-        <span class="badge badge-medium">Level: Medium</span>
-        <p class="q-text"><strong>Q6: Do you think taking the bus is better than driving? Why?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea6')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans6_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans6_ext')">💬 Extended Answer</button>
-        
-        <div id="idea6" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Yes, one bus replaces many cars.</li>
-                <li>Yes, better for the environment.</li>
-                <li>No, buses are too slow or crowded.</li>
-            </ul>
-        </div>
-        <div id="ans6_short" class="reveal-content"><strong>Short:</strong> Yes, because one bus can carry many students, which reduces the number of cars.</div>
-        <div id="ans6_ext" class="reveal-content"><strong>Extended:</strong> Yes, I strongly believe taking the bus is better. One bus can carry about 40 students. That means up to 40 fewer cars on the road, which massively reduces both congestion and pollution.</div>
-    </div>
-
-    <div class="card">
-        <span class="badge badge-medium">Level: Medium</span>
-        <p class="q-text"><strong>Q7: How would you describe the noise levels outside your school?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea7')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans7_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans7_ext')">💬 Extended Answer</button>
-        
-        <div id="idea7" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Very loud / deafening.</li>
-                <li>Lots of honking horns and engine noise.</li>
-                <li>Hard to concentrate in classrooms facing the street.</li>
-            </ul>
-        </div>
-        <div id="ans7_short" class="reveal-content"><strong>Short:</strong> It is extremely loud, especially with all the cars honking.</div>
-        <div id="ans7_ext" class="reveal-content"><strong>Extended:</strong> It is incredibly noisy. You constantly hear horns honking, engines revving, and traffic police blowing whistles. It makes it really hard to concentrate if our classroom windows are open.</div>
-    </div>
-
-    <!-- Opinion Questions -->
-    <div class="card">
-        <span class="badge badge-opinion">Level: Opinion</span>
-        <p class="q-text"><strong>Q8: What should the school do to improve the traffic situation?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea8')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans8_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans8_ext')">💬 Extended Answer</button>
-        
-        <div id="idea8" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Ban cars directly in front of the gates.</li>
-                <li>Stagger start times (e.g., Grade 9 starts at 8:00, Grade 10 at 8:15).</li>
-                <li>Encourage cycling or walking clubs.</li>
-            </ul>
-        </div>
-        <div id="ans8_short" class="reveal-content"><strong>Short:</strong> The school should create a "no car zone" right outside the gates.</div>
-        <div id="ans8_ext" class="reveal-content"><strong>Extended:</strong> I believe the school should enforce a "no car zone" directly in front of the entrance. They could also encourage staggered drop-off times so that not every student arrives at the exact same minute.</div>
-    </div>
-
-    <div class="card">
-        <span class="badge badge-opinion">Level: Opinion</span>
-        <p class="q-text"><strong>Q9: If you were the city mayor, how would you fix traffic jams?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea9')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans9_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans9_ext')">💬 Extended Answer</button>
-        
-        <div id="idea9" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Make public transport free for students.</li>
-                <li>Build protected, safe bike lanes.</li>
-                <li>Charge a toll/fee for driving in the city center.</li>
-            </ul>
-        </div>
-        <div id="ans9_short" class="reveal-content"><strong>Short:</strong> I would build safer bike lanes and make buses free for students.</div>
-        <div id="ans9_ext" class="reveal-content"><strong>Extended:</strong> If I were mayor, I would invest heavily in public transport and make it free for teenagers. I would also build protected bike lanes so that students feel safe cycling to school instead of needing their parents to drive them.</div>
-    </div>
-
-    <div class="card">
-        <span class="badge badge-opinion">Level: Opinion</span>
-        <p class="q-text"><strong>Q10: Do you think traffic will get better or worse in the future?</strong></p>
-        <button class="btn btn-secondary" onclick="toggle('idea10')">💡 Idea Bank</button>
-        <button class="btn" onclick="toggle('ans10_short')">🗣️ Short Answer</button>
-        <button class="btn" onclick="toggle('ans10_ext')">💬 Extended Answer</button>
-        
-        <div id="idea10" class="reveal-content">
-            <ul style="padding-left: 20px;">
-                <li>Worse: population is growing, more people buy cars.</li>
-                <li>Better: smart city technology, flying cars.</li>
-                <li>Better: more people might start working/studying from home.</li>
-            </ul>
-        </div>
-        <div id="ans10_short" class="reveal-content"><strong>Short:</strong> Probably worse, because the population is growing and more families own cars.</div>
-        <div id="ans10_ext" class="reveal-content"><strong>Extended:</strong> Unfortunately, I think it will get worse before it gets better. More families are buying private cars every year. Unless we completely change our habits and switch to green transport, the roads will just get more congested.</div>
-    </div>
-
-    <!-- SECTION 4: ROLE-PLAY -->
-    <h2>4. Role-Play Scenarios 🎭</h2>
-    <div style="margin-bottom: 15px;">
-        <label class="check-item"><input type="checkbox" class="section-check"> Mark as Completed</label>
-    </div>
-    <p style="margin-bottom: 15px; font-size: 1.1rem;"><em>Grab a partner or your teacher and act out these real-life situations.</em></p>
-
-    <div class="card">
-        <h3 style="color: var(--primary);">Scenario A: Late for Class</h3>
-        <p><strong>Situation:</strong> You are 15 minutes late for your first class because of a terrible traffic jam. Your teacher asks why you are late.</p>
-        <p><strong>Roles:</strong> Student & Teacher.</p>
-        <button class="btn btn-secondary" onclick="toggle('rp1')">👀 Show Dialogue Hints</button>
-        <div id="rp1" class="reveal-content">
-            <p><strong>Student:</strong> "I'm so sorry I'm late, Mr./Ms. [Name]..."</p>
-            <p><strong>Teacher:</strong> "Why are you arriving now? Class started 15 minutes ago."</p>
-            <p><strong>Student:</strong> "There was a huge [traffic jam / accident / roadworks] on Main Street. The bus couldn't move."</p>
-            <p><strong>Teacher:</strong> "You need to leave home earlier. Please take your seat."</p>
-            <p><strong>Student:</strong> "I understand. I'll try to [catch an earlier bus / leave earlier] tomorrow."</p>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3 style="color: var(--primary);">Scenario B: The "Walk to School" Club</h3>
-        <p><strong>Situation:</strong> You want to start a club where students walk or cycle to school together to avoid traffic. You are trying to convince your skeptical friend to join.</p>
-        <p><strong>Roles:</strong> Organizer & Skeptical Friend.</p>
-        <button class="btn btn-secondary" onclick="toggle('rp2')">👀 Show Dialogue Hints</button>
-        <div id="rp2" class="reveal-content">
-            <p><strong>Organizer:</strong> "Hey, you should join my new Walk to School club! It's going to be great."</p>
-            <p><strong>Friend:</strong> "Walk? No way, it takes too long and the traffic is dangerous."</p>
-            <p><strong>Organizer:</strong> "But if we go in a group, it's safer. Plus, we won't get stuck in the car drop-off line."</p>
-            <p><strong>Friend:</strong> "I don't know... I like sleeping in."</p>
-            <p><strong>Organizer:</strong> "It's healthy, we get fresh air, and we can chat on the way. Just try it once on Friday!"</p>
-        </div>
-    </div>
-
-    <!-- SECTION 5: FLUENCY BUILDER -->
-    <h2>5. Fluency Builder ⚡</h2>
-    <div style="margin-bottom: 15px;">
-        <label class="check-item"><input type="checkbox" class="section-check"> Mark as Completed</label>
-    </div>
-    <p style="margin-bottom: 20px; font-size: 1.1rem;"><em>Click on the flashcards to flip them. Use these sentence starters in your answers to sound more natural!</em></p>
-    
-    <div class="flashcard-grid mb-2">
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">I usually...</div>
-                <div class="flashcard-back">I usually take the bus to school.</div>
+        <div class="card">
+            <h3 style="color: var(--primary);">Let's get talking!</h3>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">Answer these quick questions. Click the buttons if you need inspiration.</p>
+            
+            <div id="warmup-container">
+                <!-- Warm-up injected via JS for cleaner HTML -->
             </div>
         </div>
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">In my opinion...</div>
-                <div class="flashcard-back">In my opinion, the roads are too narrow.</div>
+
+        <div class="section-header">
+            <h2>2. Style Vocabulary 📖</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
+            </label>
+        </div>
+
+        <div class="card">
+            <p style="margin-bottom: 20px;">Learn these useful words to talk about your style. Click to see how to use them in a sentence!</p>
+            
+            <div class="vocab-grid">
+                <!-- Vocab 1 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Trendy 🌟</div>
+                        <div class="vocab-def">(adjective) Modern and very popular right now.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v1')">Show Example</button>
+                    <div id="v1" class="hidden example-sentence">"Oversized sweaters and baggy jeans are very trendy this year."</div>
+                </div>
+
+                <!-- Vocab 2 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Casual 🛋️</div>
+                        <div class="vocab-def">(adjective) Relaxed and comfortable, not formal.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v2')">Show Example</button>
+                    <div id="v2" class="hidden example-sentence">"I usually wear casual clothes like hoodies and sweatpants on weekends."</div>
+                </div>
+
+                <!-- Vocab 3 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Outfit 👕</div>
+                        <div class="vocab-def">(noun) A set of clothes worn together.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v3')">Show Example</button>
+                    <div id="v3" class="hidden example-sentence">"She wore a beautiful outfit to the school dance."</div>
+                </div>
+
+                <!-- Vocab 4 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Accessory ⌚</div>
+                        <div class="vocab-def">(noun) Extra items added to clothes (belts, jewelry, hats).</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v4')">Show Example</button>
+                    <div id="v4" class="hidden example-sentence">"A nice watch or a silver necklace is a great accessory."</div>
+                </div>
+
+                <!-- Vocab 5 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Vintage 📻</div>
+                        <div class="vocab-def">(adjective) High-quality clothing from the past that is stylish again.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v5')">Show Example</button>
+                    <div id="v5" class="hidden example-sentence">"I found an awesome vintage denim jacket at the thrift store."</div>
+                </div>
+
+                <!-- Vocab 6 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Second-hand ♻️</div>
+                        <div class="vocab-def">(adjective) Not new; previously owned and worn by someone else.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v6')">Show Example</button>
+                    <div id="v6" class="hidden example-sentence">"Buying second-hand clothes is much better for the environment."</div>
+                </div>
+
+                <!-- Vocab 7 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Match 🎨</div>
+                        <div class="vocab-def">(verb) When colors or clothing items look good together.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v7')">Show Example</button>
+                    <div id="v7" class="hidden example-sentence">"Your white sneakers match your white t-shirt perfectly."</div>
+                </div>
+
+                <!-- Vocab 8 -->
+                <div class="card vocab-item">
+                    <div>
+                        <div class="vocab-word">Stand out 👀</div>
+                        <div class="vocab-def">(phrasal verb) To be easy to see or notice in a crowd.</div>
+                    </div>
+                    <button class="outline" onclick="toggle('v8')">Show Example</button>
+                    <div id="v8" class="hidden example-sentence">"He loves wearing neon colors because he likes to stand out."</div>
+                </div>
             </div>
         </div>
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">One reason is...</div>
-                <div class="flashcard-back">One reason is that parents park badly.</div>
+
+        <div class="section-header">
+            <h2>3. Speaking Practice 🗣️</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
+            </label>
+        </div>
+        <p style="margin-bottom: 25px; font-size: 1.1rem;">Expand the <strong>Idea Bank</strong> if you get stuck, and read the <strong>Sample Answers</strong> to see how to structure your speech.</p>
+
+        <!-- Easy Level -->
+        <h3 style="color: var(--success); margin-bottom: 15px; font-size: 1.5rem;">🟢 Easy Questions</h3>
+        
+        <div class="card">
+            <h3>Q1. What is your favorite piece of clothing and why? 🧥</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>A comfortable hoodie / oversized sweater.</li>
+                        <li>A pair of favorite sneakers or boots.</li>
+                        <li>It is warm, comfortable, or has a cool design.</li>
+                        <li>It was a gift from someone special.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>My favorite piece of clothing is my black hoodie because it is very comfortable.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>My absolute favorite piece of clothing is a vintage denim jacket I bought last year. I love it because it matches almost every outfit I wear. Plus, it has lots of pockets which is really useful!</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q2. Do you prefer shopping for clothes in a mall or online? 🛍️</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Mall: You can try clothes on, hang out with friends.</li>
+                        <li>Online: Faster, more options, sometimes cheaper.</li>
+                        <li>I like both, depending on what I need to buy.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I prefer shopping online because I can easily find my size.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>I definitely prefer going to the mall. Even though online shopping is easier, I hate returning things if they don't fit. At the mall, I can try the clothes on and spend a fun afternoon with my friends.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q3. What colors do you like to wear the most? 🎨</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Dark colors (black, navy) because they match everything.</li>
+                        <li>Bright colors (yellow, red) to stand out.</li>
+                        <li>Pastel colors (light pink, baby blue) for a soft look.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I mostly wear black and white because they are easy to match.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>My wardrobe is mostly full of earth tones like dark green, brown, and beige. I think these colors suit my skin tone well. Occasionally, I will wear a bright red accessory to make the outfit pop.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <h3 style="color: var(--warning); margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem;">🟡 Medium Questions</h3>
+
+        <div class="card">
+            <h3>Q4. How does your style change in the summer compared to the winter? ☀️❄️</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Summer: T-shirts, shorts, bright colors, light fabrics.</li>
+                        <li>Winter: Layering, heavy coats, boots, darker colors.</li>
+                        <li>My style stays the same, I just add or remove a jacket.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>In winter I wear thick sweaters, but in summer I wear casual t-shirts and shorts.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>My style changes completely depending on the season. In the winter, I love layering clothes, wearing boots, and choosing darker colors. However, during the summer, it gets too hot, so my style becomes very basic with just light cotton t-shirts and bright colors.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q5. How important are brand names (like Nike, Zara, etc.) to you? 🏷️</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Very important: They have better quality and trendy designs.</li>
+                        <li>Not important: I care about how it looks, not the label.</li>
+                        <li>Important for shoes, but not for regular t-shirts.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>Brand names aren't very important to me. I just buy what looks good.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>To be honest, I think brand names are only important for sneakers. I like to buy famous brands for shoes because they last longer and are more comfortable. But for hoodies or jeans, I usually buy cheaper, unbranded clothes.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q6. Have you ever bought second-hand or vintage clothes? ♻️</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Yes, I go thrift shopping with my friends. You find unique things!</li>
+                        <li>No, I prefer buying brand new clothes.</li>
+                        <li>I want to try it because it is better for the environment.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>No, I haven't. I usually just buy new clothes from the mall.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>Yes, all the time! I love going to thrift stores. You can find really unique vintage clothes that nobody else has. Also, buying second-hand is much cheaper and it helps reduce waste in the fashion industry.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q7. Describe an outfit you wore in the past that you now think is embarrassing. 🙈</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Wearing clothes that were way too big or too small.</li>
+                        <li>A weird color combination (like neon green and bright orange).</li>
+                        <li>A t-shirt with a silly cartoon character from when I was younger.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>When I was 10, I wore neon green pants every day. It was terrible!</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>A few years ago, I thought it was cool to mix three different patterns. I wore striped pants with a polka-dot shirt. When I look at photos from that time, I feel so embarrassed. It did not match at all!</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <h3 style="color: var(--secondary); margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem;">🔴 Opinion Questions</h3>
+
+        <div class="card">
+            <h3>Q8. Do you think school uniforms are a good or bad idea? Why? 🏫</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Good: Everyone looks equal, no stress about choosing outfits in the morning.</li>
+                        <li>Bad: Students can't express their personal style, uniforms are often uncomfortable.</li>
+                        <li>Compromise: A relaxed dress code is better than a strict uniform.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I think uniforms are bad because I want to wear my own style to school.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>In my opinion, school uniforms are actually a good idea. Even though they are boring, they save so much time in the morning. You don't have to stress about what to wear, and nobody judges you for not having expensive clothes.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q9. Some people say fashion is a waste of money. Do you agree? 💸</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Agree: Clothes are just for covering the body, spending hundreds of dollars is crazy.</li>
+                        <li>Disagree: Fashion is art and a way to express who you are.</li>
+                        <li>Middle: It's okay to spend money, but fast fashion is bad for the planet.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I partly agree. Spending a little is fine, but spending thousands is a waste.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>I completely disagree that fashion is a waste of money. Fashion is a form of art and self-expression. The clothes you wear tell the world who you are. If buying a nice jacket makes someone feel confident and happy, then it is money well spent.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Q10. How do you think fashion and style will change in the next 10 years? 🚀</h3>
+            <details>
+                <summary>💡 Idea Bank</summary>
+                <div class="details-content">
+                    <ul>
+                        <li>Technology: Clothes that change color, smart-watches, heated jackets.</li>
+                        <li>Sustainability: More recycled materials, fewer fast-fashion brands.</li>
+                        <li>Retro: Fashions from the 2000s or 90s will come back again.</li>
+                    </ul>
+                </div>
+            </details>
+            <details>
+                <summary>📝 Sample Answers</summary>
+                <div class="details-content">
+                    <div class="answer-box">
+                        <span class="badge">Short</span>
+                        <p>I think clothes will have technology in them, like jackets that heat up.</p>
+                    </div>
+                    <div class="answer-box">
+                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
+                        <p>I believe fashion will become much more sustainable in the next 10 years. People are realizing that fast fashion is ruining the planet. I think we will see clothes made entirely from recycled plastic, and second-hand shopping will become the normal way to shop.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+
+        <div class="section-header">
+            <h2>6. Role-Play Time! 🎭</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
+            </label>
+        </div>
+        <p style="margin-bottom:25px;">Work with a partner. Choose your roles and act out the situations. Use the dialogue hints to start!</p>
+
+        <div class="card" style="border-top: 6px solid var(--primary);">
+            <h3>Scenario A: The Honest Friend 🛍️</h3>
+            <p><strong>Situation:</strong> You are shopping at the mall. Student A is trying on a very bright, expensive, and strange-looking jacket. They love it. Student B thinks it looks terrible and is too expensive.</p>
+            <p><strong>🙋 Student A:</strong> Show off the jacket. Explain why you love it and say you want to buy it.</p>
+            <p><strong>🤷 Student B:</strong> Give your honest (but polite) opinion. Suggest they try something else.</p>
+            
+            <details style="margin-top: 20px;">
+                <summary>💬 Dialogue Hints</summary>
+                <div class="details-content">
+                    <p><strong>A:</strong> Wow, look at this! What do you think of this jacket? It really stands out!</p>
+                    <p><strong>B:</strong> Hmm, it's definitely unique... but don't you think the neon green is a bit too bright?</p>
+                    <p><strong>A:</strong> No way, I think it's trendy! I'm going to buy it.</p>
+                    <p><strong>B:</strong> Are you sure? It's really expensive. Why don't we look at...</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="card" style="border-top: 6px solid var(--secondary);">
+            <h3>Scenario B: The Strict Dress Code 🏫</h3>
+            <p><strong>Situation:</strong> There is a school party tonight. The school has a casual dress code, but no ripped jeans are allowed. Student A wants to wear ripped jeans anyway.</p>
+            <p><strong> rebel Student A:</strong> Argue that the rule is silly. You want to wear your favorite vintage ripped jeans.</p>
+            <p><strong> sensible Student B:</strong> Remind them of the rules. Warn them they might get sent home and suggest an alternative outfit.</p>
+            
+            <details style="margin-top: 20px;">
+                <summary>💬 Dialogue Hints</summary>
+                <div class="details-content">
+                    <p><strong>A:</strong> I'm definitely wearing my vintage ripped jeans tonight. They are my favorite.</p>
+                    <p><strong>B:</strong> You can't wear those! You know the school dress code says no ripped pants.</p>
+                    <p><strong>A:</strong> That rule is so outdated. Fashion is about expressing yourself!</p>
+                    <p><strong>B:</strong> I know, but if a teacher sees you, they will send you home. You could wear your...</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="section-header">
+            <h2>7. Fluency Builder 🏗️</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
+            </label>
+        </div>
+        <p style="margin-bottom: 25px;">Memorize these sentence starters to sound more natural. <strong>Click the cards to flip them!</strong></p>
+
+        <div class="flashcard-grid">
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">I usually wear...</div>
+                <div class="back">"I usually wear <strong>casual clothes on weekends.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">In my opinion...</div>
+                <div class="back">"In my opinion, <strong>vintage clothing is better.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">One reason is...</div>
+                <div class="back">"One reason is <strong>it saves a lot of money.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">For example...</div>
+                <div class="back">"For example, <strong>I bought this hat yesterday.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">To be honest...</div>
+                <div class="back">"To be honest, <strong>I hate wearing suits.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">On the other hand...</div>
+                <div class="back">"On the other hand, <strong>uniforms save time.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">I prefer ___ because...</div>
+                <div class="back">"I prefer <strong>sneakers</strong> because <strong>they are comfortable.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">When it comes to...</div>
+                <div class="back">"When it comes to <strong>fashion, I like to keep it simple.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">I'm not really into...</div>
+                <div class="back">"I'm not really into <strong>designer brands.</strong>"</div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="front">It depends on...</div>
+                <div class="back">"It depends on <strong>the weather.</strong>"</div>
             </div>
         </div>
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">For example...</div>
-                <div class="flashcard-back">For example, yesterday I was 10 minutes late.</div>
+
+        <div class="section-header">
+            <h2>8. Review Game: Choose the Best Response 🎮</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
+            </label>
+        </div>
+        <div class="card">
+            <h3 style="margin-bottom: 20px;">What is the most polite and natural way to reply?</h3>
+            
+            <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>1. Your friend says: "Do you think these yellow pants look good on me?" (You think they look terrible).</strong></p>
+                <button class="quiz-option" onclick="checkGame(this, false)">A. "No, you look absolutely ridiculous. Take them off."</button>
+                <button class="quiz-option" onclick="checkGame(this, true)">B. "To be honest, I think the blue ones suited your style much better."</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">C. "I don't care, just buy whatever."</button>
+                <div class="feedback" style="display:none;"></div>
+            </div>
+
+            <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>2. Your teacher asks: "Why is wearing a school uniform a good thing?"</strong></p>
+                <button class="quiz-option" onclick="checkGame(this, false)">A. "Because fashion is stupid."</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">B. "I hate uniforms, I want to wear my own clothes."</button>
+                <button class="quiz-option" onclick="checkGame(this, true)">C. "One reason is that it creates equality among students."</button>
+                <div class="feedback" style="display:none;"></div>
+            </div>
+            
+            <div>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>3. A stranger compliments you: "Wow, I love your vintage jacket! Where did you get it?"</strong></p>
+                <button class="quiz-option" onclick="checkGame(this, true)">A. "Thank you! I got it second-hand at a thrift store."</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">B. "Obviously, I have great style."</button>
+                <button class="quiz-option" onclick="checkGame(this, false)">C. "Don't look at my clothes."</button>
+                <div class="feedback" style="display:none;"></div>
             </div>
         </div>
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">It takes me...</div>
-                <div class="flashcard-back">It takes me about 30 minutes to get here.</div>
-            </div>
+
+        <div class="section-header">
+            <h2>9. Self-Reflection 🪞</h2>
+            <label class="mark-complete">
+                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
+            </label>
         </div>
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">I believe we should...</div>
-                <div class="flashcard-back">I believe we should ride bikes more often.</div>
-            </div>
+        <div class="card" style="background: linear-gradient(to right, #FDF4FF, #F3F4F6);">
+            <p style="font-size: 1.1rem; margin-bottom: 15px;">Take a moment to evaluate your speaking performance today:</p>
+            <ul style="list-style-type: none; font-size:1.15rem; line-height:2.2;">
+                <li>⭐ <strong>Confidence:</strong> Did I feel comfortable talking about my style?</li>
+                <li>⭐ <strong>Vocabulary:</strong> Did I use new words like <em>trendy, vintage, or casual</em>?</li>
+                <li>⭐ <strong>Detail:</strong> Did I explain <em>why</em> I hold my opinions (using "because")?</li>
+                <li>⭐ <strong>Interaction:</strong> Did I listen actively to my partner during the role-play?</li>
+                <li>⭐ <strong>Fluency:</strong> Did I try to use the sentence starters from the Flashcards?</li>
+            </ul>
         </div>
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">On the other hand...</div>
-                <div class="flashcard-back">On the other hand, buses can be crowded.</div>
-            </div>
+
+        <div class="section-header">
+            <h2>10. Lesson Complete! 🎉</h2>
         </div>
-        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-            <div class="flashcard-inner">
-                <div class="flashcard-front">If I were in charge...</div>
-                <div class="flashcard-back">If I were in charge, I would ban cars near the gates.</div>
-            </div>
+        <div class="card" style="text-align: center; padding: 50px 20px;">
+            <h1 style="font-size: 5rem; margin-bottom: 15px;">🏆</h1>
+            <h2 style="color: var(--primary); margin-bottom: 10px;">Amazing job today!</h2>
+            <p style="font-size: 1.2rem;">You successfully discussed fashion, defended your opinions, and practiced real-life scenarios.</p>
+            <br>
+            <p style="color: var(--text-muted); font-size: 0.95rem;"><em>Make sure all the 'Done!' checkboxes above are ticked. The progress bar at the very top of your screen should be completely full!</em></p>
         </div>
+
+        <!-- Footer -->
+        <footer style="text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #E5E7EB; color: var(--text-muted); font-size: 0.95rem;">
+            <p style="font-weight: bold; color: var(--primary);">Bản quyền © ELS, English Lucero System</p>
+            <p>Instructional Design for Teen ESL Learners</p>
+        </footer>
+
     </div>
 
-    <!-- SECTION 6: REVIEW GAME -->
-    <h2>6. Review Mini-Game 🎮</h2>
-    <div style="margin-bottom: 15px;">
-        <label class="check-item"><input type="checkbox" class="section-check"> Mark as Completed</label>
-    </div>
-    
-    <div class="card">
-        <p style="font-size: 1.15rem; margin-bottom: 20px;"><strong>Match the vocabulary word to its correct definition!</strong> Click a word on the left, then click its definition on the right.</p>
-        <div class="game-container">
-            <div class="game-col" id="words-col">
-                <div class="game-btn" data-type="word" data-match="1">Traffic jam</div>
-                <div class="game-btn" data-type="word" data-match="2">Pedestrian</div>
-                <div class="game-btn" data-type="word" data-match="3">Exhaust fumes</div>
-                <div class="game-btn" data-type="word" data-match="4">Commute</div>
-            </div>
-            <div class="game-col" id="defs-col">
-                <div class="game-btn" data-type="def" data-match="3">Harmful gases from vehicle engines.</div>
-                <div class="game-btn" data-type="def" data-match="1">A long line of cars that cannot move.</div>
-                <div class="game-btn" data-type="def" data-match="4">The regular journey between home and school.</div>
-                <div class="game-btn" data-type="def" data-match="2">A person walking near a road.</div>
-            </div>
-        </div>
-    </div>
+    <script>
+        // Data for Section 1 Warm-up
+        const warmupData = [
+            { q: "What are you wearing right now? 👕", a: "I am wearing a plain white t-shirt and blue jeans." },
+            { q: "Where do you usually buy your clothes? 🏬", a: "I usually shop at the mall with my friends, or sometimes online." },
+            { q: "Do you prefer comfortable clothes or stylish clothes? 🛋️", a: "I prefer comfortable clothes because I like to relax." },
+            { q: "Who is your style icon or inspiration? 🌟", a: "I really like how Zendaya dresses. She always looks trendy." },
+            { q: "How long does it take you to choose an outfit in the morning? ⏱️", a: "It takes me about 15 minutes to decide what to wear." }
+        ];
 
-    <!-- SECTION 7: SELF-REFLECTION -->
-    <h2>7. Self-Reflection 🪞</h2>
-    <div style="margin-bottom: 15px;">
-        <label class="check-item"><input type="checkbox" class="section-check"> Mark as Completed</label>
-    </div>
-    
-    <div class="card">
-        <p style="margin-bottom: 20px; font-size: 1.1rem;"><em>Think about how you did in today's lesson. Check the boxes that apply to you:</em></p>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-            <label class="check-item" style="background: none; padding: 0;"><input type="checkbox"> I learned at least 3 new vocabulary words.</label>
-            <label class="check-item" style="background: none; padding: 0;"><input type="checkbox"> I tried to give "Extended Answers" instead of just short ones.</label>
-            <label class="check-item" style="background: none; padding: 0;"><input type="checkbox"> I participated actively in the role-play.</label>
-            <label class="check-item" style="background: none; padding: 0;"><input type="checkbox"> I used some of the Fluency Builder sentence starters.</label>
-            <label class="check-item" style="background: none; padding: 0;"><input type="checkbox"> I feel more confident talking about city problems in English.</label>
-        </div>
-    </div>
-
-    <!-- COPYRIGHT FOOTER -->
-    <footer class="lucero-footer">
-        <span class="brand">© 2026 Hệ thống Anh Ngữ Lucero | Lucero English System</span>
-        <span class="copyright">Compiled & Designed by <span class="author">Mr. Lucero</span>. All rights reserved.</span>
-    </footer>
-
-</div>
-
-<script>
-    // --- Toggle Visibility for Accordions ---
-    function toggle(id) {
-        const el = document.getElementById(id);
-        if (el.style.display === "block") {
-            el.style.display = "none";
-        } else {
-            el.style.display = "block";
-        }
-    }
-
-    // --- Audio Placeholder Alert ---
-    function playAudioPlaceholder(word) {
-        alert("🔊 Audio placeholder: Imagine a native speaker clearly pronouncing the word '" + word + "'.");
-    }
-
-    // --- Review Matching Game Logic ---
-    let selectedWord = null;
-    let selectedDef = null;
-
-    const gameBtns = document.querySelectorAll('.game-btn');
-    
-    gameBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            if(this.classList.contains('matched')) return;
-
-            // Handle Selection
-            if(this.dataset.type === 'word') {
-                if(selectedWord) selectedWord.classList.remove('selected');
-                selectedWord = this;
-                this.classList.add('selected');
-            } else {
-                if(selectedDef) selectedDef.classList.remove('selected');
-                selectedDef = this;
-                this.classList.add('selected');
-            }
-
-            // Check Match
-            if(selectedWord && selectedDef) {
-                if(selectedWord.dataset.match === selectedDef.dataset.match) {
-                    // Match Correct
-                    selectedWord.classList.remove('selected');
-                    selectedDef.classList.remove('selected');
-                    selectedWord.classList.add('matched');
-                    selectedDef.classList.add('matched');
-                    selectedWord = null;
-                    selectedDef = null;
-                    
-                    // Check win condition
-                    const matchedCount = document.querySelectorAll('.game-btn.matched').length;
-                    if(matchedCount === 8) {
-                        setTimeout(() => alert("🎉 Excellent! You matched all the words correctly!"), 300);
-                    }
-                } else {
-                    // Match Wrong
-                    selectedWord.classList.add('wrong');
-                    selectedDef.classList.add('wrong');
-                    
-                    let tempW = selectedWord;
-                    let tempD = selectedDef;
-                    
-                    setTimeout(() => {
-                        tempW.classList.remove('wrong', 'selected');
-                        tempD.classList.remove('wrong', 'selected');
-                    }, 500);
-
-                    selectedWord = null;
-                    selectedDef = null;
-                }
-            }
+        // Generate Warm-up content dynamically
+        const warmupContainer = document.getElementById('warmup-container');
+        warmupData.forEach((item, index) => {
+            const html = `
+                <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #D1D5DB;">
+                    <p style="font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">${item.q}</p>
+                    <button class="outline" onclick="toggle('warmup-ans-${index}')">View Example Answer</button>
+                    <p id="warmup-ans-${index}" class="hidden" style="margin-top: 15px; color: var(--success); font-weight: 600; font-style: italic;">💬 "${item.a}"</p>
+                </div>
+            `;
+            warmupContainer.innerHTML += html;
         });
-    });
 
-    // --- Progress Tracker Logic ---
-    const sectionChecks = document.querySelectorAll('.section-check');
-    const progressBar = document.getElementById('main-progress');
-    const progressText = document.getElementById('progress-text');
-
-    function updateProgress() {
-        const total = sectionChecks.length;
-        const checked = document.querySelectorAll('.section-check:checked').length;
-        const percentage = Math.round((checked / total) * 100);
-        
-        progressBar.style.width = percentage + '%';
-        progressText.innerText = percentage + '%';
-        
-        if(percentage === 100) {
-            progressBar.style.background = "linear-gradient(90deg, #f39c12, #f1c40f)"; // Gold when complete
-            progressText.style.color = "#f39c12";
-            setTimeout(() => alert("🌟 Congratulations! You have completed the entire speaking lesson!"), 400);
-        } else {
-            progressBar.style.background = "linear-gradient(90deg, #2ecc71, #27ae60)";
-            progressText.style.color = "var(--success)";
+        // Universal Toggle Function with slight fade effect
+        function toggle(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                el.style.opacity = 0;
+                setTimeout(() => el.style.opacity = 1, 10);
+                el.style.transition = "opacity 0.4s ease";
+            } else {
+                el.classList.add('hidden');
+            }
         }
-    }
 
-    sectionChecks.forEach(check => {
-        check.addEventListener('change', updateProgress);
-    });
+        // Review Game Logic
+        function checkGame(buttonElement, isCorrect) {
+            const parent = buttonElement.parentElement;
+            const allButtons = parent.querySelectorAll('button');
+            const feedbackBox = parent.querySelector('.feedback');
 
-</script>
+            // Disable all buttons in this question group
+            allButtons.forEach(btn => btn.disabled = true);
 
+            if (isCorrect) {
+                buttonElement.style.backgroundColor = 'var(--success)';
+                buttonElement.style.borderColor = 'var(--success)';
+                buttonElement.style.color = 'white';
+                feedbackBox.innerHTML = '✅ Spot on! That is a polite and natural response.';
+                feedbackBox.style.color = 'var(--success)';
+                feedbackBox.style.backgroundColor = '#ECFDF5';
+            } else {
+                buttonElement.style.backgroundColor = '#EF4444'; // Red
+                buttonElement.style.borderColor = '#EF4444';
+                buttonElement.style.color = 'white';
+                
+                // Highlight the correct option
+                allButtons.forEach(btn => {
+                    if(btn.getAttribute('onclick').includes('true')) {
+                        btn.style.border = '2px solid var(--success)';
+                        btn.style.color = 'var(--success)';
+                        btn.style.fontWeight = 'bold';
+                    }
+                });
+
+                feedbackBox.innerHTML = '❌ Not quite. Remember to be polite and explain your reasoning gently.';
+                feedbackBox.style.color = '#B91C1C';
+                feedbackBox.style.backgroundColor = '#FEF2F2';
+            }
+            feedbackBox.style.display = 'block';
+        }
+
+        // Progress Tracker Logic (Checkbox based)
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.section-tracker');
+            const checkedBoxes = document.querySelectorAll('.section-tracker:checked');
+            
+            const total = checkboxes.length;
+            const checked = checkedBoxes.length;
+            
+            const percentage = (checked / total) * 100;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+        }
+    </script>
 </body>
 </html>
