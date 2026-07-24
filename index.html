@@ -1,1070 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speaking Lesson: My Personal Style</title>
-    <style>
-        :root {
-            /* Stylish pastel aesthetic for teens */
-            --primary: #8B5CF6; /* Violet */
-            --primary-hover: #7C3AED;
-            --secondary: #EC4899; /* Pink */
-            --success: #14B8A6; /* Teal */
-            --warning: #F59E0B; /* Amber */
-            --bg: #F5F3FF; /* Soft violet background */
-            --card-bg: #FFFFFF;
-            --text-main: #1F2937;
-            --text-muted: #6B7280;
-            --radius: 20px;
-            --shadow: 0 10px 25px rgba(139, 92, 246, 0.08);
-            --font: 'Inter', system-ui, -apple-system, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELS Speaking · Teens A2+ · Online Safety for Teens</title>
+<style>
+  :root{
+    --primary:#7c3aed; --primary-hover:#6d28d9; --secondary:#ec4899;
+    --success:#10b981; --warning:#f59e0b; --accent:#06b6d4;
+    --bg:#faf5ff; --card-bg:#ffffff; --text-main:#312e41; --text-muted:#6b7280;
+    --border:#ede9fe; --radius:16px;
+    --shadow-sm:0 1px 2px 0 rgb(0 0 0 / .05);
+    --shadow-md:0 4px 10px -1px rgb(124 58 237 / .15);
+    --shadow-lg:0 12px 22px -3px rgb(124 58 237 / .2);
+    --font:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);background:var(--bg);color:var(--text-main);line-height:1.6;padding-bottom:90px}
+  #progress-container{position:fixed;top:0;left:0;width:100%;height:7px;background:var(--border);z-index:1000}
+  #progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--secondary),var(--primary),var(--accent));transition:width .4s cubic-bezier(.4,0,.2,1)}
+  .container{max-width:900px;margin:0 auto;padding:38px 18px}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  .hero{text-align:center;margin-bottom:34px;background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;padding:46px 26px;border-radius:24px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-40%;right:-30%;width:70%;height:180%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 60%)}
+  .hero *{position:relative;z-index:1}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+  .badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);padding:5px 13px;border-radius:20px;font-size:.8rem;font-weight:600}
+  .hero h1{font-size:2.5rem;margin-bottom:8px;line-height:1.1}
+  .hero .sub{font-size:1.08rem;color:#fce7f3;margin-bottom:22px}
+  .objectives-card{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);padding:20px 22px;border-radius:16px;text-align:left;border:1px solid rgba(255,255,255,.22)}
+  .objectives-card h3{margin-bottom:12px;font-size:1.08rem}
+  .objectives-card ul{list-style:none}
+  .objectives-card li{margin-bottom:9px;font-size:1.02rem;display:flex;gap:10px}
+  .objectives-card li b{font-size:1.1rem}
 
-        body {
-            font-family: var(--font);
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 80px;
-        }
+  .section{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .section-header{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:6px;padding-bottom:14px;border-bottom:3px solid var(--bg)}
+  .section-header h2{font-size:1.45rem;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .mark{display:flex;align-items:center;gap:7px;font-size:.85rem;color:var(--text-muted);cursor:pointer;user-select:none;white-space:nowrap}
+  .mark input{width:17px;height:17px;accent-color:var(--success);cursor:pointer}
+  .intro{color:var(--text-muted);margin:12px 0 18px;font-size:.98rem}
+  .teacher-note{background:#f5f3ff;border-left:4px solid var(--primary);border-radius:10px;padding:12px 16px;margin:14px 0;font-size:.9rem;color:#4c1d95}
+  .teacher-note b{color:var(--primary)}
 
-        #progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: #E5E7EB;
-            z-index: 1000;
-        }
+  .reveal-card{border:2px solid var(--border);border-radius:14px;padding:15px 18px;margin-bottom:12px;cursor:pointer;transition:.2s;background:#fff}
+  .reveal-card:hover{border-color:var(--secondary);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+  .reveal-card .q{font-weight:600;display:flex;gap:10px;align-items:flex-start}
+  .reveal-card .q .em{font-size:1.4rem}
+  .answer{max-height:0;overflow:hidden;transition:max-height .35s ease,margin .35s,padding .35s;color:var(--text-muted)}
+  .reveal-card.open .answer{max-height:640px;margin-top:12px;padding-top:12px;border-top:2px dashed var(--border)}
+  .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:12px;text-transform:uppercase}
+  .tag.easy{background:#d1fae5;color:#065f46}.tag.medium{background:#fef3c7;color:#92400e}.tag.opinion{background:#e0e7ff;color:#3730a3}
 
-        #progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 0 4px 4px 0;
-        }
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .vocab{border:2px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;transition:.2s;background:#fff}
+  .vocab:hover{border-color:var(--accent);box-shadow:var(--shadow-md)}
+  .vocab .top{display:flex;justify-content:space-between;align-items:center}
+  .vocab .word{font-weight:700;font-size:1.12rem;color:var(--primary)}
+  .vocab .emoji{font-size:1.5rem}
+  .vocab .def{font-size:.9rem;margin-top:6px}
+  .vocab .ex{max-height:0;overflow:hidden;transition:max-height .3s,margin .3s;font-size:.9rem;color:var(--text-muted);font-style:italic}
+  .vocab.open .ex{max-height:120px;margin-top:8px}
+  .audio{background:var(--bg);border:1px solid var(--border);border-radius:50%;width:30px;height:30px;font-size:.9rem;cursor:pointer}
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
+  .q-idea{background:#ecfdf5;border-radius:10px;padding:10px 14px;margin-top:10px;font-size:.9rem}
+  .q-idea b{color:var(--success)}
+  .samples{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .sample-btn{align-self:flex-start;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:6px 15px;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--primary)}
+  .sample-btn:hover{background:var(--primary);color:#fff}
+  .sample-text{display:none;background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:.92rem}
+  .sample-text.show{display:block}
+  .sample-text .lvl{font-size:.7rem;font-weight:700;color:var(--secondary);text-transform:uppercase}
 
-        .hero {
-            text-align: center;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, var(--primary), #A78BFA);
-            color: white;
-            padding: 50px 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
+  .roleplay{border:2px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;background:linear-gradient(135deg,#fff,#faf5ff)}
+  .roleplay h3{color:var(--secondary);margin-bottom:8px;font-size:1.12rem}
+  .roles{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+  .role-pill{background:#fdf2f8;border:1px solid #fbcfe8;color:#9d174d;padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:600}
+  .hint-toggle{background:var(--secondary);color:#fff;border:none;border-radius:20px;padding:8px 18px;font-weight:600;cursor:pointer;font-size:.85rem}
+  .hint-box{display:none;margin-top:12px;background:#fdf4ff;border:1px dashed var(--secondary);border-radius:10px;padding:14px}
+  .hint-box.show{display:block}
+  .hint-box li{margin-left:18px;margin-bottom:5px;font-size:.9rem}
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
+  .flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+  .flash{background:linear-gradient(135deg,var(--accent),var(--primary));color:#fff;border-radius:14px;padding:20px 16px;min-height:96px;display:grid;place-items:center;text-align:center;cursor:pointer;font-weight:600;font-size:1.05rem;transition:transform .25s}
+  .flash:hover{transform:scale(1.04) rotate(-1deg)}
+  .flash .back{display:none;font-size:.9rem;font-weight:400;font-style:italic}
+  .flash.flip .front{display:none}.flash.flip .back{display:block}
 
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
+  .match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:640px){.match-wrap{grid-template-columns:1fr}}
+  .match-col h4{font-size:.85rem;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+  .match-item{border:2px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px;cursor:pointer;font-size:.92rem;transition:.15s;background:#fff}
+  .match-item:hover{border-color:var(--primary)}
+  .match-item.selected{border-color:var(--primary);background:#f5f3ff}
+  .match-item.done{border-color:var(--success);background:#ecfdf5;opacity:.7;cursor:default}
+  #match-feedback{margin-top:14px;font-weight:700;text-align:center;min-height:24px;font-size:1.05rem}
 
-        .objectives-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 16px;
-            margin-top: 25px;
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+  .reflect label{display:flex;align-items:center;gap:12px;padding:12px 14px;border:2px solid var(--border);border-radius:12px;margin-bottom:10px;cursor:pointer}
+  .reflect label:hover{background:var(--bg)}
+  .rating{margin-left:auto;display:flex;gap:4px}
+  .star{font-size:1.2rem;cursor:pointer;filter:grayscale(1);opacity:.5}
+  .star.on{filter:none;opacity:1}
 
-        .objectives-card ul {
-            list-style: none;
-            margin-top: 15px;
-        }
+  .tracker-list{list-style:none}
+  .tracker-list li{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--bg);font-size:.98rem}
+  .tracker-list input{width:19px;height:19px;accent-color:var(--success)}
+  .complete-banner{text-align:center;padding:28px;background:linear-gradient(135deg,#f5f3ff,#fce7f3);border-radius:16px;border:1px solid var(--border);margin-top:8px}
+  .complete-banner h2{color:var(--primary);font-size:1.5rem}
 
-        .objectives-card li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 60px 0 25px 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #E5E7EB;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .mark-complete {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--card-bg);
-            padding: 10px 16px;
-            border-radius: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: all 0.2s;
-            border: 1px solid #E5E7EB;
-        }
-
-        .mark-complete:hover {
-            color: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .mark-complete input {
-            transform: scale(1.3);
-            cursor: pointer;
-            accent-color: var(--primary);
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.12);
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--text-main);
-        }
-
-        button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-        }
-
-        button:hover {
-            background-color: var(--primary-hover);
-            transform: scale(1.02);
-        }
-
-        button.outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        button.outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        details {
-            background: #F9FAFB;
-            border: 1px solid #E5E7EB;
-            border-radius: 14px;
-            margin-top: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        summary {
-            padding: 18px 20px;
-            font-weight: 700;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--card-bg);
-            color: var(--primary);
-            transition: background 0.2s;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary:hover {
-            background: #F3F4F6;
-        }
-
-        summary::after {
-            content: '+';
-            font-size: 1.5rem;
-            font-weight: normal;
-            transition: transform 0.3s;
-            color: var(--secondary);
-        }
-
-        details[open] summary::after {
-            transform: rotate(45deg);
-        }
-
-        .details-content {
-            padding: 20px;
-            border-top: 1px solid #E5E7EB;
-            background: #F9FAFB;
-        }
-
-        .details-content ul {
-            padding-left: 25px;
-            margin-bottom: 15px;
-        }
-
-        .details-content li {
-            margin-bottom: 8px;
-        }
-
-        .answer-box {
-            background: var(--card-bg);
-            border-left: 4px solid var(--secondary);
-            padding: 18px;
-            margin-bottom: 15px;
-            border-radius: 0 12px 12px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-
-        .answer-box span.badge {
-            display: inline-block;
-            background: #FCE7F3; /* Light pink */
-            color: var(--secondary);
-            font-size: 0.85rem;
-            padding: 4px 10px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .vocab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .vocab-item {
-            text-align: center;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .vocab-word {
-            font-size: 1.6rem;
-            color: var(--primary);
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .vocab-def {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .example-sentence {
-            margin-top: 20px;
-            padding: 15px;
-            background: #F5F3FF;
-            border-radius: 12px;
-            color: var(--primary-hover);
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        .hidden { display: none; }
-
-        .flashcard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .flashcard {
-            background: var(--card-bg);
-            border: 2px dashed #D1D5DB;
-            border-radius: 16px;
-            padding: 25px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .flashcard:hover {
-            border-color: var(--primary);
-            background: #F5F3FF;
-            transform: scale(1.03);
-        }
-
-        .flashcard .front {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            transition: opacity 0.3s;
-        }
-
-        .flashcard .back {
-            display: none;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            width: 100%;
-        }
-
-        .flashcard.flipped {
-            background: var(--primary);
-            border-style: solid;
-        }
-
-        .flashcard.flipped .front { display: none; }
-        .flashcard.flipped .back { display: block; color: white; }
-        
-        .flashcard.flipped strong { color: #FCD34D; }
-
-        .quiz-option {
-            display: block;
-            width: 100%;
-            text-align: left;
-            margin-bottom: 12px;
-            background: #F9FAFB;
-            color: var(--text-main);
-            border: 2px solid #E5E7EB;
-            padding: 15px 20px;
-        }
-        .quiz-option:hover:not(:disabled) {
-            background: #F3F4F6;
-            border-color: #D1D5DB;
-        }
-        .quiz-option:disabled {
-            cursor: not-allowed;
-            opacity: 0.9;
-        }
-        .feedback {
-            margin-top: 15px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 15px;
-            border-radius: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
-            .mark-complete { align-self: stretch; justify-content: center; }
-            .container { padding: 30px 15px; }
-        }
-    </style>
+  footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.9rem;display:flex;flex-direction:column;gap:5px}
+  footer .cc{font-weight:700;color:var(--primary)}
+  .fab{position:fixed;bottom:20px;right:20px;background:var(--primary);color:#fff;border:none;border-radius:30px;padding:12px 20px;font-weight:600;box-shadow:var(--shadow-lg);cursor:pointer;z-index:1000}
+  @media(max-width:640px){.hero h1{font-size:1.9rem}.section-header h2{font-size:1.2rem}}
+</style>
 </head>
 <body>
+<div id="progress-container"><div id="progress-bar"></div></div>
+<div class="container">
 
-    <div id="progress-container">
-        <div id="progress-bar"></div>
+  <div class="hero">
+    <div class="badges">
+      <span class="badge">🧑‍🎓 Teens 11–15</span>
+      <span class="badge">🎯 CEFR A2+</span>
+      <span class="badge">⏱️ 60 min</span>
+      <span class="badge">💻 Zoom</span>
     </div>
-
-    <div class="container">
-        <header class="hero">
-            <h1>✨ My Personal Style</h1>
-            <p>A speaking lesson about fashion, clothes, and identity. (Ages 13-16 | Level A2-B1)</p>
-            
-            <div class="objectives-card">
-                <h3 style="margin-bottom: 10px;">🎯 Today's Learning Objectives:</h3>
-                <ul>
-                    <li>👗 Describe clothing items, accessories, and fashion preferences.</li>
-                    <li>🗣️ Express opinions on fashion trends and personal style.</li>
-                    <li>💬 Give polite compliments and advice on outfits.</li>
-                </ul>
-            </div>
-        </header>
-
-        <div class="section-header">
-            <h2>1. Warm-Up 🧊</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        
-        <div class="card">
-            <h3 style="color: var(--primary);">Let's get talking!</h3>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">Answer these quick questions. Click the buttons if you need inspiration.</p>
-            
-            <div id="warmup-container">
-                <!-- Warm-up injected via JS for cleaner HTML -->
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>2. Style Vocabulary 📖</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-
-        <div class="card">
-            <p style="margin-bottom: 20px;">Learn these useful words to talk about your style. Click to see how to use them in a sentence!</p>
-            
-            <div class="vocab-grid">
-                <!-- Vocab 1 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Trendy 🌟</div>
-                        <div class="vocab-def">(adjective) Modern and very popular right now.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v1')">Show Example</button>
-                    <div id="v1" class="hidden example-sentence">"Oversized sweaters and baggy jeans are very trendy this year."</div>
-                </div>
-
-                <!-- Vocab 2 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Casual 🛋️</div>
-                        <div class="vocab-def">(adjective) Relaxed and comfortable, not formal.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v2')">Show Example</button>
-                    <div id="v2" class="hidden example-sentence">"I usually wear casual clothes like hoodies and sweatpants on weekends."</div>
-                </div>
-
-                <!-- Vocab 3 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Outfit 👕</div>
-                        <div class="vocab-def">(noun) A set of clothes worn together.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v3')">Show Example</button>
-                    <div id="v3" class="hidden example-sentence">"She wore a beautiful outfit to the school dance."</div>
-                </div>
-
-                <!-- Vocab 4 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Accessory ⌚</div>
-                        <div class="vocab-def">(noun) Extra items added to clothes (belts, jewelry, hats).</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v4')">Show Example</button>
-                    <div id="v4" class="hidden example-sentence">"A nice watch or a silver necklace is a great accessory."</div>
-                </div>
-
-                <!-- Vocab 5 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Vintage 📻</div>
-                        <div class="vocab-def">(adjective) High-quality clothing from the past that is stylish again.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v5')">Show Example</button>
-                    <div id="v5" class="hidden example-sentence">"I found an awesome vintage denim jacket at the thrift store."</div>
-                </div>
-
-                <!-- Vocab 6 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Second-hand ♻️</div>
-                        <div class="vocab-def">(adjective) Not new; previously owned and worn by someone else.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v6')">Show Example</button>
-                    <div id="v6" class="hidden example-sentence">"Buying second-hand clothes is much better for the environment."</div>
-                </div>
-
-                <!-- Vocab 7 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Match 🎨</div>
-                        <div class="vocab-def">(verb) When colors or clothing items look good together.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v7')">Show Example</button>
-                    <div id="v7" class="hidden example-sentence">"Your white sneakers match your white t-shirt perfectly."</div>
-                </div>
-
-                <!-- Vocab 8 -->
-                <div class="card vocab-item">
-                    <div>
-                        <div class="vocab-word">Stand out 👀</div>
-                        <div class="vocab-def">(phrasal verb) To be easy to see or notice in a crowd.</div>
-                    </div>
-                    <button class="outline" onclick="toggle('v8')">Show Example</button>
-                    <div id="v8" class="hidden example-sentence">"He loves wearing neon colors because he likes to stand out."</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>3. Speaking Practice 🗣️</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <p style="margin-bottom: 25px; font-size: 1.1rem;">Expand the <strong>Idea Bank</strong> if you get stuck, and read the <strong>Sample Answers</strong> to see how to structure your speech.</p>
-
-        <!-- Easy Level -->
-        <h3 style="color: var(--success); margin-bottom: 15px; font-size: 1.5rem;">🟢 Easy Questions</h3>
-        
-        <div class="card">
-            <h3>Q1. What is your favorite piece of clothing and why? 🧥</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>A comfortable hoodie / oversized sweater.</li>
-                        <li>A pair of favorite sneakers or boots.</li>
-                        <li>It is warm, comfortable, or has a cool design.</li>
-                        <li>It was a gift from someone special.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>My favorite piece of clothing is my black hoodie because it is very comfortable.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>My absolute favorite piece of clothing is a vintage denim jacket I bought last year. I love it because it matches almost every outfit I wear. Plus, it has lots of pockets which is really useful!</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q2. Do you prefer shopping for clothes in a mall or online? 🛍️</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Mall: You can try clothes on, hang out with friends.</li>
-                        <li>Online: Faster, more options, sometimes cheaper.</li>
-                        <li>I like both, depending on what I need to buy.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I prefer shopping online because I can easily find my size.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>I definitely prefer going to the mall. Even though online shopping is easier, I hate returning things if they don't fit. At the mall, I can try the clothes on and spend a fun afternoon with my friends.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q3. What colors do you like to wear the most? 🎨</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Dark colors (black, navy) because they match everything.</li>
-                        <li>Bright colors (yellow, red) to stand out.</li>
-                        <li>Pastel colors (light pink, baby blue) for a soft look.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I mostly wear black and white because they are easy to match.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>My wardrobe is mostly full of earth tones like dark green, brown, and beige. I think these colors suit my skin tone well. Occasionally, I will wear a bright red accessory to make the outfit pop.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <h3 style="color: var(--warning); margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem;">🟡 Medium Questions</h3>
-
-        <div class="card">
-            <h3>Q4. How does your style change in the summer compared to the winter? ☀️❄️</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Summer: T-shirts, shorts, bright colors, light fabrics.</li>
-                        <li>Winter: Layering, heavy coats, boots, darker colors.</li>
-                        <li>My style stays the same, I just add or remove a jacket.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>In winter I wear thick sweaters, but in summer I wear casual t-shirts and shorts.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>My style changes completely depending on the season. In the winter, I love layering clothes, wearing boots, and choosing darker colors. However, during the summer, it gets too hot, so my style becomes very basic with just light cotton t-shirts and bright colors.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q5. How important are brand names (like Nike, Zara, etc.) to you? 🏷️</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Very important: They have better quality and trendy designs.</li>
-                        <li>Not important: I care about how it looks, not the label.</li>
-                        <li>Important for shoes, but not for regular t-shirts.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>Brand names aren't very important to me. I just buy what looks good.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>To be honest, I think brand names are only important for sneakers. I like to buy famous brands for shoes because they last longer and are more comfortable. But for hoodies or jeans, I usually buy cheaper, unbranded clothes.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q6. Have you ever bought second-hand or vintage clothes? ♻️</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Yes, I go thrift shopping with my friends. You find unique things!</li>
-                        <li>No, I prefer buying brand new clothes.</li>
-                        <li>I want to try it because it is better for the environment.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>No, I haven't. I usually just buy new clothes from the mall.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>Yes, all the time! I love going to thrift stores. You can find really unique vintage clothes that nobody else has. Also, buying second-hand is much cheaper and it helps reduce waste in the fashion industry.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q7. Describe an outfit you wore in the past that you now think is embarrassing. 🙈</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Wearing clothes that were way too big or too small.</li>
-                        <li>A weird color combination (like neon green and bright orange).</li>
-                        <li>A t-shirt with a silly cartoon character from when I was younger.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>When I was 10, I wore neon green pants every day. It was terrible!</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>A few years ago, I thought it was cool to mix three different patterns. I wore striped pants with a polka-dot shirt. When I look at photos from that time, I feel so embarrassed. It did not match at all!</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <h3 style="color: var(--secondary); margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem;">🔴 Opinion Questions</h3>
-
-        <div class="card">
-            <h3>Q8. Do you think school uniforms are a good or bad idea? Why? 🏫</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Good: Everyone looks equal, no stress about choosing outfits in the morning.</li>
-                        <li>Bad: Students can't express their personal style, uniforms are often uncomfortable.</li>
-                        <li>Compromise: A relaxed dress code is better than a strict uniform.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I think uniforms are bad because I want to wear my own style to school.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>In my opinion, school uniforms are actually a good idea. Even though they are boring, they save so much time in the morning. You don't have to stress about what to wear, and nobody judges you for not having expensive clothes.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q9. Some people say fashion is a waste of money. Do you agree? 💸</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Agree: Clothes are just for covering the body, spending hundreds of dollars is crazy.</li>
-                        <li>Disagree: Fashion is art and a way to express who you are.</li>
-                        <li>Middle: It's okay to spend money, but fast fashion is bad for the planet.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I partly agree. Spending a little is fine, but spending thousands is a waste.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>I completely disagree that fashion is a waste of money. Fashion is a form of art and self-expression. The clothes you wear tell the world who you are. If buying a nice jacket makes someone feel confident and happy, then it is money well spent.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Q10. How do you think fashion and style will change in the next 10 years? 🚀</h3>
-            <details>
-                <summary>💡 Idea Bank</summary>
-                <div class="details-content">
-                    <ul>
-                        <li>Technology: Clothes that change color, smart-watches, heated jackets.</li>
-                        <li>Sustainability: More recycled materials, fewer fast-fashion brands.</li>
-                        <li>Retro: Fashions from the 2000s or 90s will come back again.</li>
-                    </ul>
-                </div>
-            </details>
-            <details>
-                <summary>📝 Sample Answers</summary>
-                <div class="details-content">
-                    <div class="answer-box">
-                        <span class="badge">Short</span>
-                        <p>I think clothes will have technology in them, like jackets that heat up.</p>
-                    </div>
-                    <div class="answer-box">
-                        <span class="badge" style="background: #E0E7FF; color: #4338CA;">Extended</span>
-                        <p>I believe fashion will become much more sustainable in the next 10 years. People are realizing that fast fashion is ruining the planet. I think we will see clothes made entirely from recycled plastic, and second-hand shopping will become the normal way to shop.</p>
-                    </div>
-                </div>
-            </details>
-        </div>
-
-
-        <div class="section-header">
-            <h2>6. Role-Play Time! 🎭</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <p style="margin-bottom:25px;">Work with a partner. Choose your roles and act out the situations. Use the dialogue hints to start!</p>
-
-        <div class="card" style="border-top: 6px solid var(--primary);">
-            <h3>Scenario A: The Honest Friend 🛍️</h3>
-            <p><strong>Situation:</strong> You are shopping at the mall. Student A is trying on a very bright, expensive, and strange-looking jacket. They love it. Student B thinks it looks terrible and is too expensive.</p>
-            <p><strong>🙋 Student A:</strong> Show off the jacket. Explain why you love it and say you want to buy it.</p>
-            <p><strong>🤷 Student B:</strong> Give your honest (but polite) opinion. Suggest they try something else.</p>
-            
-            <details style="margin-top: 20px;">
-                <summary>💬 Dialogue Hints</summary>
-                <div class="details-content">
-                    <p><strong>A:</strong> Wow, look at this! What do you think of this jacket? It really stands out!</p>
-                    <p><strong>B:</strong> Hmm, it's definitely unique... but don't you think the neon green is a bit too bright?</p>
-                    <p><strong>A:</strong> No way, I think it's trendy! I'm going to buy it.</p>
-                    <p><strong>B:</strong> Are you sure? It's really expensive. Why don't we look at...</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="card" style="border-top: 6px solid var(--secondary);">
-            <h3>Scenario B: The Strict Dress Code 🏫</h3>
-            <p><strong>Situation:</strong> There is a school party tonight. The school has a casual dress code, but no ripped jeans are allowed. Student A wants to wear ripped jeans anyway.</p>
-            <p><strong> rebel Student A:</strong> Argue that the rule is silly. You want to wear your favorite vintage ripped jeans.</p>
-            <p><strong> sensible Student B:</strong> Remind them of the rules. Warn them they might get sent home and suggest an alternative outfit.</p>
-            
-            <details style="margin-top: 20px;">
-                <summary>💬 Dialogue Hints</summary>
-                <div class="details-content">
-                    <p><strong>A:</strong> I'm definitely wearing my vintage ripped jeans tonight. They are my favorite.</p>
-                    <p><strong>B:</strong> You can't wear those! You know the school dress code says no ripped pants.</p>
-                    <p><strong>A:</strong> That rule is so outdated. Fashion is about expressing yourself!</p>
-                    <p><strong>B:</strong> I know, but if a teacher sees you, they will send you home. You could wear your...</p>
-                </div>
-            </details>
-        </div>
-
-        <div class="section-header">
-            <h2>7. Fluency Builder 🏗️</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <p style="margin-bottom: 25px;">Memorize these sentence starters to sound more natural. <strong>Click the cards to flip them!</strong></p>
-
-        <div class="flashcard-grid">
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">I usually wear...</div>
-                <div class="back">"I usually wear <strong>casual clothes on weekends.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">In my opinion...</div>
-                <div class="back">"In my opinion, <strong>vintage clothing is better.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">One reason is...</div>
-                <div class="back">"One reason is <strong>it saves a lot of money.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">For example...</div>
-                <div class="back">"For example, <strong>I bought this hat yesterday.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">To be honest...</div>
-                <div class="back">"To be honest, <strong>I hate wearing suits.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">On the other hand...</div>
-                <div class="back">"On the other hand, <strong>uniforms save time.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">I prefer ___ because...</div>
-                <div class="back">"I prefer <strong>sneakers</strong> because <strong>they are comfortable.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">When it comes to...</div>
-                <div class="back">"When it comes to <strong>fashion, I like to keep it simple.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">I'm not really into...</div>
-                <div class="back">"I'm not really into <strong>designer brands.</strong>"</div>
-            </div>
-            <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                <div class="front">It depends on...</div>
-                <div class="back">"It depends on <strong>the weather.</strong>"</div>
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>8. Review Game: Choose the Best Response 🎮</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <div class="card">
-            <h3 style="margin-bottom: 20px;">What is the most polite and natural way to reply?</h3>
-            
-            <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
-                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>1. Your friend says: "Do you think these yellow pants look good on me?" (You think they look terrible).</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, false)">A. "No, you look absolutely ridiculous. Take them off."</button>
-                <button class="quiz-option" onclick="checkGame(this, true)">B. "To be honest, I think the blue ones suited your style much better."</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">C. "I don't care, just buy whatever."</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-
-            <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
-                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>2. Your teacher asks: "Why is wearing a school uniform a good thing?"</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, false)">A. "Because fashion is stupid."</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">B. "I hate uniforms, I want to wear my own clothes."</button>
-                <button class="quiz-option" onclick="checkGame(this, true)">C. "One reason is that it creates equality among students."</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-            
-            <div>
-                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>3. A stranger compliments you: "Wow, I love your vintage jacket! Where did you get it?"</strong></p>
-                <button class="quiz-option" onclick="checkGame(this, true)">A. "Thank you! I got it second-hand at a thrift store."</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">B. "Obviously, I have great style."</button>
-                <button class="quiz-option" onclick="checkGame(this, false)">C. "Don't look at my clothes."</button>
-                <div class="feedback" style="display:none;"></div>
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>9. Self-Reflection 🪞</h2>
-            <label class="mark-complete">
-                <input type="checkbox" class="section-tracker" onchange="updateProgress()"> Done!
-            </label>
-        </div>
-        <div class="card" style="background: linear-gradient(to right, #FDF4FF, #F3F4F6);">
-            <p style="font-size: 1.1rem; margin-bottom: 15px;">Take a moment to evaluate your speaking performance today:</p>
-            <ul style="list-style-type: none; font-size:1.15rem; line-height:2.2;">
-                <li>⭐ <strong>Confidence:</strong> Did I feel comfortable talking about my style?</li>
-                <li>⭐ <strong>Vocabulary:</strong> Did I use new words like <em>trendy, vintage, or casual</em>?</li>
-                <li>⭐ <strong>Detail:</strong> Did I explain <em>why</em> I hold my opinions (using "because")?</li>
-                <li>⭐ <strong>Interaction:</strong> Did I listen actively to my partner during the role-play?</li>
-                <li>⭐ <strong>Fluency:</strong> Did I try to use the sentence starters from the Flashcards?</li>
-            </ul>
-        </div>
-
-        <div class="section-header">
-            <h2>10. Lesson Complete! 🎉</h2>
-        </div>
-        <div class="card" style="text-align: center; padding: 50px 20px;">
-            <h1 style="font-size: 5rem; margin-bottom: 15px;">🏆</h1>
-            <h2 style="color: var(--primary); margin-bottom: 10px;">Amazing job today!</h2>
-            <p style="font-size: 1.2rem;">You successfully discussed fashion, defended your opinions, and practiced real-life scenarios.</p>
-            <br>
-            <p style="color: var(--text-muted); font-size: 0.95rem;"><em>Make sure all the 'Done!' checkboxes above are ticked. The progress bar at the very top of your screen should be completely full!</em></p>
-        </div>
-
-        <!-- Footer -->
-        <footer style="text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #E5E7EB; color: var(--text-muted); font-size: 0.95rem;">
-            <p style="font-weight: bold; color: var(--primary);">Bản quyền © ELS, English Lucero System</p>
-            <p>Instructional Design for Teen ESL Learners</p>
-        </footer>
-
+    <h1>Online Safety for Teens 🛡️</h1>
+    <p class="sub">Module 3 · Week 30 — Digital Life, Choices, and Well-being</p>
+    <div class="objectives-card">
+      <h3>🎯 By the end, you can…</h3>
+      <ul>
+        <li><b>1.</b> Talk about protecting your passwords and personal information online.</li>
+        <li><b>2.</b> Describe what to do if a stranger contacts you or you see cyberbullying.</li>
+        <li><b>3.</b> Give your opinion about safe and balanced use of technology.</li>
+      </ul>
     </div>
+  </div>
 
-    <script>
-        // Data for Section 1 Warm-up
-        const warmupData = [
-            { q: "What are you wearing right now? 👕", a: "I am wearing a plain white t-shirt and blue jeans." },
-            { q: "Where do you usually buy your clothes? 🏬", a: "I usually shop at the mall with my friends, or sometimes online." },
-            { q: "Do you prefer comfortable clothes or stylish clothes? 🛋️", a: "I prefer comfortable clothes because I like to relax." },
-            { q: "Who is your style icon or inspiration? 🌟", a: "I really like how Zendaya dresses. She always looks trendy." },
-            { q: "How long does it take you to choose an outfit in the morning? ⏱️", a: "It takes me about 15 minutes to decide what to wear." }
-        ];
+  <!-- WARM-UP -->
+  <section class="section">
+    <div class="section-header"><h2>1. Warm-Up 🧊</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label></div>
+    <p class="intro">Say your answer out loud, then tap a card to see an example.</p>
+    <div class="teacher-note">👩‍🏫 <b>Teacher note:</b> Fast and fun. Use Zoom reactions (👍/❤️) so shy students can join too.</div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">📱</span><div>What's the first app you check when you wake up?</div></div><div class="answer">"I check Zalo to see messages from my family."</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">🔒</span><div>Do you lock your phone with a password or fingerprint?</div></div><div class="answer">"Yes, I use my fingerprint to unlock my phone."</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">🙈</span><div>Have you ever gotten a strange message from someone you don't know?</div></div><div class="answer">"Yes, once I got a message from a stranger asking for my photo."</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">⏰</span><div>How many hours a day do you spend online?</div></div><div class="answer">"I think I spend about three hours online every day."</div></div>
+    <div class="reveal-card" onclick="toggle(this)"><div class="q"><span class="em">👨‍👩‍👧</span><div>Who do you talk to if something online makes you worried?</div></div><div class="answer">"I always tell my mum or my older sister."</div></div>
+  </section>
 
-        // Generate Warm-up content dynamically
-        const warmupContainer = document.getElementById('warmup-container');
-        warmupData.forEach((item, index) => {
-            const html = `
-                <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #D1D5DB;">
-                    <p style="font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">${item.q}</p>
-                    <button class="outline" onclick="toggle('warmup-ans-${index}')">View Example Answer</button>
-                    <p id="warmup-ans-${index}" class="hidden" style="margin-top: 15px; color: var(--success); font-weight: 600; font-style: italic;">💬 "${item.a}"</p>
-                </div>
-            `;
-            warmupContainer.innerHTML += html;
-        });
+  <!-- VOCABULARY -->
+  <section class="section">
+    <div class="section-header"><h2>2. Vocabulary 📖</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label></div>
+    <p class="intro">Words for staying safe online. Tap a card for an example.</p>
+    <div class="vocab-grid">
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">password</span><span class="emoji">🔑</span></div><div class="def">A secret word or code that protects your account.</div><div class="ex">"Never share your password with strangers online."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">stranger</span><span class="emoji">🚶</span></div><div class="def">A person you don't know.</div><div class="ex">"Don't give personal information to a stranger online."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">privacy</span><span class="emoji">🔒</span></div><div class="def">Keeping your personal information safe and secret.</div><div class="ex">"Turning off location sharing protects your privacy."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">cyberbullying</span><span class="emoji">💢</span></div><div class="def">Being cruel or mean to someone online.</div><div class="ex">"Reporting cyberbullying can help stop it."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">block</span><span class="emoji">🚫</span></div><div class="def">To stop someone from contacting you online.</div><div class="ex">"I blocked the account that sent weird messages."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">report</span><span class="emoji">⚠️</span></div><div class="def">To tell someone in charge about a problem.</div><div class="ex">"You should report fake or dangerous accounts."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">scam</span><span class="emoji">🎣</span></div><div class="def">A trick to steal money or information.</div><div class="ex">"That message about a free phone was a scam."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">personal information</span><span class="emoji">🪪</span></div><div class="def">Details like your name, address, or school.</div><div class="ex">"Never post personal information in public comments."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">trustworthy</span><span class="emoji">🤝</span></div><div class="def">Someone you can believe and rely on.</div><div class="ex">"Only add trustworthy people as friends online."</div></div>
+      <div class="vocab" onclick="toggleVocab(this)"><div class="top"><span class="word">screenshot</span><span class="emoji">📸</span></div><div class="def">A picture of what's on your screen.</div><div class="ex">"Take a screenshot if someone sends a scary message."</div></div>
+    </div>
+  </section>
 
-        // Universal Toggle Function with slight fade effect
-        function toggle(id) {
-            const el = document.getElementById(id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                el.style.opacity = 0;
-                setTimeout(() => el.style.opacity = 1, 10);
-                el.style.transition = "opacity 0.4s ease";
-            } else {
-                el.classList.add('hidden');
-            }
-        }
+  <!-- SPEAKING -->
+  <section class="section">
+    <div class="section-header"><h2>3. Speaking Practice 🗣️</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label></div>
+    <p class="intro">10 questions from easy → opinion. Answer first, then open 💡 Ideas and sample answers.</p>
+    <div class="teacher-note">👩‍🏫 <b>Teacher note:</b> Pair students in breakout rooms for Q4–7 to compare their safety habits, then share one tip with the class.</div>
+    <div id="questions"></div>
+  </section>
 
-        // Review Game Logic
-        function checkGame(buttonElement, isCorrect) {
-            const parent = buttonElement.parentElement;
-            const allButtons = parent.querySelectorAll('button');
-            const feedbackBox = parent.querySelector('.feedback');
+  <!-- ROLE-PLAY -->
+  <section class="section">
+    <div class="section-header"><h2>4. Role-Play 🎭</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label></div>
+    <p class="intro">Act these out with a partner. Tap <b>Show hints</b> if you get stuck.</p>
+    <div class="roleplay">
+      <h3>🎬 Scenario 1 — A message from a stranger</h3>
+      <p>Student A just got a friend request and a message from someone they don't know. They talk to Student B, a close friend, about what to do.</p>
+      <div class="roles"><span class="role-pill">🧑 Student A — You (got the message)</span><span class="role-pill">🧑 Student B — Your friend</span></div>
+      <button class="hint-toggle" onclick="toggleHint(this)">Show hints 💬</button>
+      <div class="hint-box"><ul>
+        <li><b>A:</b> "Hey, a stranger just messaged me online. I don't know what to do."</li>
+        <li><b>B:</b> "Really? What did they say?"</li>
+        <li><b>A:</b> "They asked for my phone number and photos."</li>
+        <li><b>B:</b> "Don't reply! You should block them and tell an adult."</li>
+        <li><b>A:</b> "You're right. I'll block them now and tell my mum."</li>
+      </ul></div>
+    </div>
+    <div class="roleplay">
+      <h3>🎬 Scenario 2 — Talking to a parent about screen time</h3>
+      <p>Student A wants more time on their phone tonight. Student B, a parent, is worried about safety and balance.</p>
+      <div class="roles"><span class="role-pill">🧑 Student A — Teen</span><span class="role-pill">👩 Student B — Parent</span></div>
+      <button class="hint-toggle" onclick="toggleHint(this)">Show hints 💬</button>
+      <div class="hint-box"><ul>
+        <li><b>A:</b> "Can I have more time on my phone tonight?"</li>
+        <li><b>B:</b> "How much time have you already spent online today?"</li>
+        <li><b>A:</b> "About two hours, but I want to play with my friends."</li>
+        <li><b>B:</b> "Okay, but remember to use a strong password and never share personal information."</li>
+        <li><b>A:</b> "I promise! I'll be careful and finish my homework first."</li>
+      </ul></div>
+    </div>
+  </section>
 
-            // Disable all buttons in this question group
-            allButtons.forEach(btn => btn.disabled = true);
+  <!-- FLUENCY -->
+  <section class="section">
+    <div class="section-header"><h2>5. Fluency Builder 🏗️</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label></div>
+    <p class="intro">Useful sentence starters. Tap to flip and see an example.</p>
+    <div class="flash-grid" id="flash-grid"></div>
+  </section>
 
-            if (isCorrect) {
-                buttonElement.style.backgroundColor = 'var(--success)';
-                buttonElement.style.borderColor = 'var(--success)';
-                buttonElement.style.color = 'white';
-                feedbackBox.innerHTML = '✅ Spot on! That is a polite and natural response.';
-                feedbackBox.style.color = 'var(--success)';
-                feedbackBox.style.backgroundColor = '#ECFDF5';
-            } else {
-                buttonElement.style.backgroundColor = '#EF4444'; // Red
-                buttonElement.style.borderColor = '#EF4444';
-                buttonElement.style.color = 'white';
-                
-                // Highlight the correct option
-                allButtons.forEach(btn => {
-                    if(btn.getAttribute('onclick').includes('true')) {
-                        btn.style.border = '2px solid var(--success)';
-                        btn.style.color = 'var(--success)';
-                        btn.style.fontWeight = 'bold';
-                    }
-                });
+  <!-- REVIEW GAME -->
+  <section class="section">
+    <div class="section-header"><h2>6. Review Game — Match it! 🎯</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label></div>
+    <p class="intro">Tap a word on the left, then its meaning on the right.</p>
+    <div class="match-wrap">
+      <div class="match-col"><h4>Word</h4><div id="match-left"></div></div>
+      <div class="match-col"><h4>Meaning</h4><div id="match-right"></div></div>
+    </div>
+    <div id="match-feedback"></div>
+  </section>
 
-                feedbackBox.innerHTML = '❌ Not quite. Remember to be polite and explain your reasoning gently.';
-                feedbackBox.style.color = '#B91C1C';
-                feedbackBox.style.backgroundColor = '#FEF2F2';
-            }
-            feedbackBox.style.display = 'block';
-        }
+  <!-- REFLECTION -->
+  <section class="section">
+    <div class="section-header"><h2>7. Self-Reflection 🪞</h2><label class="mark"><input type="checkbox" class="tracker" onchange="updateProgress()"> Mark done</label></div>
+    <p class="intro">Give yourself stars — be honest!</p>
+    <div class="reflect">
+      <label>I talked about staying safe online. <span class="rating" data-r></span></label>
+      <label>I learned new safety vocabulary. <span class="rating" data-r></span></label>
+      <label>I spoke in full sentences. <span class="rating" data-r></span></label>
+      <label>I shared my opinion about online safety. <span class="rating" data-r></span></label>
+      <label>I feel more confident protecting myself online. <span class="rating" data-r></span></label>
+    </div>
+  </section>
 
-        // Progress Tracker Logic (Checkbox based)
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('.section-tracker');
-            const checkedBoxes = document.querySelectorAll('.section-tracker:checked');
-            
-            const total = checkboxes.length;
-            const checked = checkedBoxes.length;
-            
-            const percentage = (checked / total) * 100;
-            document.getElementById('progress-bar').style.width = percentage + '%';
-        }
-    </script>
+  <!-- COMPLETE -->
+  <section class="section">
+    <div class="section-header"><h2>8. Session Complete 🎉</h2></div>
+    <ul class="tracker-list">
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I did the warm-up.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I learned the new words.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I answered the speaking questions.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I did both role-plays.</li>
+      <li><input type="checkbox" class="tracker" onchange="updateProgress()"> I finished the review game.</li>
+    </ul>
+    <div class="complete-banner">
+      <h2 id="done-title">Keep going — you're a star! 🌟</h2>
+      <p id="done-msg" style="color:var(--text-muted);margin-top:8px">Tick the boxes as you finish each part.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p class="cc">Copyright © ELS — English Lucero System</p>
+    <p>Biên soạn bởi Mr. Lucero - Teens A2+ - Online Safety for Teens</p>
+    <p style="font-size:.8rem;opacity:.8">For classroom use with ELS learners.</p>
+  </footer>
+</div>
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
+
+<script>
+const QUESTIONS=[
+ {lvl:"easy",em:"📱",q:"What apps or websites do you use most every day?",
+  ideas:["name 2-3 apps","how often","what you do there"],
+  a1:"I use Facebook and TikTok every day.",
+  a2:"I use TikTok, Zalo, and Facebook every day. I check them in the morning and after school. I usually watch videos or chat with my friends."},
+ {lvl:"easy",em:"🔑",q:"Do you use a password or PIN for your phone and accounts?",
+  ideas:["yes/no","what kind","why it's useful"],
+  a1:"Yes, I have a password for my phone.",
+  a2:"Yes, I use a PIN for my phone and a password for my accounts. I think this is important because it keeps my information safe from other people."},
+ {lvl:"easy",em:"🙊",q:"What personal information should you never share online?",
+  ideas:["address","phone number","school name","passwords"],
+  a1:"I never share my address or my phone number online.",
+  a2:"I never share my home address, my phone number, or my passwords online. I also don't tell strangers which school I go to. This information can be dangerous in the wrong hands."},
+ {lvl:"medium",em:"🚨",q:"What should you do if a stranger sends you a message online?",
+  ideas:["don't reply","block them","tell an adult","don't share info"],
+  a1:"I don't reply. I block them and tell my parents.",
+  a2:"If a stranger messages me, I don't reply and I never share any information. I block the person straight away. Then I tell my parents or a teacher, because they can help me decide what to do next."},
+ {lvl:"medium",em:"🔐",q:"How can you make a strong, safe password?",
+  ideas:["mix letters and numbers","don't use your name","don't share it","change it sometimes"],
+  a1:"A strong password has letters, numbers, and symbols.",
+  a2:"A strong password mixes letters, numbers, and symbols, and it isn't easy to guess. For example, I never use my name or birthday. I also never share my password with anyone, even close friends, and I change it sometimes."},
+ {lvl:"medium",em:"⚠️",q:"What are the risks of talking to people you don't know online?",
+  ideas:["fake profiles","they might lie","asking for photos or money","meeting in person"],
+  a1:"Strangers online can lie about who they are.",
+  a2:"Some strangers online use fake profiles and lie about their age or name. They might ask for photos, money, or personal details. It can also be risky if they ask to meet in person, so I think teens should be very careful."},
+ {lvl:"medium",em:"😟",q:"What would you do if you saw cyberbullying online?",
+  ideas:["don't join in","report it","support the victim","tell an adult"],
+  a1:"I would report it and tell an adult.",
+  a2:"If I saw cyberbullying, I wouldn't join in or share the post. I would report it to the app and take a screenshot. Then I would tell an adult I trust, and I would also message the person being bullied to check if they're okay."},
+ {lvl:"opinion",em:"⏰",q:"Do you think teens spend too much time online? Why or why not?",
+  ideas:["your opinion","give a reason","an example","compare with offline activities"],
+  a1:"I think some teens spend too much time online.",
+  a2:"In my opinion, many teens do spend too much time online, especially on social media and games. For example, some of my classmates check their phones during class. I think it's better to balance online time with sports, reading, or time with family."},
+ {lvl:"opinion",em:"👀",q:"Should parents check their children's phones? What do you think?",
+  ideas:["agree or disagree","give a reason","trust vs safety","a compromise"],
+  a1:"I think parents should sometimes check, for safety.",
+  a2:"I partly agree that parents should check phones, because it can keep children safe from strangers online. However, I also think teens need some privacy and trust. Maybe a good compromise is for parents and teens to talk openly about online safety instead of checking secretly."},
+ {lvl:"opinion",em:"🌐",q:"Which is riskier: meeting an online stranger in person, or sharing too much personal information online? Why?",
+  ideas:["choose one","compare both risks","give reasons","real example or news story"],
+  a1:"I think meeting a stranger in person is riskier.",
+  a2:"I think meeting an online stranger in person is riskier than sharing information, because you don't really know who that person is. On the other hand, sharing too much information can also lead to scams or identity theft. Both are dangerous, so I believe teens should avoid both and always tell an adult first."}
+];
+
+const STARTERS=[
+ {f:"I never share…",b:"I never share my address or my password online."},
+ {f:"If a stranger messages me, I…",b:"If a stranger messages me, I block them right away."},
+ {f:"A strong password should…",b:"A strong password should have letters, numbers, and symbols."},
+ {f:"It's important to…",b:"It's important to tell an adult if something feels wrong."},
+ {f:"I think online safety means…",b:"I think online safety means protecting your information and yourself."},
+ {f:"I usually spend … online.",b:"I usually spend about two hours online every day."},
+ {f:"You should never…",b:"You should never meet an online stranger alone."},
+ {f:"If I saw cyberbullying, I would…",b:"If I saw cyberbullying, I would report it immediately."},
+ {f:"My favourite safe app is…",b:"My favourite safe app is one I use with my family's permission."},
+ {f:"In my opinion,…",b:"In my opinion, teens should talk to parents about their online life."}
+];
+
+const PAIRS=[
+ {l:"password",r:"a secret code that protects your account"},
+ {l:"stranger",r:"a person you don't know"},
+ {l:"cyberbullying",r:"being cruel to someone online"},
+ {l:"block",r:"to stop someone from contacting you"},
+ {l:"scam",r:"a trick to steal money or information"}
+];
+
+const tagLabel={easy:'Easy',medium:'Medium',opinion:'Opinion'};
+document.getElementById('questions').innerHTML=QUESTIONS.map((it,i)=>`
+ <div class="reveal-card" onclick="toggle(this)">
+   <div class="q"><span class="em">${it.em}</span>
+     <div><span class="tag ${it.lvl}">${tagLabel[it.lvl]}</span> &nbsp; <b>Q${i+1}.</b> ${it.q}</div></div>
+   <div class="answer" onclick="event.stopPropagation()">
+     <div class="q-idea"><b>💡 Ideas:</b> ${it.ideas.join(" · ")}</div>
+     <div class="samples">
+       <button class="sample-btn" onclick="showSample(this)">▸ Short answer</button>
+       <div class="sample-text"><span class="lvl">Short (A2)</span><br>${it.a1}</div>
+       <button class="sample-btn" onclick="showSample(this)">▸ Longer answer</button>
+       <div class="sample-text"><span class="lvl">Longer (A2+)</span><br>${it.a2}</div>
+     </div>
+   </div>
+ </div>`).join('');
+
+document.getElementById('flash-grid').innerHTML=STARTERS.map(s=>`
+ <div class="flash" onclick="this.classList.toggle('flip')"><div class="front">${s.f}</div><div class="back">${s.b}</div></div>`).join('');
+
+function shuffle(a){const r=a.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}
+const rights=shuffle(PAIRS.map((p,i)=>({...p,i})));
+document.getElementById('match-left').innerHTML=PAIRS.map((p,i)=>`<div class="match-item" data-l="${i}" onclick="pickL(this)">${p.l}</div>`).join('');
+document.getElementById('match-right').innerHTML=rights.map(p=>`<div class="match-item" data-r="${p.i}" onclick="pickR(this)">${p.r}</div>`).join('');
+let selL=null, matched=0;
+function pickL(el){if(el.classList.contains('done'))return;document.querySelectorAll('#match-left .match-item').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');selL=el;}
+function pickR(el){if(!selL||el.classList.contains('done'))return;
+  if(selL.dataset.l===el.dataset.r){selL.classList.add('done');el.classList.add('done');selL.classList.remove('selected');matched++;
+    fb(matched===PAIRS.length?"🎉 Awesome! All matched!":"✅ Correct!","var(--success)");selL=null;}
+  else{fb("❌ Try again!","var(--warning)");}}
+function fb(t,c){const f=document.getElementById('match-feedback');f.textContent=t;f.style.color=c;}
+
+function toggle(el){el.classList.toggle('open');}
+function toggleVocab(el){el.classList.toggle('open');}
+function showSample(btn){const t=btn.nextElementSibling;t.classList.toggle('show');}
+function toggleHint(btn){btn.nextElementSibling.classList.toggle('show');}
+
+document.querySelectorAll('[data-r]').forEach(box=>{for(let i=1;i<=5;i++){const s=document.createElement('span');s.className='star';s.textContent='⭐';s.onclick=()=>{[...box.children].forEach((st,idx)=>st.classList.toggle('on',idx<i));};box.appendChild(s);}});
+
+function updateProgress(){
+  const all=document.querySelectorAll('.tracker');
+  const done=[...all].filter(c=>c.checked).length;
+  const pct=Math.round(done/all.length*100);
+  document.getElementById('progress-bar').style.width=pct+'%';
+  const t=document.getElementById('done-title'), m=document.getElementById('done-msg');
+  if(pct===100){t.textContent="🎉 Amazing work today!";m.textContent="You finished the whole lesson. Remember to stay safe and smart online this week!";}
+  else if(pct>=60){t.textContent="👏 Great job — nearly there!";m.textContent="Keep going, you're doing brilliantly!";}
+  else{t.textContent="Keep going — you're a star! 🌟";m.textContent="Tick the boxes as you finish each part.";}
+}
+updateProgress();
+</script>
 </body>
 </html>
